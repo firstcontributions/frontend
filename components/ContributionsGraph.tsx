@@ -1,4 +1,5 @@
 import { ResponsiveLine } from '@nivo/line'
+import { formatDateRange } from '../utils/formatDateRange';
 
 const ContributionsGraph = ({ data }) => (
     <ResponsiveLine
@@ -13,10 +14,11 @@ const ContributionsGraph = ({ data }) => (
             orient: 'bottom',
             tickSize: 5,
             tickPadding: 5,
-            tickRotation: 15,
+            tickRotation: 30,
             legend: '',
             legendOffset: 36,
-            legendPosition: 'middle'
+            legendPosition: 'middle',
+            format: value => formatDateRange(value.toString())
         }}
         axisLeft={{
             orient: 'left',
@@ -35,6 +37,8 @@ const ContributionsGraph = ({ data }) => (
         pointBorderColor={{ from: 'serieColor' }}
         pointLabel="y"
         pointLabelYOffset={-12}
+        enableArea={true}
+        areaBlendMode={"hard-light"}
         useMesh={true}
         legends={[
             {
