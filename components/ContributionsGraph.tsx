@@ -1,11 +1,14 @@
 import { ResponsiveLine } from '@nivo/line'
 import { formatDateRange } from '../utils/formatDateRange';
 
-const ContributionsGraph = ({ data }) => (
+const ContributionsGraph = ({ data }) => {
+    const a = data.map(b => ({id: b.id, data: b.data.map(m => ({x: new Date(m.x), y: m.y}))}))
+    const gridValues = data[0].data.map(m => new Date(m.x))
+    return(
     <ResponsiveLine
-        data={data}
+        data={a}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-        xScale={{ type: 'point' }}
+        xScale={{ type: 'time', format: "native" }}
         yScale={{ type: 'linear', min: 0, max: 'auto', stacked: false, reverse: false }}
         curve='natural'
         axisTop={null}
@@ -14,11 +17,12 @@ const ContributionsGraph = ({ data }) => (
             orient: 'bottom',
             tickSize: 5,
             tickPadding: 5,
-            tickRotation: 30,
             legend: '',
             legendOffset: 36,
             legendPosition: 'middle',
-            format: value => formatDateRange(value.toString())
+            format: "%b %-d",
+            tickValues: "every 2 week"
+            // format: value => formatDateRange(value.toString())
         }}
         axisLeft={{
             orient: 'left',
@@ -32,6 +36,7 @@ const ContributionsGraph = ({ data }) => (
         colors={{ scheme: 'category10' }}
         lineWidth={4}
         pointSize={10}
+        gridXValues={gridValues}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}
@@ -39,10 +44,11 @@ const ContributionsGraph = ({ data }) => (
         pointLabelYOffset={-12}
         enableArea={true}
         areaBlendMode={"hard-light"}
-        useMesh={true}
+        enablePointLabel={true}
+        // useMesh={true}
         legends={[
             {
-                anchor: 'top',
+                anchor: 'top-left',
                 direction: 'column',
                 justify: false,
                 translateX: 100,
@@ -68,5 +74,6 @@ const ContributionsGraph = ({ data }) => (
         ]}
     />
 )
+    }
 
 export default ContributionsGraph
