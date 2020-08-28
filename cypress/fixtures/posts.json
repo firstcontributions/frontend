@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "title": "The rotation of Earth makes my day",
+      "votes": 7,
+      "id": "some unique id",
+      "user": "userId",
+      "coverImage": "cover image URL",
+      "comments": [
+        {
+          "id": "some id",
+          "user": "Samurai Jack",
+          "text": "My destiny...But it continues to be elusive. And so I journey on"
+        },
+        {
+          "id": "some id",
+          "user": "Muffin time",
+          "text": "Somebody eat me"
+        }
+      ]
+    },
+    {
+      "title": "Projects to contribute to if you know HTML",
+      "votes": 1270000000,
+      "id": "some unique id",
+      "user": "userId",
+      "coverImage": "cover image URL",
+      "comments": [
+        {
+          "id": "some id"
+        },
+        {
+          "id": "some id"
+        }
+      ]
+    },
+    {
+      "title": "I'll make my own open source with Blackjack and Jack Black",
+      "votes": -7,
+      "id": "some unique id",
+      "user": "Jack Black",
+      "coverImage": "cover image URL",
+      "comments": [
+        {
+          "id": "some id"
+        },
+        {
+          "id": "some id"
+        }
+      ]
+    }
+  ]
+}
