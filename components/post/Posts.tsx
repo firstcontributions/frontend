@@ -2,7 +2,7 @@ import Post from "./Post"
 
 const Posts = ({posts}) => (
     <>
-    {posts.map((post) => <Post post={post} />)}
+    {posts.map((post) => <Post post={post} key={post.id} />)}
     </>
 )
 

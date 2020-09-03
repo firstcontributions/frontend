@@ -18,7 +18,7 @@ export const Home = (): JSX.Element =>  (
 
     <style jsx>{`
       main {
-        height: 50vh;
+        height: 80vh;
         width: 100%;
         flex: 1;
         display: flex;

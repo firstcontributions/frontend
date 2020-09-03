@@ -3,9 +3,15 @@
     {
       "title": "The rotation of Earth makes my day",
       "votes": 7,
-      "id": "some unique id",
-      "user": "userId",
-      "coverImage": "cover image URL",
+      "id": "ca6a447a-7a87-462d-a94f-8c3610f7e184",
+      "content": "An engineer, a physicist, and a mathematician are trying to set up a fenced-in area for some sheep, but they have a limited amount of building material. The engineer gets up first and makes a square fence with the material, reasoning that it's a pretty good working solution. \r\n\r\n\"No no,\" says the physicist, \"there's a better way.\" He takes the fence and makes a circular pen, showing how it encompasses the maximum possible space with the given material. \r\n\r\nThen the mathematician speaks up: \"No, no, there's an even better way.\" To the others' amusement he proceeds to construct a little tiny fence around himself, then declares: \r\n\r\n\"I define myself to be on the outside.\"",
+      "tags": ["earth", "rotation", "day"],
+      "author": {
+        "name": "Cornifer",
+        "avatar": "https://avatars3.githubusercontent.com/u/8488446?s=460&u=e420a14524b2dd93ba8d5cd9709ff8b7cb9002df&v=4",
+        "reputation": "12"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1595433631704-6df7e1e4a070?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80",
       "comments": [
         {
           "id": "some id",
@@ -22,9 +28,15 @@
     {
       "title": "Projects to contribute to if you know HTML",
       "votes": 1270000000,
-      "id": "some unique id",
-      "user": "userId",
-      "coverImage": "cover image URL",
+      "id": "a931d89e-b6b2-4448-96bb-a365313a6ec2",
+      "content": "Why do mathematicians always confuse Halloween and Christmas? \r\n\r\nBecause 31 Oct = 25 Dec.",
+      "tags": ["HTML", "Beginner"],
+      "author": {
+        "name": "Gokul",
+        "avatar": "https://avatars2.githubusercontent.com/u/3389225?s=460&u=bf0c67ecddc2ebaae9ad6ad098f3d1054ced3fc1&v=4",
+        "reputation": "12k"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1514773020495-78fc42df608a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80",
       "comments": [
         {
           "id": "some id"
@@ -37,9 +49,15 @@
     {
       "title": "I'll make my own open source with Blackjack and Jack Black",
       "votes": -7,
-      "id": "some unique id",
-      "user": "Jack Black",
-      "coverImage": "cover image URL",
+      "id": "1b0cf2f5-6201-420b-85af-aff5d9f3b395",
+      "author": {
+        "name": "sudo !!",
+        "avatar": "https://avatars3.githubusercontent.com/u/8488446?s=460&u=e420a14524b2dd93ba8d5cd9709ff8b7cb9002df&v=4",
+        "reputation": "12"
+      },
+      "content": "Legend has it that Bender is the best metal bender after Toph. He could bend metal girders to any angles",
+      "tags": ["Jack", "Black", "open"],
+      "coverImage": "https://images.unsplash.com/photo-1511898656451-9a7ad8dee728?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
       "comments": [
         {
           "id": "some id"

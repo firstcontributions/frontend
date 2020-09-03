@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import ContributionsGraph from '../components/ContributionsGraph'
-import contributorsData from './contributorData.json'
+import FeedCotainer from '../components/FeedContainer'
 
 export const Home = (): JSX.Element =>  (
   <div className="container">
@@ -10,7 +9,7 @@ export const Home = (): JSX.Element =>  (
     </Head>
 
     <main>
-      <ContributionsGraph data={contributorsData} />
+      <FeedCotainer />
     </main>
 
     <footer>
@@ -28,13 +27,13 @@ export const Home = (): JSX.Element =>  (
 
       main {
         padding: 5rem 0;
-        height: 50vh;
         width: 100%;
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: #eef0f1;
       }
 
       footer {
