@@ -1,0 +1,15 @@
+{
+    "profile": {
+        "userName": "firstcontributions-bot",
+        "reputation": 4851,
+        "bio": "We'll make our own open source. With blackjack and Jack Black",
+        "topics": ["language learning", "mental health", "non-profit"],
+        "communities": ["librelingo", "Trustroots", "exercism"],
+        "badges": [
+            "overall-2",
+            "javascript-1",
+            "golang-2",
+            "hacktoberfest-1"
+        ]
+    }
+}
