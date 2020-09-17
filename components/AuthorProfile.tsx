@@ -1,14 +1,12 @@
-import * as React from 'react';
-
 export interface AuthorProfileProps {
     avatar: string
     reputation: string
 }
  
-const AuthorProfile: React.SFC<AuthorProfileProps> = (props) => {
+const AuthorProfile: React.SFC<AuthorProfileProps> = ({avatar, reputation}) => {
     return ( <div className="author-stats">
         <div className="author-profile"></div>
-        <span>{props.reputation}</span>
+        <span>{reputation}</span>
     <style jsx>{`
         .author-stats {
             display: flex;
@@ -20,7 +18,7 @@ const AuthorProfile: React.SFC<AuthorProfileProps> = (props) => {
         margin-top: -2.5rem;
         border-radius: 50%;
         border: 4px solid #ffffff;
-        background-image: ${`url(${props.avatar})`};
+        background-image: ${`url(${avatar})`};
         background-position: center;
         background-size: contain;
       }

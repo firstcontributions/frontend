@@ -5,11 +5,26 @@
         "bio": "We'll make our own open source. With blackjack and Jack Black",
         "topics": ["language learning", "mental health", "non-profit"],
         "communities": ["librelingo", "Trustroots", "exercism"],
+        "overallBadge": {
+            "level": 4,
+            "progressToNextBadge": 67
+        },
         "badges": [
-            "overall-2",
-            "javascript-1",
-            "golang-2",
-            "hacktoberfest-1"
+            {
+                "name": "react",
+                "level": "6",
+                "progressToNextBadge": 27
+            },
+            {
+                "name": "go",
+                "level": "1",
+                "progressToNextBadge": 87
+            },
+            {
+                "name": "docker",
+                "level": "1",
+                "progressToNextBadge": 54
+            }
         ]
     }
 }

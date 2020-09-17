@@ -1,4 +1,7 @@
 import { useRouter } from 'next/router'
+import OverallBadge from '../../../components/user-profile/OverallBadge'
+import Badge from '../../../components/user-profile/Badge'
+import {profile} from '../../../cypress/fixtures/profile.json'
 
 const UserProfile = () => {
   const router = useRouter()
@@ -13,18 +16,12 @@ const UserProfile = () => {
       </aside>
       <main>
         <div className="row">
-          <div className="overall-badge"></div>
+          <OverallBadge level={profile.overallBadge.level} />
         </div>
         <div className="flex row">
-        <div className="badge flex h-8 sm:h-12 md:h-16 lg:h-20 xl:h-24 w-1/2 sm:w-auto md:w-full items-center">
-          <div className="react h-12 w-full"></div>
-        </div>
-        <div className="badge flex h-8 sm:h-12 md:h-16 lg:h-20 xl:h-24 w-1/2 sm:w-auto md:w-full items-center">
-          <div className="go h-12 w-full"></div>
-        </div>
-        <div className="badge flex h-8 sm:h-12 md:h-16 lg:h-20 xl:h-24 w-1/2 sm:w-auto md:w-full items-center">
-          <div className="docker h-12 w-full"></div>
-        </div>
+          {profile.badges.map(badge => (
+            <Badge name={badge.name} key={badge.name} />
+          ))}
         </div>
         <div className="row"></div>
       </main>
@@ -37,37 +34,6 @@ const UserProfile = () => {
         }
         .user-profile {
           display: flex;
-        }
-        .overall-badge {
-          background: url("/assets/overall-badge.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
-          width: 256px;
-          height: 256px;
-        }
-        .badge {
-          background: url("/assets/badge.svg");
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        .react {
-          background: url("/assets/react.svg");
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        .go {
-          background: url("/assets/go.svg");
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        .docker {
-          background: url("/assets/docker.svg");
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
         }
         .row {
           margin: 1rem;
