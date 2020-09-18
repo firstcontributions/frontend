@@ -1,6 +1,6 @@
 {
-  "name": "with-typescript-eslint-jest",
-  "author": "@erikdstock",
+  "name": "First-Contributions-Frontend",
+  "author": "@Roshanjossey",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
@@ -17,21 +17,19 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
       "yarn lint",
-      "yarn format"
+      "yarn format",
+      "yarn run type-check"
     ]
   },
   "dependencies": {
     "@nivo/line": "^0.62.0",
     "next": "latest",
-    "postcss-flexbugs-fixes": "^4.2.1",
-    "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "tailwindcss": "^1.8.5"
@@ -48,11 +46,14 @@
     "cypress": "^4.11.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "jest": "^25.2.3",
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.0.10",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.2",
     "typescript": "^3.8.3"
   }

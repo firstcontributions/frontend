@@ -18,7 +18,7 @@ const OverallBadge: React.SFC<OverallBadgeProps> = ({ level }) => {
           height: 256px;
         }
         .badge-content {
-          background: url(${`/assets/overall-level-${level}.svg`});
+          background: url(${`/assets/level-${level}.svg`});
           background-repeat: no-repeat;
           background-size: contain;
           width: 128px;

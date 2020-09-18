@@ -5,7 +5,7 @@ import { posts } from '../../../cypress/fixtures/posts.json'
 const PostContent = () => {
   const router = useRouter()
   const { id } = router.query
-  let post = posts.find((p) => p.id === id)
+  const post = posts.find((p) => p.id === id)
 
   return post ? (
     <>

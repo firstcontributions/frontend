@@ -6,7 +6,7 @@
         "topics": ["language learning", "mental health", "non-profit"],
         "communities": ["librelingo", "Trustroots", "exercism"],
         "overallBadge": {
-            "level": 4,
+            "level": 5,
             "progressToNextBadge": 67
         },
         "badges": [
