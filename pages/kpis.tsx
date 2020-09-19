@@ -2,7 +2,7 @@ import Head from 'next/head'
 import ContributionsGraph from '../components/ContributionsGraph'
 import contributorsData from './contributorData.json'
 
-export const Home = (): JSX.Element =>  (
+export const Home = (): JSX.Element => (
   <div className="container">
     <Head>
       <title>First Contributions</title>
@@ -13,8 +13,7 @@ export const Home = (): JSX.Element =>  (
       <ContributionsGraph data={contributorsData} />
     </main>
 
-    <footer>
-    </footer>
+    <footer></footer>
 
     <style jsx>{`
       main {

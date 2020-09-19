@@ -1,15 +1,15 @@
-import * as React from 'react';
-import Posts from './post/Posts';
-import {posts} from '../cypress/fixtures/posts.json'
+import * as React from 'react'
+import Posts from './post/Posts'
+import { posts } from '../cypress/fixtures/posts.json'
 
 // eslint-disable-next-line
-export interface FeedCotainerProps {
-}
- 
+export interface FeedCotainerProps {}
+
 const FeedCotainer: React.SFC<FeedCotainerProps> = () => {
-    return (<div className="feed-container">
-    <Posts posts={posts}/>
-    <style jsx>{`
+  return (
+    <div className="feed-container">
+      <Posts posts={posts} />
+      <style jsx>{`
       .feed-container {
         flex: 1;
         display: flex;
@@ -24,7 +24,8 @@ const FeedCotainer: React.SFC<FeedCotainerProps> = () => {
         .feed-container { width 40%;}
     }
     `}</style>
-    </div>  );
+    </div>
+  )
 }
- 
-export default FeedCotainer;
+
+export default FeedCotainer

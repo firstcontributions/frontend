@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import FeedCotainer from '../components/FeedContainer'
 
-export const Home = (): JSX.Element =>  (
+export const Home = (): JSX.Element => (
   <div className="container">
     <Head>
       <title>First Contributions</title>
@@ -12,8 +12,7 @@ export const Home = (): JSX.Element =>  (
       <FeedCotainer />
     </main>
 
-    <footer>
-    </footer>
+    <footer></footer>
 
     <style jsx>{`
       .container {
@@ -44,7 +43,6 @@ export const Home = (): JSX.Element =>  (
         justify-content: center;
         align-items: center;
       }
-
     `}</style>
 
     <style jsx global>{`

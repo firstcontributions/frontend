@@ -41,5 +41,10 @@
         "allow": ["warn", "error"]
       }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

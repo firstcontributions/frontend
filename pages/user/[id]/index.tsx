@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import OverallBadge from '../../../components/user-profile/OverallBadge'
 import Badge from '../../../components/user-profile/Badge'
-import {profile} from '../../../cypress/fixtures/profile.json'
+import { profile } from '../../../cypress/fixtures/profile.json'
 
 const UserProfile = () => {
   const router = useRouter()
@@ -19,7 +19,7 @@ const UserProfile = () => {
           <OverallBadge level={profile.overallBadge.level} />
         </div>
         <div className="flex row">
-          {profile.badges.map(badge => (
+          {profile.badges.map((badge) => (
             <Badge name={badge.name} key={badge.name} />
           ))}
         </div>

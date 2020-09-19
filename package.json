@@ -24,7 +24,8 @@
     "*.@(ts|tsx)": [
       "yarn lint",
       "yarn format",
-      "yarn run type-check"
+      "yarn type-check",
+      "yarn test"
     ]
   },
   "dependencies": {

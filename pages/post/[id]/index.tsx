@@ -11,7 +11,9 @@ const PostContent = () => {
     <>
       <Post post={post} />
     </>
-  ) : (<></>)
+  ) : (
+    <></>
+  )
 }
 
 export default PostContent

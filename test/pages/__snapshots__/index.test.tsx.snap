@@ -3,119 +3,223 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="jsx-2250570153 container"
+    class="jsx-1911149577 container"
   >
     <main
-      class="jsx-2250570153"
+      class="jsx-1911149577"
     >
-      <h1
-        class="jsx-2250570153 title"
-      >
-        Welcome to 
-        <a
-          class="jsx-2250570153"
-          href="https://nextjs.org"
-        >
-          Next.js!
-        </a>
-      </h1>
-      <p
-        class="jsx-2250570153 description"
-      >
-        Get started by editing 
-        <code
-          class="jsx-2250570153"
-        >
-          pages/index.tsx
-        </code>
-      </p>
-      <button
-        class="jsx-2250570153"
-      >
-        Test Button
-      </button>
       <div
-        class="jsx-2250570153 grid"
+        class="jsx-1043986792 feed-container"
       >
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/docs"
+        <div
+          class="jsx-861097705 post"
         >
-          <h3
-            class="jsx-2250570153"
+          <div
+            class="jsx-3822813249 cover-image"
           >
-            Documentation →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/learn"
+            <div
+              class="jsx-861097705 content-container"
+            >
+              <div
+                class="jsx-362052540 author-stats"
+              >
+                <div
+                  class="jsx-362052540 author-profile"
+                />
+                <span
+                  class="jsx-362052540"
+                >
+                  12
+                </span>
+              </div>
+              <h2
+                class="jsx-861097705"
+              >
+                The rotation of Earth makes my day
+              </h2>
+              <p
+                class="jsx-861097705 post-content-truncated"
+              >
+                An engineer, a physicist, and a mathematician are trying to set up a fenced-in area for some sheep, but they have a limited amount of building material. The engineer gets up first and makes a square fence with the material, reasoning that it's a pretty good working solution. 
+
+"No no," says the physicist, "there's a better way." He takes the fence and makes a circular pen, showing how it encompasses the maximum possible space with the given material. 
+
+Then the mathematician speaks up: "No, no, there's an even better way." To the others' amusement he proceeds to construct a little tiny fence around himself, then declares: 
+
+"I define myself to be on the outside."
+              </p>
+              <div
+                class="jsx-861097705 tags"
+              >
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  earth
+                </span>
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  rotation
+                </span>
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  day
+                </span>
+              </div>
+              <div
+                class="jsx-861097705 engagement"
+              >
+                <span
+                  class="jsx-861097705"
+                >
+                  7
+                </span>
+                <span
+                  class="jsx-861097705"
+                >
+                  2
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="jsx-861097705 post"
         >
-          <h3
-            class="jsx-2250570153"
+          <div
+            class="jsx-854016355 cover-image"
           >
-            Learn →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://github.com/vercel/next.js/tree/master/examples"
+            <div
+              class="jsx-861097705 content-container"
+            >
+              <div
+                class="jsx-2892633963 author-stats"
+              >
+                <div
+                  class="jsx-2892633963 author-profile"
+                />
+                <span
+                  class="jsx-2892633963"
+                >
+                  12k
+                </span>
+              </div>
+              <h2
+                class="jsx-861097705"
+              >
+                Projects to contribute to if you know HTML
+              </h2>
+              <p
+                class="jsx-861097705 post-content-truncated"
+              >
+                Why do mathematicians always confuse Halloween and Christmas? 
+
+Because 31 Oct = 25 Dec.
+              </p>
+              <div
+                class="jsx-861097705 tags"
+              >
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  HTML
+                </span>
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  Beginner
+                </span>
+              </div>
+              <div
+                class="jsx-861097705 engagement"
+              >
+                <span
+                  class="jsx-861097705"
+                >
+                  1270000000
+                </span>
+                <span
+                  class="jsx-861097705"
+                >
+                  2
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="jsx-861097705 post"
         >
-          <h3
-            class="jsx-2250570153"
+          <div
+            class="jsx-2023652093 cover-image"
           >
-            Examples →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Discover and deploy boilerplate example Next.js projects.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Deploy →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
+            <div
+              class="jsx-861097705 content-container"
+            >
+              <div
+                class="jsx-362052540 author-stats"
+              >
+                <div
+                  class="jsx-362052540 author-profile"
+                />
+                <span
+                  class="jsx-362052540"
+                >
+                  12
+                </span>
+              </div>
+              <h2
+                class="jsx-861097705"
+              >
+                I'll make my own open source with Blackjack and Jack Black
+              </h2>
+              <p
+                class="jsx-861097705 post-content-truncated"
+              >
+                Legend has it that Bender is the best metal bender after Toph. He could bend metal girders to any angles
+              </p>
+              <div
+                class="jsx-861097705 tags"
+              >
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  Jack
+                </span>
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  Black
+                </span>
+                <span
+                  class="jsx-861097705 tag"
+                >
+                  open
+                </span>
+              </div>
+              <div
+                class="jsx-861097705 engagement"
+              >
+                <span
+                  class="jsx-861097705"
+                >
+                  -7
+                </span>
+                <span
+                  class="jsx-861097705"
+                >
+                  2
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer
-      class="jsx-2250570153"
-    >
-      <a
-        class="jsx-2250570153"
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Powered by 
-        <img
-          alt="Vercel Logo"
-          class="jsx-2250570153 logo"
-          src="/vercel.svg"
-        />
-      </a>
-    </footer>
+      class="jsx-1911149577"
+    />
   </div>
 </DocumentFragment>
 `;

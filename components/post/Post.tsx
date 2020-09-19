@@ -10,13 +10,15 @@ const Post = ({ post }) => (
           avatar={post.author.avatar}
           reputation={post.author.reputation}
         />
-        <Link href="/post/[post.id]"  as={`/post/${post.id}`}>
-        <h2>{post.title}</h2>
+        <Link href="/post/[post.id]" as={`/post/${post.id}`}>
+          <h2>{post.title}</h2>
         </Link>
         <p className="post-content-truncated">{post.content}</p>
         <div className="tags">
           {post.tags.map((tag) => (
-            <span className="tag" key={tag}>{tag}</span>
+            <span className="tag" key={tag}>
+              {tag}
+            </span>
           ))}
         </div>
         <div className="engagement">
