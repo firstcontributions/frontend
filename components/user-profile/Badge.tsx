@@ -1,5 +1,6 @@
 export interface BadgeProps {
   name: string
+  className: string
 }
 
 const Badge: React.SFC<BadgeProps> = ({ name }) => {

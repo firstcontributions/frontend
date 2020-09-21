@@ -3,7 +3,7 @@ import OverallBadge from '../../../components/user-profile/OverallBadge'
 import Badge from '../../../components/user-profile/Badge'
 import { profile } from '../../../cypress/fixtures/profile.json'
 
-const UserProfile = () => {
+const UserProfilePage = () => {
   const router = useRouter()
   const { id } = router.query
   const theme = { backgroundColor: '#E3E3E3' }
@@ -32,6 +32,13 @@ const UserProfile = () => {
           width: 70vw;
           margin: 1rem;
         }
+        .avatar {
+          background: url(${profile.avatar});
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 128px;
+          height: 128px;
+        }
         .user-profile {
           display: flex;
         }
@@ -45,4 +52,4 @@ const UserProfile = () => {
   )
 }
 
-export default UserProfile
+export default UserProfilePage

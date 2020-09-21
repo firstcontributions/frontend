@@ -7,22 +7,11 @@ export interface FeedCotainerProps {}
 
 const FeedCotainer: React.SFC<FeedCotainerProps> = () => {
   return (
-    <div className="feed-container">
+    <div className="feed-container flex flex-col justify-center w-full">
       <Posts posts={posts} />
       <style jsx>{`
       .feed-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
-    @media screen and (min-width:576px) {
-        .feed-container { width 60%;}
-    }
-    @media screen and (min-width:768px) {
-        .feed-container { width 40%;}
-    }
     `}</style>
     </div>
   )

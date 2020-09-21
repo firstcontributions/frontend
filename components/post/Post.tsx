@@ -3,7 +3,7 @@ import AuthorProfile from '../AuthorProfile'
 import Link from 'next/link'
 
 const Post = ({ post }) => (
-  <div className="post">
+  <div className="post flex">
     <CoverImage coverImage={post.coverImage}>
       <div className="content-container">
         <AuthorProfile
@@ -11,11 +11,11 @@ const Post = ({ post }) => (
           reputation={post.author.reputation}
         />
         <Link href="/post/[post.id]" as={`/post/${post.id}`}>
-          <h2>{post.title}</h2>
+          <h2 className="text-3xl">{post.title}</h2>
         </Link>
         <p className="post-content-truncated">{post.content}</p>
-        <div className="tags">
-          {post.tags.map((tag) => (
+        <div className="tags flex">
+          {post.tags.map((tag: string) => (
             <span className="tag" key={tag}>
               {tag}
             </span>
@@ -29,10 +29,6 @@ const Post = ({ post }) => (
     </CoverImage>
     <style jsx>{`
       .post {
-        width: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
         margin: 1rem; 0;
       }
       .post-content-truncated {
@@ -48,7 +44,6 @@ const Post = ({ post }) => (
           border-radius: .5rem;
       }
       .tags {
-          display: flex;
       }
       .tag {
           padding: 0.25rem 1rem;
