@@ -10,7 +10,7 @@ const ContributionsGraph = ({ data }) => {
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'time', format: "native" }}
         yScale={{ type: 'linear', min: 0, max: 'auto', stacked: false, reverse: false }}
-        curve='natural'
+        curve='linear'
         axisTop={null}
         axisRight={null}
         axisBottom={{
@@ -34,7 +34,7 @@ const ContributionsGraph = ({ data }) => {
             legendPosition: 'middle'
         }}
         colors={{ scheme: 'category10' }}
-        lineWidth={4}
+        lineWidth={3}
         pointSize={10}
         gridXValues={gridValues}
         pointColor={{ theme: 'background' }}
