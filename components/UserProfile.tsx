@@ -1,21 +1,29 @@
 import { profile } from '../cypress/fixtures/profile.json'
 import OverallBadge from './user-profile/OverallBadge'
 import Badge from './user-profile/Badge'
+import Link from 'next/link'
 
-export interface UserProfileProps {
-
-}
+export interface UserProfileProps {}
 
 const UserProfile: React.SFC<UserProfileProps> = () => {
   return (
-
     <>
-      <div className="avatar"></div>
+      <Link href="/user/[profile.userName]" as={`/user/${profile.userName}`}>
+        <div className="avatar w-40 h-40"></div>
+      </Link>
 
-      <OverallBadge classes="w-32 md:w-32 h-32" level={profile.overallBadge.level} />
-      <div className="flex flex-wrap">
+      <OverallBadge
+        classes="w-32 md:w-32 h-32"
+        level={profile.overallBadge.level}
+      />
+      <div className="flex flex-row flex-wrap justify-center w-full">
         {profile.badges.map((badge) => (
-          <Badge classes="m-1" name={badge.name} key={badge.name} progress={badge.progressToNextBadge} />
+          <Badge
+            classes="m-1 pb-2 pt-1 w-20"
+            name={badge.name}
+            key={badge.name}
+            progress={badge.progressToNextBadge}
+          />
         ))}
       </div>
       <style jsx>{`
@@ -23,12 +31,10 @@ const UserProfile: React.SFC<UserProfileProps> = () => {
           background: url(${profile.avatar});
           background-repeat: no-repeat;
           background-size: contain;
-          width: 128px;
-          height: 128px;
         }
       `}</style>
     </>
-  );
+  )
 }
 
-export default UserProfile;;
+export default UserProfile

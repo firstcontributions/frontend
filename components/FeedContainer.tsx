@@ -10,9 +10,9 @@ const FeedCotainer: React.SFC<FeedCotainerProps> = () => {
     <div className="feed-container flex flex-col justify-center w-full">
       <Posts posts={posts} />
       <style jsx>{`
-      .feed-container {
-      }
-    `}</style>
+        .feed-container {
+        }
+      `}</style>
     </div>
   )
 }

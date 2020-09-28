@@ -11,16 +11,23 @@ const UserProfilePage = () => {
   return (
     <div className="user-profile">
       <aside>
-        User: {id}
-        <div className="avatar">Avatar</div>
+        <div className="avatar" />
       </aside>
       <main>
         <div className="row">
-          <OverallBadge level={profile.overallBadge.level} />
+          <OverallBadge
+            classes="w-32 md:w-32 h-32"
+            level={profile.overallBadge.level}
+          />
         </div>
         <div className="flex row">
           {profile.badges.map((badge) => (
-            <Badge name={badge.name} key={badge.name} />
+            <Badge
+              classes="m-1 pb-2 pt-1 w-20"
+              name={badge.name}
+              key={badge.name}
+              progress={badge.progressToNextBadge}
+            />
           ))}
         </div>
         <div className="row"></div>

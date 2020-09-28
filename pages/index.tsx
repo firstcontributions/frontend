@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import FeedCotainer from '../components/FeedContainer'
-import UserProfile from '../components/UserProfile';
-import CircularProgress from '../components/CircularProgress';
+import UserProfile from '../components/UserProfile'
+import CircularProgress from '../components/CircularProgress'
 
 export const Home = (): JSX.Element => (
   <div className="container flex justify-center">
@@ -9,7 +9,7 @@ export const Home = (): JSX.Element => (
       <title>First Contributions</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <aside className="p-4">
+    <aside className="p-4 invisible lg:visible flex flex-col lg:w-1/5 items-center">
       <UserProfile />
     </aside>
     <main className="w-full md:w-2/3">
@@ -19,14 +19,13 @@ export const Home = (): JSX.Element => (
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         <a className="text-2xl">Login with Github</a>
       </button>
-    <footer></footer>
+      <footer></footer>
     </aside>
 
-
     <style jsx>{`
-    .container {
-      margin: auto;
-    }
+      .container {
+        margin: auto;
+      }
       main {
         background-color: #eef0f1;
       }
