@@ -1,11 +1,12 @@
 export interface OverallBadgeProps {
   level: number
+  classes?: string
 }
 
-const OverallBadge: React.SFC<OverallBadgeProps> = ({ level }) => {
+const OverallBadge: React.SFC<OverallBadgeProps> = ({ level, classes }) => {
   return (
     <>
-      <div className="badge flex justify-center items-center">
+      <div className={`badge flex justify-center items-center ${classes}`}>
         <div className="badge-content"></div>
       </div>
 
@@ -13,16 +14,14 @@ const OverallBadge: React.SFC<OverallBadgeProps> = ({ level }) => {
         .badge {
           background: url('/assets/overall-badge.svg');
           background-repeat: no-repeat;
-          background-size: contain;
-          width: 225px;
-          height: 256px;
+          background-size: 100% 100%;
         }
         .badge-content {
           background: url(${`/assets/level-${level}.svg`});
           background-repeat: no-repeat;
           background-size: contain;
-          width: 128px;
-          height: 128px;
+          width: 50%;
+          height: 50%;
         }
       `}</style>
     </>

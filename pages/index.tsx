@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import FeedCotainer from '../components/FeedContainer'
 import UserProfile from '../components/UserProfile';
+import CircularProgress from '../components/CircularProgress';
 
 export const Home = (): JSX.Element => (
   <div className="container flex justify-center">
