@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export interface UserProfileProps {}
 
-const UserProfile: React.SFC<UserProfileProps> = () => {
+const UserProfile = ({}:UserProfileProps) => {
   return (
     <>
       <Link href="/user/[profile.userName]" as={`/user/${profile.userName}`}>

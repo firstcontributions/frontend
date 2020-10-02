@@ -3,10 +3,10 @@ export interface AuthorProfileProps {
   reputation: string
 }
 
-const AuthorProfile: React.SFC<AuthorProfileProps> = ({
+const AuthorProfile = ({
   avatar,
   reputation,
-}) => {
+}: AuthorProfileProps) => {
   return (
     <div className="author-stats">
       <div className="author-profile"></div>

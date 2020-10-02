@@ -3,7 +3,7 @@ export interface OverallBadgeProps {
   classes?: string
 }
 
-const OverallBadge: React.SFC<OverallBadgeProps> = ({ level, classes }) => {
+const OverallBadge= ({ level, classes }:OverallBadgeProps) => {
   return (
     <>
       <div className={`badge flex justify-center items-center ${classes}`}>

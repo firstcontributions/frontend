@@ -2,13 +2,17 @@ import Head from 'next/head'
 import FeedCotainer from '../components/FeedContainer'
 import UserProfile from '../components/UserProfile'
 import CircularProgress from '../components/CircularProgress'
+import Navigation from '../components/Navigation';
 
 export const Home = (): JSX.Element => (
-  <div className="container flex justify-center">
+  <div className="flex flex-col justify-center">
     <Head>
       <title>First Contributions</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <Navigation />
+    <main className="flex flex-row container">
+
     <aside className="p-4 invisible lg:visible flex flex-col lg:w-1/5 items-center">
       <UserProfile />
     </aside>
@@ -22,6 +26,7 @@ export const Home = (): JSX.Element => (
       <footer></footer>
     </aside>
 
+    </main>
     <style jsx>{`
       .container {
         margin: auto;

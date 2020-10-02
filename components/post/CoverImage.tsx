@@ -1,13 +1,14 @@
-import * as React from 'react'
+import {ReactChild, ReactChildren}  from 'react'
 
 export interface CoverImageProps {
   coverImage: string
+  children: ReactChild | ReactChildren
 }
 
-const CoverImage: React.SFC<CoverImageProps> = (props) => {
-  return props.coverImage ? (
+const CoverImage = ({coverImage, children}:CoverImageProps) => {
+  return coverImage ? (
     <div className="cover-image">
-      {props.children}
+      {children}
       <style jsx>{`
         .cover-image {
           width: 100%;
@@ -15,7 +16,7 @@ const CoverImage: React.SFC<CoverImageProps> = (props) => {
           border-radius: 0.5rem;
           display: flex;
           flex-direction: column;
-          background-image: ${`url(${props.coverImage})`};
+          background-image: ${`url(${coverImage})`};
           background-position: center;
           background-size: cover;
         }
