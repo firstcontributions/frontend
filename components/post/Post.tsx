@@ -1,10 +1,10 @@
 import CoverImage from './CoverImage'
 import AuthorProfile from '../AuthorProfile'
 import Link from 'next/link'
+import PostContent from './PostContent';
 
 const Post = ({ post }) => (
   <div className="post flex">
-    <CoverImage coverImage={post.coverImage}>
       <div className="content-container">
         <AuthorProfile
           avatar={post.author.avatar}
@@ -13,7 +13,7 @@ const Post = ({ post }) => (
         <Link href="/post/[post.id]" as={`/post/${post.id}`}>
           <h2 className="text-3xl">{post.title}</h2>
         </Link>
-        <p className="post-content-truncated">{post.content}</p>
+        <PostContent data={post.content} />
         <div className="tags flex">
           {post.tags.map((tag: string) => (
             <span className="tag" key={tag}>
@@ -26,7 +26,6 @@ const Post = ({ post }) => (
           <span>{post.comments.length}</span>
         </div>
       </div>
-    </CoverImage>
     <style jsx>{`
       .post {
         margin: 1rem; 0;

@@ -6,7 +6,7 @@ export interface BadgeProps {
   progress: number
 }
 
-const Badge = ({ name, progress, classes }:BadgeProps) => {
+const Badge = ({ name, progress, classes }: BadgeProps) => {
   return (
     <>
       <div className={`badge flex flex-col items-center ${classes}`}>

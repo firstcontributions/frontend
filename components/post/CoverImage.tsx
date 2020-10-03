@@ -1,11 +1,11 @@
-import {ReactChild, ReactChildren}  from 'react'
+import { ReactChild, ReactChildren } from 'react'
 
 export interface CoverImageProps {
   coverImage: string
   children: ReactChild | ReactChildren
 }
 
-const CoverImage = ({coverImage, children}:CoverImageProps) => {
+const CoverImage = ({ coverImage, children }: CoverImageProps) => {
   return coverImage ? (
     <div className="cover-image">
       {children}

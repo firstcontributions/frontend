@@ -3,10 +3,7 @@ export interface AuthorProfileProps {
   reputation: string
 }
 
-const AuthorProfile = ({
-  avatar,
-  reputation,
-}: AuthorProfileProps) => {
+const AuthorProfile = ({ avatar, reputation }: AuthorProfileProps) => {
   return (
     <div className="author-stats">
       <div className="author-profile"></div>
@@ -18,7 +15,6 @@ const AuthorProfile = ({
         .author-profile {
           width: 3rem;
           height: 3rem;
-          margin-top: -2.5rem;
           border-radius: 50%;
           border: 4px solid #ffffff;
           background-image: ${`url(${avatar})`};
@@ -29,7 +25,6 @@ const AuthorProfile = ({
           .author-profile {
             width: 5rem;
             height: 5rem;
-            margin-top: -3.5rem;
           }
         }
       `}</style>
