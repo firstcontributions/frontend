@@ -20,9 +20,4 @@ export const EDITOR_JS_TOOLS = {
   delimiter: Delimiter,
   inlineCode: InlineCode,
   simpleImage: SimpleImage,
-  paragraph: {
-    config: {
-      placeholder: 'Click to edit ...'
-    }
-  }
 }

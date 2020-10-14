@@ -13,7 +13,7 @@ const UserProfile = ({}: UserProfileProps) => {
       </Link>
 
       <OverallBadge
-        classes="w-32 md:w-32 h-32"
+        classes="w-32 md:w-32 h-32 m:auto"
         level={profile.overallBadge.level}
       />
       <div className="flex flex-row flex-wrap justify-center w-full">

@@ -11,20 +11,20 @@ export const Home = (): JSX.Element => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Navigation />
-    <main className="flex flex-row container">
-      <aside className="p-4 invisible lg:visible flex flex-col lg:w-1/5 items-center">
+    <div className="flex flex-row container">
+      <aside className="p-4 hidden md:block flex flex-col lg:w-1/5 items-center">
         <UserProfile />
       </aside>
       <main className="w-full md:w-2/3">
         <FeedCotainer />
       </main>
-      <aside className="p-4">
+      <aside className="p-4 hidden md:block">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           <a className="text-2xl">Login with Github</a>
         </button>
         <footer></footer>
       </aside>
-    </main>
+    </div>
     <style jsx>{`
       .container {
         margin: auto;
