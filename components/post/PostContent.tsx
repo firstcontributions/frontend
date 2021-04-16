@@ -26,12 +26,12 @@ const PostContent = ({ data }) => {
           content = (<div className="cdx-block embed-tool">
           <iframe className="embed-tool__content" style={{width: "fit-100%"}} height="320"  width="580"
             src={data.embed}></iframe>
-          <div style={{'textAlign': "center", 'margin-top': "5px"}}>{data.caption}</div>
+          <div style={{'textAlign': "center", 'marginTop': "5px"}}>{data.caption}</div>
           </div> )
       break;
       case "code":
         content = (<div className="cdx-block ce-code">
-            <span style={{'textAlign': "right", 'margin-bottom': "5px"}}>{data.language}</span>
+            <span style={{'textAlign': "right", 'marginBottom': "5px"}}>{data.language}</span>
             <pre className="ce-code__textarea cdx-input prettyprint"><code className="lang-js">{data.code+""}</code></pre>
           </div>)
       break;
@@ -40,7 +40,7 @@ const PostContent = ({ data }) => {
             <div className="cdx-block image-tool image-tool--filled">
               <div className="image-tool__image">
                 <img className="image-tool__image-picture" src={data.file.url}></img>
-                <span style={{'textAlign': "right", 'margin-bottom': "5px"}}>{data.caption}</span>
+                <span style={{'textAlign': "right", 'marginBottom': "5px"}}>{data.caption}</span>
               </div>
             </div>
           )
