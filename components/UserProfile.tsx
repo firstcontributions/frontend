@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export interface UserProfileProps {}
 
-const UserProfile: React.SFC<UserProfileProps> = () => {
+const UserProfile = ({}: UserProfileProps) => {
   return (
     <>
       <Link href="/user/[profile.userName]" as={`/user/${profile.userName}`}>
@@ -13,7 +13,7 @@ const UserProfile: React.SFC<UserProfileProps> = () => {
       </Link>
 
       <OverallBadge
-        classes="w-32 md:w-32 h-32"
+        classes="w-32 md:w-32 h-32 m:auto"
         level={profile.overallBadge.level}
       />
       <div className="flex flex-row flex-wrap justify-center w-full">

@@ -42,7 +42,7 @@ export const getArcAttributes = (
   ].join(' ')
 }
 
-const CircularProgress: React.SFC<CircularProgressProps> = ({ progress }) => {
+const CircularProgress = ({ progress }: CircularProgressProps) => {
   const endAngle = progress * 3.6
 
   return (
