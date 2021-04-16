@@ -10,7 +10,6 @@
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "lint": "eslint . --ext ts --ext tsx --ext js",
-    "relay": "relay-compiler --src ./ --schema ./schema.graphql --extensions js jsx ts tsx",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
     "cy": "yarn cypress",
@@ -34,7 +33,6 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-relay": "^10.0.1",
     "tailwindcss": "^1.8.5"
   },
   "devDependencies": {
@@ -46,13 +44,11 @@
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "babel-jest": "^25.2.3",
-    "babel-plugin-relay": "^10.0.1",
     "cypress": "^4.11.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-react": "^7.19.0",
-    "graphql": "^15.3.0",
     "husky": "^4.2.3",
     "jest": "^25.2.3",
     "jest-watch-typeahead": "^0.5.0",
@@ -60,7 +56,6 @@
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.2",
-    "relay-compiler": "^10.0.1",
     "typescript": "^3.8.3"
   }
 }
