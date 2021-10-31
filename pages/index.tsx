@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { graphql, fetchQuery } from 'react-relay'
+import { initEnvironment } from '../lib/relay'
 import FeedCotainer from '../components/FeedContainer'
 import UserProfile from '../components/UserProfile'
 import CircularProgress from '../components/CircularProgress'
@@ -58,5 +60,26 @@ export const Home = (): JSX.Element => (
     `}</style>
   </div>
 )
+
+const indexPageQuery =  graphql`
+query indexPage_indexQuery {
+  viewer {
+    ...BlogPosts_viewer
+  }
+}
+`
+
+export async function getStaticProps() {
+  const environment = initEnvironment()
+  const queryProps = await fetchQuery(environment, indexPageQuery)
+  const initialRecords = environment.getStore().getSource().toJSON()
+
+  return {
+    props: {
+      ...queryProps,
+      initialRecords,
+    },
+  }
+}
 
 export default Home
