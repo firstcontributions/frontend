@@ -1,5 +1,5 @@
 {
-  "name": "First-Contributions-Frontend",
+  "name": "first-contributions-frontend",
   "author": "@Roshanjossey",
   "license": "MIT",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema ./schema/schema.graphql",
+    "relay": "relay-compiler --src ./ --schema ./schema/schema.graphql",
     "schema": "graphql get-schema -e dev",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
@@ -45,10 +45,11 @@
     "@editorjs/simple-image": "^1.4.0",
     "@nivo/line": "^0.62.0",
     "html-react-parser": "^0.14.0",
-    "next": "latest",
-    "react": "^16.13.1",
+    "next": "^12.0.7",
+    "react": "^17.0.2",
     "react-dom": "^16.13.1",
     "react-editor-js": "^1.6.2",
+    "react-relay": "^13.0.1",
     "tailwindcss": "^1.8.5"
   },
   "devDependencies": {
@@ -56,15 +57,18 @@
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.5",
     "@types/react": "^16.9.27",
+    "@types/react-relay": "^13.0.0",
     "@types/testing-library__react": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "babel-jest": "^25.2.3",
+    "babel-plugin-relay": "^13.0.1",
     "cypress": "^4.11.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-react": "^7.19.0",
+    "graphql": "^16.2.0",
     "husky": "^4.2.3",
     "jest": "^25.2.3",
     "jest-watch-typeahead": "^0.5.0",
@@ -72,6 +76,8 @@
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.2",
-    "typescript": "^3.8.3"
+    "relay-compiler": "^13.0.1",
+    "relay-compiler-language-typescript": "^15.0.0",
+    "typescript": "^4.5.4"
   }
 }

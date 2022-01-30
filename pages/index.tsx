@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import { graphql, fetchQuery } from 'react-relay'
+import { fetchQuery } from 'react-relay'
 import { initEnvironment } from '../lib/relay'
+import indexPageQuery from '../queries/indexQuery'
 import FeedCotainer from '../components/FeedContainer'
 import UserProfile from '../components/UserProfile'
-import CircularProgress from '../components/CircularProgress'
 import Navigation from '../components/Navigation'
 
-export const Home = (): JSX.Element => (
+export const Home = ({viewer}): JSX.Element => (
   <div className="flex flex-col justify-center">
     <Head>
       <title>First Contributions</title>
@@ -18,6 +18,9 @@ export const Home = (): JSX.Element => (
         <UserProfile />
       </aside>
       <main className="w-full md:w-2/3">
+        <div>
+          {JSON.stringify(viewer)}
+        </div>
         <FeedCotainer />
       </main>
       <aside className="p-4 hidden md:block">
@@ -61,17 +64,9 @@ export const Home = (): JSX.Element => (
   </div>
 )
 
-const indexPageQuery =  graphql`
-query indexPage_indexQuery {
-  viewer {
-    ...BlogPosts_viewer
-  }
-}
-`
-
 export async function getStaticProps() {
   const environment = initEnvironment()
-  const queryProps = await fetchQuery(environment, indexPageQuery)
+  const queryProps = await fetchQuery(environment, indexPageQuery, {}).toPromise() as object
   const initialRecords = environment.getStore().getSource().toJSON()
 
   return {

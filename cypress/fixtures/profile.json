@@ -1,31 +1,29 @@
 {
-    "profile": {
-        "userName": "firstcontributions-bot",
-        "avatar": "https://avatars1.githubusercontent.com/u/65761570?s=460&u=640f39b808c75c6b86460aa907dd030bcca2f3c7&v=4",
-        "reputation": 4851,
-        "bio": "We'll make our own open source. With blackjack and Jack Black",
-        "topics": ["language learning", "mental health", "non-profit"],
-        "communities": ["librelingo", "Trustroots", "exercism"],
-        "overallBadge": {
-            "level": 5,
-            "progressToNextBadge": 67
+    "userName": "firstcontributions-bot",
+    "avatar": "https://avatars1.githubusercontent.com/u/65761570?s=460&u=640f39b808c75c6b86460aa907dd030bcca2f3c7&v=4",
+    "reputation": 4851,
+    "bio": "We'll make our own open source. With blackjack and Jack Black",
+    "topics": ["language learning", "mental health", "non-profit"],
+    "communities": ["librelingo", "Trustroots", "exercism"],
+    "overallBadge": {
+        "level": 5,
+        "progressToNextBadge": 67
+    },
+    "badges": [
+        {
+            "name": "react",
+            "level": "6",
+            "progressToNextBadge": 27
         },
-        "badges": [
-            {
-                "name": "react",
-                "level": "6",
-                "progressToNextBadge": 27
-            },
-            {
-                "name": "go",
-                "level": "1",
-                "progressToNextBadge": 87
-            },
-            {
-                "name": "docker",
-                "level": "1",
-                "progressToNextBadge": 54
-            }
-        ]
-    }
+        {
+            "name": "go",
+            "level": "1",
+            "progressToNextBadge": 87
+        },
+        {
+            "name": "docker",
+            "level": "1",
+            "progressToNextBadge": 54
+        }
+    ]
 }

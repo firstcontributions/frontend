@@ -1,5 +1,4 @@
-{
-  "posts": [
+[
     {
       "title": "The rotation of Earth makes my day",
       "votes": 7,
@@ -119,4 +118,3 @@
       ]
     }
   ]
-}

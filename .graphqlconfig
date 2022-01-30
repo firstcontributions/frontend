@@ -1,0 +1,8 @@
+{
+  "schemaPath": "schema/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "dev": "https://api.github.com/graphql"
+    }
+  }
+}
