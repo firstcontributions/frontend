@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7fa9ff1277bd01fa77310c4f766466d3>>
+ * @generated SignedSource<<8b0b2c37cacc2e8cfd048cff758d5dd8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,9 +14,9 @@ export type pages_FeedsQuery$variables = {};
 export type pages_FeedsQueryVariables = pages_FeedsQuery$variables;
 export type pages_FeedsQuery$data = {
   readonly viewer: {
-    readonly login: string;
-    readonly " $fragmentSpreads": FragmentRefs<"RepositoryList_user">;
-  };
+    readonly handle: string;
+    readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user">;
+  } | null;
 };
 export type pages_FeedsQueryResponse = pages_FeedsQuery$data;
 export type pages_FeedsQuery = {
@@ -29,14 +29,14 @@ var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "login",
+  "name": "handle",
   "storageKey": null
 },
 v1 = [
   {
     "kind": "Literal",
     "name": "first",
-    "value": 10
+    "value": 2
   }
 ],
 v2 = {
@@ -65,7 +65,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "RepositoryList_user"
+            "name": "BadgeList_user"
           }
         ],
         "storageKey": null
@@ -92,15 +92,15 @@ return {
           {
             "alias": null,
             "args": (v1/*: any*/),
-            "concreteType": "RepositoryConnection",
+            "concreteType": "BadgesConnection",
             "kind": "LinkedField",
-            "name": "repositories",
+            "name": "badges",
             "plural": false,
             "selections": [
               {
                 "alias": null,
                 "args": null,
-                "concreteType": "RepositoryEdge",
+                "concreteType": "BadgeEdge",
                 "kind": "LinkedField",
                 "name": "edges",
                 "plural": true,
@@ -108,7 +108,7 @@ return {
                   {
                     "alias": null,
                     "args": null,
-                    "concreteType": "Repository",
+                    "concreteType": "Badge",
                     "kind": "LinkedField",
                     "name": "node",
                     "plural": false,
@@ -118,14 +118,7 @@ return {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
-                        "name": "nameWithOwner",
-                        "storageKey": null
-                      },
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "url",
+                        "name": "displayName",
                         "storageKey": null
                       },
                       {
@@ -174,16 +167,16 @@ return {
                 "storageKey": null
               }
             ],
-            "storageKey": "repositories(first:10)"
+            "storageKey": "badges(first:2)"
           },
           {
             "alias": null,
             "args": (v1/*: any*/),
             "filters": null,
             "handle": "connection",
-            "key": "RepositoryList__repositories",
+            "key": "BadgeList__badges",
             "kind": "LinkedHandle",
-            "name": "repositories"
+            "name": "badges"
           },
           (v2/*: any*/)
         ],
@@ -192,16 +185,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "4bc011361b3d38652ef27fb1f7f4b13f",
+    "cacheID": "48c3eb0f0d7e5a5585d692346969dda5",
     "id": null,
     "metadata": {},
     "name": "pages_FeedsQuery",
     "operationKind": "query",
-    "text": "query pages_FeedsQuery {\n  viewer {\n    login\n    ...RepositoryList_user\n    id\n  }\n}\n\nfragment RepositoryList_user on User {\n  repositories(first: 10) {\n    edges {\n      node {\n        id\n        ...Repository_repo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Repository_repo on Repository {\n  id\n  nameWithOwner\n  url\n}\n"
+    "text": "query pages_FeedsQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n}\n"
   }
 };
 })();
 
-(node as any).hash = "8891c9c1cabee31940b27a26ea29b905";
+(node as any).hash = "7af46c1b13e4cf9435bffbcab91ef4fd";
 
 export default node;

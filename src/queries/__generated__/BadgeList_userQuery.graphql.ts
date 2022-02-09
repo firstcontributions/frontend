@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ac180d22f1771d25e39afff103af779c>>
+ * @generated SignedSource<<36389814fed22229566b9b13cf69a4bb>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,27 +10,27 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type RepositoryList_userQuery$variables = {
+export type BadgeList_userQuery$variables = {
   count?: number | null;
   cursor?: string | null;
   id: string;
 };
-export type RepositoryList_userQueryVariables = RepositoryList_userQuery$variables;
-export type RepositoryList_userQuery$data = {
+export type BadgeList_userQueryVariables = BadgeList_userQuery$variables;
+export type BadgeList_userQuery$data = {
   readonly node: {
-    readonly " $fragmentSpreads": FragmentRefs<"RepositoryList_user">;
+    readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user">;
   } | null;
 };
-export type RepositoryList_userQueryResponse = RepositoryList_userQuery$data;
-export type RepositoryList_userQuery = {
-  variables: RepositoryList_userQueryVariables;
-  response: RepositoryList_userQuery$data;
+export type BadgeList_userQueryResponse = BadgeList_userQuery$data;
+export type BadgeList_userQuery = {
+  variables: BadgeList_userQueryVariables;
+  response: BadgeList_userQuery$data;
 };
 
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "defaultValue": 10,
+    "defaultValue": 2,
     "kind": "LocalArgument",
     "name": "count"
   },
@@ -83,7 +83,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "RepositoryList_userQuery",
+    "name": "BadgeList_userQuery",
     "selections": [
       {
         "alias": null,
@@ -107,7 +107,7 @@ return {
               }
             ],
             "kind": "FragmentSpread",
-            "name": "RepositoryList_user"
+            "name": "BadgeList_user"
           }
         ],
         "storageKey": null
@@ -120,7 +120,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "RepositoryList_userQuery",
+    "name": "BadgeList_userQuery",
     "selections": [
       {
         "alias": null,
@@ -138,15 +138,15 @@ return {
               {
                 "alias": null,
                 "args": (v4/*: any*/),
-                "concreteType": "RepositoryConnection",
+                "concreteType": "BadgesConnection",
                 "kind": "LinkedField",
-                "name": "repositories",
+                "name": "badges",
                 "plural": false,
                 "selections": [
                   {
                     "alias": null,
                     "args": null,
-                    "concreteType": "RepositoryEdge",
+                    "concreteType": "BadgeEdge",
                     "kind": "LinkedField",
                     "name": "edges",
                     "plural": true,
@@ -154,7 +154,7 @@ return {
                       {
                         "alias": null,
                         "args": null,
-                        "concreteType": "Repository",
+                        "concreteType": "Badge",
                         "kind": "LinkedField",
                         "name": "node",
                         "plural": false,
@@ -164,14 +164,7 @@ return {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "nameWithOwner",
-                            "storageKey": null
-                          },
-                          {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "url",
+                            "name": "displayName",
                             "storageKey": null
                           },
                           (v2/*: any*/)
@@ -221,9 +214,9 @@ return {
                 "args": (v4/*: any*/),
                 "filters": null,
                 "handle": "connection",
-                "key": "RepositoryList__repositories",
+                "key": "BadgeList__badges",
                 "kind": "LinkedHandle",
-                "name": "repositories"
+                "name": "badges"
               }
             ],
             "type": "User",
@@ -235,16 +228,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "57a22012a2ea754d4dbd2f7cb0a5473a",
+    "cacheID": "7f692cbfc1ce159605ad8b6482c37046",
     "id": null,
     "metadata": {},
-    "name": "RepositoryList_userQuery",
+    "name": "BadgeList_userQuery",
     "operationKind": "query",
-    "text": "query RepositoryList_userQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepositoryList_user_1G22uz\n    id\n  }\n}\n\nfragment RepositoryList_user_1G22uz on User {\n  repositories(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Repository_repo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Repository_repo on Repository {\n  id\n  nameWithOwner\n  url\n}\n"
+    "text": "query BadgeList_userQuery(\n  $count: Int = 2\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n}\n"
   }
 };
 })();
 
-(node as any).hash = "099880581febe564488e3d3e1c3701a3";
+(node as any).hash = "81b8e5b7bf812b3295de85e80f0a42c9";
 
 export default node;

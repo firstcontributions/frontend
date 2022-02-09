@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7136c8b105422bf27281cc2def4dbe59>>
+ * @generated SignedSource<<7a81df7527641ece0ab11ca0a486f050>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,27 +10,27 @@
 
 import { ReaderFragment, RefetchableFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type RepositoryList_user$data = {
-  readonly repositories: {
+export type BadgeList_user$data = {
+  readonly badges: {
     readonly edges: ReadonlyArray<{
       readonly node: {
         readonly id: string;
-        readonly " $fragmentSpreads": FragmentRefs<"Repository_repo">;
-      } | null;
-    } | null> | null;
+        readonly " $fragmentSpreads": FragmentRefs<"Badge_node">;
+      };
+    } | null>;
   };
   readonly id: string;
-  readonly " $fragmentType": "RepositoryList_user";
+  readonly " $fragmentType": "BadgeList_user";
 };
-export type RepositoryList_user = RepositoryList_user$data;
-export type RepositoryList_user$key = {
-  readonly " $data"?: RepositoryList_user$data;
-  readonly " $fragmentSpreads": FragmentRefs<"RepositoryList_user">;
+export type BadgeList_user = BadgeList_user$data;
+export type BadgeList_user$key = {
+  readonly " $data"?: BadgeList_user$data;
+  readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user">;
 };
 
 const node: ReaderFragment = (function(){
 var v0 = [
-  "repositories"
+  "badges"
 ],
 v1 = {
   "alias": null,
@@ -42,7 +42,7 @@ v1 = {
 return {
   "argumentDefinitions": [
     {
-      "defaultValue": 10,
+      "defaultValue": 2,
       "kind": "LocalArgument",
       "name": "count"
     },
@@ -74,24 +74,24 @@ return {
       "fragmentPathInResult": [
         "node"
       ],
-      "operation": require('./RepositoryList_userQuery.graphql'),
+      "operation": require('./BadgeList_userQuery.graphql'),
       "identifierField": "id"
     }
   },
-  "name": "RepositoryList_user",
+  "name": "BadgeList_user",
   "selections": [
     {
-      "alias": "repositories",
+      "alias": "badges",
       "args": null,
-      "concreteType": "RepositoryConnection",
+      "concreteType": "BadgesConnection",
       "kind": "LinkedField",
-      "name": "__RepositoryList__repositories_connection",
+      "name": "__BadgeList__badges_connection",
       "plural": false,
       "selections": [
         {
           "alias": null,
           "args": null,
-          "concreteType": "RepositoryEdge",
+          "concreteType": "BadgeEdge",
           "kind": "LinkedField",
           "name": "edges",
           "plural": true,
@@ -99,7 +99,7 @@ return {
             {
               "alias": null,
               "args": null,
-              "concreteType": "Repository",
+              "concreteType": "Badge",
               "kind": "LinkedField",
               "name": "node",
               "plural": false,
@@ -108,7 +108,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "Repository_repo"
+                  "name": "Badge_node"
                 },
                 {
                   "alias": null,
@@ -165,6 +165,6 @@ return {
 };
 })();
 
-(node as any).hash = "099880581febe564488e3d3e1c3701a3";
+(node as any).hash = "81b8e5b7bf812b3295de85e80f0a42c9";
 
 export default node;

@@ -1,11 +1,12 @@
 import {pages_FeedsQuery$data} from '../queries/__generated__/pages_FeedsQuery.graphql'
-import RepositoryList from './RepositoryList'
+import BadgeList from './BadgeList'
+
 const Feeds = ({user})=> (
     <>
         <h1>
-            {user?.login}
+            {user?.handle}
         </h1>
-        <RepositoryList user={user} />
+        <BadgeList user={user} />
     </>
 )
 

@@ -9,8 +9,8 @@ import { getClientEnvironment } from '../lib/client_environment';
 const FeedsQuery = graphql`
   query pages_FeedsQuery{ 
     viewer { 
-      login
-      ...RepositoryList_user
+      handle
+      ...BadgeList_user
     }
   }
 `
