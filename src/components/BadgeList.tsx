@@ -1,7 +1,7 @@
 import { useFragment, graphql, usePaginationFragment } from "react-relay"
 import Badge from "./Badge"
 
-const BadgeList = ({user}) => {
+const BadgeList = ({user}: any) => {
     const {data, loadNext, hasNext} = usePaginationFragment(
         graphql`
         fragment BadgeList_user on User 

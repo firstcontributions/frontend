@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8b0b2c37cacc2e8cfd048cff758d5dd8>>
+ * @generated SignedSource<<50e04796baae048b1c9a902561a39b6a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -125,6 +125,13 @@ return {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
+                        "name": "progressPercentageToNextLevel",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
                         "name": "__typename",
                         "storageKey": null
                       }
@@ -185,12 +192,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "48c3eb0f0d7e5a5585d692346969dda5",
+    "cacheID": "43f55020408b65f40bc372130b8e0ff8",
     "id": null,
     "metadata": {},
     "name": "pages_FeedsQuery",
     "operationKind": "query",
-    "text": "query pages_FeedsQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n}\n"
+    "text": "query pages_FeedsQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n"
   }
 };
 })();
