@@ -14,13 +14,15 @@
     "react-dom": "17.0.2",
     "react-relay": "^13.0.2",
     "relay-nextjs": "^0.6.0",
-    "relay-runtime": "^13.0.2"
+    "relay-runtime": "^13.0.2",
+    "simple-oauth2": "^4.3.0"
   },
   "devDependencies": {
     "@types/node": "17.0.15",
     "@types/react": "17.0.39",
     "@types/react-relay": "^13.0.1",
     "@types/relay-runtime": "^13.0.1",
+    "@types/simple-oauth2": "^4.1.1",
     "autoprefixer": "^10.4.2",
     "babel-plugin-relay": "^13.0.2",
     "eslint": "8.8.0",
