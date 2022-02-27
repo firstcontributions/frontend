@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<50e04796baae048b1c9a902561a39b6a>>
+ * @generated SignedSource<<ac1ad9985a8bf1d7f3fe1b13ed18b7f4>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,18 +10,18 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type pages_FeedsQuery$variables = {};
-export type pages_FeedsQueryVariables = pages_FeedsQuery$variables;
-export type pages_FeedsQuery$data = {
+export type pages_UserQuery$variables = {};
+export type pages_UserQueryVariables = pages_UserQuery$variables;
+export type pages_UserQuery$data = {
   readonly viewer: {
     readonly handle: string;
     readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user">;
   } | null;
 };
-export type pages_FeedsQueryResponse = pages_FeedsQuery$data;
-export type pages_FeedsQuery = {
-  variables: pages_FeedsQueryVariables;
-  response: pages_FeedsQuery$data;
+export type pages_UserQueryResponse = pages_UserQuery$data;
+export type pages_UserQuery = {
+  variables: pages_UserQueryVariables;
+  response: pages_UserQuery$data;
 };
 
 const node: ConcreteRequest = (function(){
@@ -51,7 +51,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "pages_FeedsQuery",
+    "name": "pages_UserQuery",
     "selections": [
       {
         "alias": null,
@@ -78,7 +78,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "pages_FeedsQuery",
+    "name": "pages_UserQuery",
     "selections": [
       {
         "alias": null,
@@ -192,16 +192,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "43f55020408b65f40bc372130b8e0ff8",
+    "cacheID": "f244546d6ac18c752ebbf870f9604a8e",
     "id": null,
     "metadata": {},
-    "name": "pages_FeedsQuery",
+    "name": "pages_UserQuery",
     "operationKind": "query",
-    "text": "query pages_FeedsQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n"
+    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n"
   }
 };
 })();
 
-(node as any).hash = "7af46c1b13e4cf9435bffbcab91ef4fd";
+(node as any).hash = "d4b147c16f060ea6380283eba28136ad";
 
 export default node;

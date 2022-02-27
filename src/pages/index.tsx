@@ -1,27 +1,38 @@
 import type { NextPage } from 'next'
-import Feeds from '../components/Feeds'
+import UserDetails from '../components/UserDetails'
 import { graphql, usePreloadedQuery } from 'react-relay';
 import { withRelay, RelayProps } from 'relay-nextjs';
-import {pages_FeedsQuery} from '../queries/__generated__/pages_FeedsQuery.graphql'
+import {pages_UserQuery} from '../queries/__generated__/pages_UserQuery.graphql'
 import { getClientEnvironment } from '../lib/client_environment';
-import Container from '../components/Container';
+import Card from '../components/Card';
 
 
 const FeedsQuery = graphql`
-  query pages_FeedsQuery{ 
+  query pages_UserQuery{ 
     viewer { 
       handle
       ...BadgeList_user
     }
   }
 `
-const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_FeedsQuery>) => {
+const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => {
   const query = usePreloadedQuery(FeedsQuery, preloadedQuery);
-  console.log("query -----", query)
   return (
-    <Container>
-      <Feeds user={query.viewer}/>
-    </Container>
+    <div className="container mx-auto bg-gray-100 p-4">
+      <div className="grid grid-cols-5 gap-4">
+        <div>
+          <Card>
+            <UserDetails user={query.viewer}/>
+          </Card>
+        </div>
+        <div className="col-span-3">
+          <Card>Posts</Card>
+        </div>
+        <div>
+          <Card>Promoted</Card>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -1,7 +1,6 @@
-import {pages_FeedsQuery$data} from '../queries/__generated__/pages_FeedsQuery.graphql'
 import BadgeList from './BadgeList'
 
-const Feeds = ({user})=> (
+const UserDetails = ({user})=> (
     <>
         <h1>
             {user?.handle}
@@ -10,4 +9,4 @@ const Feeds = ({user})=> (
     </>
 )
 
-export default Feeds
+export default UserDetails

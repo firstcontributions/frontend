@@ -17,8 +17,6 @@ export  async function fetchGraphQL (params, variables) {
   })
 
   const text = await results.text()
-  console.log(text)
-
   
   const data = JSON.parse(
     text,

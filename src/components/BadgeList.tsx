@@ -1,4 +1,5 @@
 import { useFragment, graphql, usePaginationFragment } from "react-relay"
+import { Badge_node$data } from "../queries/__generated__/Badge_node.graphql"
 import Badge from "./Badge"
 
 const BadgeList = ({user}: any) => {
@@ -30,7 +31,7 @@ const BadgeList = ({user}: any) => {
     return (
         <>
             {
-                data.badges.edges.map((e)=> (<Badge key={e.node.id} badge={e.node}/>))
+                data.badges.edges.map((badge)=> (<Badge key={badge.node.id} badge={badge.node}/>))
             }
             {hasNext? <button onClick={()=>{loadNext(2)}}>Load more</button>: null}
             
