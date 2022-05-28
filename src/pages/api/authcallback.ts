@@ -11,10 +11,8 @@ export default async function handler(
   
     try {
       const accessToken = await GetAuthToken(req.query.code as string);
-      console.log(accessToken)
         res.status(200).json({accessToken})
     } catch (error) {
-      console.log('Access Token Error', error);
         res.status(500).json({error: error})
     }
 }

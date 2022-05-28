@@ -38,12 +38,13 @@ const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => 
 
 export default withRelay(Home, FeedsQuery, {
   createClientEnvironment: () => getClientEnvironment()!,
-  createServerEnvironment: async () => {
+  createServerEnvironment: async (ctx) => {
+
     const { createServerEnvironment } = await import(
       '../lib/server/server_environment'
     );
 
-    return createServerEnvironment();
+    return createServerEnvironment(ctx);
   },
 });
 

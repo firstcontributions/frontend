@@ -16,7 +16,6 @@ class MyDocument extends NextDocument<DocumentProps> {
       });
 
     const initialProps = await NextDocument.getInitialProps(ctx);
-
     return {
       ...initialProps,
       relayDocument,

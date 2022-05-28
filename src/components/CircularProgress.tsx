@@ -41,8 +41,6 @@ export interface CircularProgressProps {
       end.y,
     ].join(' ')
 
-    console.log('arcString', arcSting)
-
     return arcSting
   }
   
