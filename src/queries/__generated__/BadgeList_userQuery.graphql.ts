@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<36389814fed22229566b9b13cf69a4bb>>
+ * @generated SignedSource<<a762b445bb0034afc5515e9fb6759d93>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -167,6 +167,13 @@ return {
                             "name": "displayName",
                             "storageKey": null
                           },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "progressPercentageToNextLevel",
+                            "storageKey": null
+                          },
                           (v2/*: any*/)
                         ],
                         "storageKey": null
@@ -228,12 +235,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7f692cbfc1ce159605ad8b6482c37046",
+    "cacheID": "c33e4f674ff422ceb16980ec43d5678f",
     "id": null,
     "metadata": {},
     "name": "BadgeList_userQuery",
     "operationKind": "query",
-    "text": "query BadgeList_userQuery(\n  $count: Int = 2\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n}\n"
+    "text": "query BadgeList_userQuery(\n  $count: Int = 2\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n"
   }
 };
 })();

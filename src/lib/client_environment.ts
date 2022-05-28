@@ -10,6 +10,7 @@ export function createClientNetwork() {
 
 let clientEnv: Environment | undefined;
 export function getClientEnvironment() {
+
   if (typeof window === 'undefined') return null;
 
   if (clientEnv == null) {

@@ -11,6 +11,7 @@ type Query {
 	  # The ID of an object
 	  id: ID!
 	): Node
+	issuesFeed: IssuesFeed!
 }
 
 interface Node {
@@ -25,8 +26,11 @@ type PageInfo {
 }
 
 type Badge implements Node {
+	currentLevel: Int!
 	displayName: String!
 	id: ID!
+	points: Int!
+	progressPercentageToNextLevel: Int!
 	timeCreated: Time!
 	timeUpdated: Time!
 } 
@@ -41,6 +45,31 @@ type BadgeEdge {
 	cursor: String!
 }
 
+type CursorCheckpoints {
+	pullRequests: String!
+	timeCreated: Time!
+	timeUpdated: Time!
+}
+
+type Issue implements Node {
+	id: ID!
+	issueType: String!
+	repository: String!
+	respositoryAvatar: String!
+	title: String!
+	url: String!
+} 
+
+type IssuesConnection {
+	edges: [IssueEdge]!
+	pageInfo: PageInfo!
+} 
+
+type IssueEdge {
+	node: Issue!
+	cursor: String!
+}
+
 type Token {
 	accessToken: String!
 	expiry: Time!
@@ -52,12 +81,19 @@ type Token {
 
 type User implements Node {
 	badges(first: Int, last: Int, after: String, before: String): BadgesConnection!
+	cursorCheckpoints: CursorCheckpoints!
 	handle: String!
 	id: ID!
 	name: String!
 	timeCreated: Time!
 	timeUpdated: Time!
 	token: Token!
+}
+
+type IssuesFeed {
+	issuesFromLastRepo(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	relevantIssues(first: Int, last: Int, after: String, before: String): IssuesConnection!
 }
 
 
