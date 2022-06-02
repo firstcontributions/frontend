@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ad9778e1861ad18eea6f733063f0fab8>>
+ * @generated SignedSource<<6ee85af02fb1b037c56fee8106ea6f6e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,21 +10,21 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type IssueList_Query$variables = {
+export type RelevantIssues_Query$variables = {
   count?: number | null;
   cursor?: string | null;
   id: string;
 };
-export type IssueList_QueryVariables = IssueList_Query$variables;
-export type IssueList_Query$data = {
+export type RelevantIssues_QueryVariables = RelevantIssues_Query$variables;
+export type RelevantIssues_Query$data = {
   readonly node: {
-    readonly " $fragmentSpreads": FragmentRefs<"IssueList">;
+    readonly " $fragmentSpreads": FragmentRefs<"RelevantIssues">;
   } | null;
 };
-export type IssueList_QueryResponse = IssueList_Query$data;
-export type IssueList_Query = {
-  variables: IssueList_QueryVariables;
-  response: IssueList_Query$data;
+export type RelevantIssues_QueryResponse = RelevantIssues_Query$data;
+export type RelevantIssues_Query = {
+  variables: RelevantIssues_QueryVariables;
+  response: RelevantIssues_Query$data;
 };
 
 const node: ConcreteRequest = (function(){
@@ -83,7 +83,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "IssueList_Query",
+    "name": "RelevantIssues_Query",
     "selections": [
       {
         "alias": null,
@@ -107,7 +107,7 @@ return {
               }
             ],
             "kind": "FragmentSpread",
-            "name": "IssueList"
+            "name": "RelevantIssues"
           }
         ],
         "storageKey": null
@@ -120,7 +120,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "IssueList_Query",
+    "name": "RelevantIssues_Query",
     "selections": [
       {
         "alias": null,
@@ -249,7 +249,7 @@ return {
                 "args": (v4/*: any*/),
                 "filters": null,
                 "handle": "connection",
-                "key": "IssueList__relevantIssues",
+                "key": "RelevantIssues__relevantIssues",
                 "kind": "LinkedHandle",
                 "name": "relevantIssues"
               }
@@ -263,16 +263,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "4a238c02273230bd0e0360f892f7e1e8",
+    "cacheID": "44d15e6211ec7c5c5910256e2aa379ee",
     "id": null,
     "metadata": {},
-    "name": "IssueList_Query",
+    "name": "RelevantIssues_Query",
     "operationKind": "query",
-    "text": "query IssueList_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...IssueList_1G22uz\n    id\n  }\n}\n\nfragment IssueList_1G22uz on User {\n  relevantIssues(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n"
+    "text": "query RelevantIssues_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RelevantIssues_1G22uz\n    id\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment RelevantIssues_1G22uz on User {\n  relevantIssues(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "ea3bf49f1810a97f0ff9d68106cd35a5";
+(node as any).hash = "c597db62bba9905565005cddf068a932";
 
 export default node;

@@ -2,17 +2,17 @@ import React from "react"
 import { useFragment, graphql, usePaginationFragment } from "react-relay"
 import Issue from "./Issue"
 
-const IssueList = ({user}: any) => {
+const RelevantIssues = ({user}: any) => {
     const {data, loadNext, hasNext} = usePaginationFragment(
         graphql`
-        fragment IssueList on User 
-        @refetchable(queryName: "IssueList_Query")
+        fragment RelevantIssues on User 
+        @refetchable(queryName: "RelevantIssues_Query")
         @argumentDefinitions(
             count: {type: "Int", defaultValue: 10}
             cursor: {type: "String"}
         ){
             relevantIssues(first:$count, after: $cursor) 
-            @connection(key: "IssueList__relevantIssues") {
+            @connection(key: "RelevantIssues__relevantIssues") {
                 edges {
                     node {
                         id
@@ -29,7 +29,7 @@ const IssueList = ({user}: any) => {
     }
 
     return (
-        <div className="grid grid-cols-2 xl:grid-cols-3 space-x-4 space-y-4">
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
             {
                 data.relevantIssues.edges.map((issue) => (<Issue issue={issue.node} key={issue.id}/>))
             }
@@ -39,4 +39,4 @@ const IssueList = ({user}: any) => {
     )
 }
 
-export default IssueList
+export default RelevantIssues

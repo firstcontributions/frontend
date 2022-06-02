@@ -1,0 +1,42 @@
+import React from "react"
+import { useFragment, graphql, usePaginationFragment } from "react-relay"
+import Issue from "./Issue"
+
+const IssuesFromRecentRepos = ({user}: any) => {
+    const {data, loadNext, hasNext} = usePaginationFragment(
+        graphql`
+        fragment IssuesFromRecentRepos on User 
+        @refetchable(queryName: "IssuesFromRecentRepos_Query")
+        @argumentDefinitions(
+            count: {type: "Int", defaultValue: 2}
+            cursor: {type: "String"}
+        ){
+            issuesFromOtherRecentRepos(first:$count, after: $cursor) 
+            @connection(key: "IssuesFromRecentRepos__issuesFromOtherRecentRepos") {
+                edges {
+                    node {
+                        id
+                        ...Issue_node
+                    }
+                }
+            }
+        }
+        `, user
+    )
+
+    if (!data || data.issuesFromOtherRecentRepos.edges.length === 0  ) {
+        return (<></>)
+    }
+
+    return (
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
+            {
+                data.issuesFromOtherRecentRepos.edges.map((issue) => (<Issue issue={issue.node} key={issue.id}/>))
+            }
+            {hasNext? <button onClick={()=>{loadNext(3)}}>Load more</button>: null}
+            
+        </div>
+    )
+}
+
+export default IssuesFromRecentRepos

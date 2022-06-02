@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9d3856f0689efbe07b00bb67839d6e9c>>
+ * @generated SignedSource<<db517511e8814ee4632004aebf4c17e1>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,7 +10,7 @@
 
 import { ReaderFragment, RefetchableFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type IssueList$data = {
+export type RelevantIssues$data = {
   readonly relevantIssues: {
     readonly edges: ReadonlyArray<{
       readonly node: {
@@ -20,12 +20,12 @@ export type IssueList$data = {
     } | null>;
   };
   readonly id: string;
-  readonly " $fragmentType": "IssueList";
+  readonly " $fragmentType": "RelevantIssues";
 };
-export type IssueList = IssueList$data;
-export type IssueList$key = {
-  readonly " $data"?: IssueList$data;
-  readonly " $fragmentSpreads": FragmentRefs<"IssueList">;
+export type RelevantIssues = RelevantIssues$data;
+export type RelevantIssues$key = {
+  readonly " $data"?: RelevantIssues$data;
+  readonly " $fragmentSpreads": FragmentRefs<"RelevantIssues">;
 };
 
 const node: ReaderFragment = (function(){
@@ -74,18 +74,18 @@ return {
       "fragmentPathInResult": [
         "node"
       ],
-      "operation": require('./IssueList_Query.graphql'),
+      "operation": require('./RelevantIssues_Query.graphql'),
       "identifierField": "id"
     }
   },
-  "name": "IssueList",
+  "name": "RelevantIssues",
   "selections": [
     {
       "alias": "relevantIssues",
       "args": null,
       "concreteType": "IssuesConnection",
       "kind": "LinkedField",
-      "name": "__IssueList__relevantIssues_connection",
+      "name": "__RelevantIssues__relevantIssues_connection",
       "plural": false,
       "selections": [
         {
@@ -165,6 +165,6 @@ return {
 };
 })();
 
-(node as any).hash = "ea3bf49f1810a97f0ff9d68106cd35a5";
+(node as any).hash = "c597db62bba9905565005cddf068a932";
 
 export default node;
