@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ac1ad9985a8bf1d7f3fe1b13ed18b7f4>>
+ * @generated SignedSource<<69823c1cb2ea7cb5c6031581cc15986a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,7 @@ export type pages_UserQueryVariables = pages_UserQuery$variables;
 export type pages_UserQuery$data = {
   readonly viewer: {
     readonly handle: string;
-    readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user">;
+    readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user" | "IssueList">;
   } | null;
 };
 export type pages_UserQueryResponse = pages_UserQuery$data;
@@ -45,7 +45,53 @@ v2 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "cursor",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "PageInfo",
+  "kind": "LinkedField",
+  "name": "pageInfo",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "endCursor",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "hasNextPage",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v6 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 10
+  }
+];
 return {
   "fragment": {
     "argumentDefinitions": [],
@@ -66,6 +112,11 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "BadgeList_user"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "IssueList"
           }
         ],
         "storageKey": null
@@ -128,51 +179,15 @@ return {
                         "name": "progressPercentageToNextLevel",
                         "storageKey": null
                       },
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "__typename",
-                        "storageKey": null
-                      }
+                      (v3/*: any*/)
                     ],
                     "storageKey": null
                   },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "cursor",
-                    "storageKey": null
-                  }
+                  (v4/*: any*/)
                 ],
                 "storageKey": null
               },
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "PageInfo",
-                "kind": "LinkedField",
-                "name": "pageInfo",
-                "plural": false,
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "endCursor",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "hasNextPage",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
-              }
+              (v5/*: any*/)
             ],
             "storageKey": "badges(first:2)"
           },
@@ -185,23 +200,111 @@ return {
             "kind": "LinkedHandle",
             "name": "badges"
           },
-          (v2/*: any*/)
+          (v2/*: any*/),
+          {
+            "alias": null,
+            "args": (v6/*: any*/),
+            "concreteType": "IssuesConnection",
+            "kind": "LinkedField",
+            "name": "relevantIssues",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "IssueEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Issue",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v2/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "repositoryAvatar",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "repository",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "title",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "url",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "labels",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "commentCount",
+                        "storageKey": null
+                      },
+                      (v3/*: any*/)
+                    ],
+                    "storageKey": null
+                  },
+                  (v4/*: any*/)
+                ],
+                "storageKey": null
+              },
+              (v5/*: any*/)
+            ],
+            "storageKey": "relevantIssues(first:10)"
+          },
+          {
+            "alias": null,
+            "args": (v6/*: any*/),
+            "filters": null,
+            "handle": "connection",
+            "key": "IssueList__relevantIssues",
+            "kind": "LinkedHandle",
+            "name": "relevantIssues"
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "f244546d6ac18c752ebbf870f9604a8e",
+    "cacheID": "2ec28aa879fdb4b20169f46a8b98078a",
     "id": null,
     "metadata": {},
     "name": "pages_UserQuery",
     "operationKind": "query",
-    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n"
+    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    ...IssueList\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n\nfragment IssueList on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n"
   }
 };
 })();
 
-(node as any).hash = "d4b147c16f060ea6380283eba28136ad";
+(node as any).hash = "e78d6f0813d20cce0f6994c014b1426b";
 
 export default node;

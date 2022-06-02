@@ -5,6 +5,7 @@ import { withRelay, RelayProps } from 'relay-nextjs';
 import {pages_UserQuery} from '../queries/__generated__/pages_UserQuery.graphql'
 import { getClientEnvironment } from '../lib/client_environment';
 import Card from '../components/Card';
+import IssueList from '../components/issue/IssueList';
 
 
 const FeedsQuery = graphql`
@@ -12,6 +13,7 @@ const FeedsQuery = graphql`
     viewer { 
       handle
       ...BadgeList_user
+      ...IssueList
     }
   }
 `
@@ -31,6 +33,9 @@ const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => 
         <div>
           <Card>Promoted</Card>
         </div>
+      </div>
+      <div>
+        <IssueList user={query.viewer} />
       </div>
     </div>
   )
