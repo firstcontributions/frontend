@@ -29,13 +29,16 @@ const RelevantIssues = ({user}: any) => {
     }
 
     return (
-        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
-            {
-                data.relevantIssues.edges.map((issue) => (<Issue issue={issue.node} key={issue.id}/>))
-            }
-            {hasNext? <button onClick={()=>{loadNext(10)}}>Load more</button>: null}
-            
+        <div className="mt-10">
+            <h3 className='font-bold text-gray-500 text-lg'>Explore New Issues</h3>
+            <div className="grid grid-cols-2 xl:grid-cols-2 gap-4 mt-4">
+                {
+                    data.relevantIssues.edges.map((issue) => (<Issue issue={issue.node} key={issue.id}/>))
+                }
+                {hasNext? <button onClick={()=>{loadNext(10)}}>Load more</button>: null}
+            </div>
         </div>
+       
     )
 }
 

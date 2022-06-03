@@ -24,24 +24,24 @@ const FeedsQuery = graphql`
 const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => {
   const query = usePreloadedQuery(FeedsQuery, preloadedQuery);
   return (
-    <div className="container mx-auto bg-gray-100 p-4">
-      <div className="grid grid-cols-5 gap-4">
-        <div>
+    <div className="mx-auto bg-gray-100 p-4 px-20">
+      <div className="grid grid-cols-9 gap-10">
+        <div className="col-span-2">
           <Card>
             <UserDetails user={query.viewer}/>
           </Card>
         </div>
-        <div className="col-span-3">
+        <div className="col-span-5">
           <Card>Posts</Card>
+          <IssuesFromLastRepo user={query.viewer} />
+          <IssuesFromRecentRepos user={query.viewer} />
+          <RelevantIssues user={query.viewer} />
         </div>
-        <div>
+        <div className="col-span-2">
           <Card>Promoted</Card>
         </div>
       </div>
       <div>
-        <IssuesFromLastRepo user={query.viewer} />
-        <IssuesFromRecentRepos user={query.viewer} />
-        <RelevantIssues user={query.viewer} />
       </div>
     </div>
   )
