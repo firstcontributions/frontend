@@ -1,6 +1,7 @@
 
 schema {
 	query: Query
+	mutation: Mutation
 }
 scalar Time
 type Query {
@@ -11,7 +12,6 @@ type Query {
 	  # The ID of an object
 	  id: ID!
 	): Node
-	issuesFeed: IssuesFeed!
 }
 
 interface Node {
@@ -45,17 +45,15 @@ type BadgeEdge {
 	cursor: String!
 }
 
-type CursorCheckpoints {
-	pullRequests: String!
-	timeCreated: Time!
-	timeUpdated: Time!
-}
-
 type Issue implements Node {
+	body: String!
+	commentCount: Int!
 	id: ID!
 	issueType: String!
+	labels: [String]!
 	repository: String!
-	respositoryAvatar: String!
+	repositoryAvatar: String!
+	repositoryUpdatedAt: Time!
 	title: String!
 	url: String!
 } 
@@ -70,30 +68,27 @@ type IssueEdge {
 	cursor: String!
 }
 
-type Token {
-	accessToken: String!
-	expiry: Time!
-	refreshToken: String!
-	timeCreated: Time!
-	timeUpdated: Time!
-	tokenType: String!
-}
-
 type User implements Node {
 	badges(first: Int, last: Int, after: String, before: String): BadgesConnection!
-	cursorCheckpoints: CursorCheckpoints!
 	handle: String!
 	id: ID!
-	name: String!
-	timeCreated: Time!
-	timeUpdated: Time!
-	token: Token!
-}
-
-type IssuesFeed {
 	issuesFromLastRepo(first: Int, last: Int, after: String, before: String): IssuesConnection!
 	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	name: String!
 	relevantIssues(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	timeCreated: Time!
+	timeUpdated: Time!
 }
 
+input CreateUserInput {
+	handle: String!
+	name: String!
+}
 
+input UpdateUserInput {
+	name: String!
+}
+
+type Mutation { 
+	createUser(user: CreateUserInput!): User!
+}
