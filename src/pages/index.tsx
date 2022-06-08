@@ -8,13 +8,14 @@ import Card from '../components/Card';
 import RelevantIssues from '../components/issue/RelevantIssues';
 import IssuesFromLastRepo from '../components/issue/IssuesFromLastRepo';
 import IssuesFromRecentRepos from '../components/issue/IssuesFromRecentRepo';
+import Layout from '../components/Layout';
 
 
 const FeedsQuery = graphql`
   query pages_UserQuery{ 
     viewer { 
       handle
-      ...BadgeList_user
+      ...UserDetails_user
       ...RelevantIssues
       ...IssuesFromLastRepo
       ...IssuesFromRecentRepos
@@ -23,27 +24,18 @@ const FeedsQuery = graphql`
 `
 const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => {
   const query = usePreloadedQuery(FeedsQuery, preloadedQuery);
+  const leftSidebar = (
+    <Card>
+      <UserDetails user={query.viewer}/>
+    </Card>
+  )
   return (
-    <div className="mx-auto bg-gray-100 p-4 px-20">
-      <div className="grid grid-cols-9 gap-10">
-        <div className="col-span-2">
-          <Card>
-            <UserDetails user={query.viewer}/>
-          </Card>
-        </div>
-        <div className="col-span-5">
-          <Card>Posts</Card>
-          <IssuesFromLastRepo user={query.viewer} />
-          <IssuesFromRecentRepos user={query.viewer} />
-          <RelevantIssues user={query.viewer} />
-        </div>
-        <div className="col-span-2">
-          <Card>Promoted</Card>
-        </div>
-      </div>
-      <div>
-      </div>
-    </div>
+    <Layout sidebarContentLeft={leftSidebar} sidebarContentRight={<div>Promoted</div>}>
+      <Card>Posts</Card>
+      <IssuesFromLastRepo user={query.viewer} />
+      <IssuesFromRecentRepos user={query.viewer} />
+      <RelevantIssues user={query.viewer} />
+    </Layout>
   )
 }
 

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<09a6a6e659a3af4b99e7f06d5b2ac8aa>>
+ * @generated SignedSource<<b621c17c62e6a7cc86db4ac0d5c48687>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -30,7 +30,7 @@ export type IssuesFromLastRepo_Query = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "defaultValue": 3,
+    "defaultValue": 2,
     "kind": "LocalArgument",
     "name": "count"
   },
@@ -263,16 +263,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2ca647cbb5160dd0826ff2291a857847",
+    "cacheID": "23214a311921b71aedd7513b4f919088",
     "id": null,
     "metadata": {},
     "name": "IssuesFromLastRepo_Query",
     "operationKind": "query",
-    "text": "query IssuesFromLastRepo_Query(\n  $count: Int = 3\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...IssuesFromLastRepo_1G22uz\n    id\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo_1G22uz on User {\n  issuesFromLastRepo(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query IssuesFromLastRepo_Query(\n  $count: Int = 2\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...IssuesFromLastRepo_1G22uz\n    id\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo_1G22uz on User {\n  issuesFromLastRepo(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "a5c75c288399fa2afed4b1484d74e272";
+(node as any).hash = "d1992f98b31dd96c46f4149392c31c6e";
 
 export default node;
