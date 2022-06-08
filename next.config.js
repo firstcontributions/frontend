@@ -8,6 +8,14 @@ const nextConfig = {
 
   //   return config;
   // },
+  async rewrites() {
+    return [
+      {
+        source: '/:handle(@[a-zA-Z0-9]+)/:id*',
+        destination: "/users/:handle/:id*",
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig
