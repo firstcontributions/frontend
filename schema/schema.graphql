@@ -110,12 +110,15 @@ input UserInput {
 	name: String! 
 	reputation: ReputationInput!
 }
-input UpdateUserInput { 
-	gitContributionStats: GitContributionStatsInput!
-	name: String! 
-	reputation: ReputationInput!
+input UpdateUserInput {
+	id: ID!
+	bio: String 
+	gitContributionStats: GitContributionStatsInput
+	name: String 
+	reputation: ReputationInput
 }
 
 type Mutation { 
-	createUser(user:UserInput!): User!
+	createUser(user:UserInput!): User! 
+	updateUser(user: UpdateUserInput!): User!
 }

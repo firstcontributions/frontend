@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import UserDetails from '../components/UserDetails'
+import UserDetails from '../components/UserDetails/UserDetails'
 import { graphql, usePreloadedQuery } from 'react-relay';
 import { withRelay, RelayProps } from 'relay-nextjs';
 import {pages_UserQuery} from '../queries/__generated__/pages_UserQuery.graphql'

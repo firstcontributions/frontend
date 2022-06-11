@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c6da7ee94f1bc0ebf680226139588b18>>
+ * @generated SignedSource<<2c6fdb3b8a74b0214e3d18f11baaeba8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,14 +11,14 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type UserDetails_user$data = {
+  readonly id: string;
   readonly handle: string;
   readonly avatar: string;
-  readonly bio: string;
   readonly gitContributionStats: {
     readonly issues: number;
     readonly pullRequests: number;
   };
-  readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user">;
+  readonly " $fragmentSpreads": FragmentRefs<"Bio_user" | "BadgeList_user">;
   readonly " $fragmentType": "UserDetails_user";
 };
 export type UserDetails_user = UserDetails_user$data;
@@ -37,6 +37,13 @@ const node: ReaderFragment = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "id",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "handle",
       "storageKey": null
     },
@@ -48,11 +55,9 @@ const node: ReaderFragment = {
       "storageKey": null
     },
     {
-      "alias": null,
       "args": null,
-      "kind": "ScalarField",
-      "name": "bio",
-      "storageKey": null
+      "kind": "FragmentSpread",
+      "name": "Bio_user"
     },
     {
       "alias": null,
@@ -89,6 +94,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "7c175f8c06b74e3ba265b6c490063b9a";
+(node as any).hash = "1d7440ab5c9f7b60969d01101001a5d7";
 
 export default node;
