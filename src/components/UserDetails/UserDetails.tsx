@@ -3,6 +3,8 @@ import BadgeList from './Badges/BadgeList';
 import type {UserDetails_user$key} from '../../queries/__generated__/UserDetails_user.graphql';
 import { useState, ChangeEvent, FormEventHandler } from 'react';
 import Bio from './Bio';
+import { GoIssueOpened } from '@react-icons/all-files/go/GoIssueOpened'
+import { GoGitPullRequest } from '@react-icons/all-files/go/GoGitPullRequest'
 
 type Props = {
     user: UserDetails_user$key,
@@ -34,14 +36,20 @@ const UserDetails = ({user}: Props)=> {
             @{data.handle}
         </h1>
         <Bio user={data}/>
-        <span className="font-bold mr-4 block">
-            Issues: {" "}
-            {data.gitContributionStats.issues}
-        </span>
-        <span className="font-bold mr-4 block">
-            Pull Requets: {" "} 
-            {data.gitContributionStats.pullRequests}
-        </span>
+        <div className="my-4">
+            <span className="font-bold mb-2 flex">
+                <span className="text-2xl mr-2">
+                    <GoIssueOpened />
+                </span>
+                {data.gitContributionStats.issues}
+            </span>
+            <span className="font-bold mr-4 flex">
+                <span className="text-2xl mr-2">
+                    <GoGitPullRequest />
+                </span>
+                {data.gitContributionStats.pullRequests}
+            </span>
+        </div>
         <BadgeList user={data} />
     </div>
 )

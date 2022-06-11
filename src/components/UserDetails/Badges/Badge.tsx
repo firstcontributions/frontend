@@ -1,5 +1,6 @@
 import { graphql, useFragment } from "react-relay"
 import CircularProgress from './CircularProgress'
+import { DiAndroid } from '@react-icons/all-files/di/DiAndroid'
 
 const Badge = ({badge}: any) => {
     const data = useFragment(
@@ -14,30 +15,7 @@ const Badge = ({badge}: any) => {
     return (
         <>
             <h4>{data.displayName}</h4>
-            <>
-            <div className={`w-20 badge flex flex-col items-center`}>
-                <div className="w-6 h-6 ">
-                    <CircularProgress progress={100 + data.progressPercentageToNextLevel} />
-                </div>
-                <div className="badge-content h-10 w-full p-2"></div>
-            </div>
-            <style jsx>
-                {`
-                .badge {
-                    background: url('/assets/badge.svg');
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-                .badge-content {
-                    background: url(${`/assets/${data.displayName}.svg`});
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-                `}
-            </style>
-            </>
+            <DiAndroid  className="w-10 h-10 text-green-600 "/>
         </>
     )
 }
