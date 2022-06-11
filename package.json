@@ -9,6 +9,7 @@
     "relay": "relay-compiler"
   },
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "next": "12.0.10",
     "node-fetch": "^3.2.0",
     "react": "17.0.2",

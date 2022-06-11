@@ -1,5 +1,7 @@
 import { graphql, useFragment } from 'react-relay'
 import BadgeList from './BadgeList'
+import { GoIssueOpened } from '@react-icons/all-files/go/GoIssueOpened'
+import { GoGitPullRequest } from '@react-icons/all-files/go/GoGitPullRequest'
 
 const UserDetails = ({user})=> {
     const data = useFragment(
@@ -21,15 +23,20 @@ const UserDetails = ({user})=> {
         <h1>
             @{data.handle}
         </h1>
-        <p>{data.bio}</p>
-        <span className="font-bold mr-4 block">
-            Issues: {" "}
-            {data.gitContributionStats.issues}
-        </span>
-        <span className="font-bold mr-4 block">
-            Pull Requets: {" "} 
-            {data.gitContributionStats.pullRequests}
-        </span>
+        <div className="my-4">
+            <span className="font-bold mb-2 flex">
+                <span className="text-2xl mr-2">
+                    <GoIssueOpened />
+                </span>
+                {data.gitContributionStats.issues}
+            </span>
+            <span className="font-bold mr-4 flex">
+                <span className="text-2xl mr-2">
+                    <GoGitPullRequest />
+                </span>
+                {data.gitContributionStats.pullRequests}
+            </span>
+        </div>
         <BadgeList user={data} />
     </div>
 )
