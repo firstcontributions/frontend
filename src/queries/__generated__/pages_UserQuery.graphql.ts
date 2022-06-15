@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fc64f6aece06acc79dbe000d3c61118c>>
+ * @generated SignedSource<<3cb0b5404c24105fa5b6226ecd8c6d0f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,7 @@ export type pages_UserQueryVariables = pages_UserQuery$variables;
 export type pages_UserQuery$data = {
   readonly viewer: {
     readonly handle: string;
-    readonly " $fragmentSpreads": FragmentRefs<"BadgeList_user" | "RelevantIssues" | "IssuesFromLastRepo" | "IssuesFromRecentRepos">;
+    readonly " $fragmentSpreads": FragmentRefs<"UserDetails_user" | "RelevantIssues" | "IssuesFromLastRepo" | "IssuesFromRecentRepos">;
   } | null;
 };
 export type pages_UserQueryResponse = pages_UserQuery$data;
@@ -32,20 +32,20 @@ var v0 = {
   "name": "handle",
   "storageKey": null
 },
-v1 = [
-  {
-    "kind": "Literal",
-    "name": "first",
-    "value": 2
-  }
-],
-v2 = {
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
+v2 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 2
+  }
+],
 v3 = {
   "alias": null,
   "args": null,
@@ -109,7 +109,7 @@ v7 = [
         "name": "node",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
+          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -161,13 +161,6 @@ v7 = [
     "storageKey": null
   },
   (v5/*: any*/)
-],
-v8 = [
-  {
-    "kind": "Literal",
-    "name": "first",
-    "value": 3
-  }
 ];
 return {
   "fragment": {
@@ -188,7 +181,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "BadgeList_user"
+            "name": "UserDetails_user"
           },
           {
             "args": null,
@@ -227,9 +220,49 @@ return {
         "plural": false,
         "selections": [
           (v0/*: any*/),
+          (v1/*: any*/),
           {
             "alias": null,
-            "args": (v1/*: any*/),
+            "args": null,
+            "kind": "ScalarField",
+            "name": "avatar",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "bio",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "GitContributionStats",
+            "kind": "LinkedField",
+            "name": "gitContributionStats",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "issues",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "pullRequests",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": (v2/*: any*/),
             "concreteType": "BadgesConnection",
             "kind": "LinkedField",
             "name": "badges",
@@ -251,7 +284,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      (v2/*: any*/),
+                      (v1/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -280,14 +313,13 @@ return {
           },
           {
             "alias": null,
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "BadgeList__badges",
             "kind": "LinkedHandle",
             "name": "badges"
           },
-          (v2/*: any*/),
           {
             "alias": null,
             "args": (v6/*: any*/),
@@ -309,17 +341,17 @@ return {
           },
           {
             "alias": null,
-            "args": (v8/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": "IssuesConnection",
             "kind": "LinkedField",
             "name": "issuesFromLastRepo",
             "plural": false,
             "selections": (v7/*: any*/),
-            "storageKey": "issuesFromLastRepo(first:3)"
+            "storageKey": "issuesFromLastRepo(first:2)"
           },
           {
             "alias": null,
-            "args": (v8/*: any*/),
+            "args": (v2/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "IssuesFromLastRepo__issuesFromLastRepo",
@@ -328,17 +360,17 @@ return {
           },
           {
             "alias": null,
-            "args": (v8/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": "IssuesConnection",
             "kind": "LinkedField",
             "name": "issuesFromOtherRecentRepos",
             "plural": false,
             "selections": (v7/*: any*/),
-            "storageKey": "issuesFromOtherRecentRepos(first:3)"
+            "storageKey": "issuesFromOtherRecentRepos(first:2)"
           },
           {
             "alias": null,
-            "args": (v8/*: any*/),
+            "args": (v2/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "IssuesFromRecentRepos__issuesFromOtherRecentRepos",
@@ -351,16 +383,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "69ab33aa79a0cd921f0e20b478f46ce3",
+    "cacheID": "c0c150c42ea65b6e6838ac6388619cac",
     "id": null,
     "metadata": {},
     "name": "pages_UserQuery",
     "operationKind": "query",
-    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...BadgeList_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 3) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 3) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n"
   }
 };
 })();
 
-(node as any).hash = "5a4ed8bdfb573b8a256218a59e89462e";
+(node as any).hash = "bbbc10232c13c1a5ff11c6d360d94a25";
 
 export default node;

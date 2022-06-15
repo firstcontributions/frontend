@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<33b2854f04575116f94097c512d65df8>>
+ * @generated SignedSource<<fbc136eacc66df1bb9b3f35e3b892ff9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -30,7 +30,7 @@ export type IssuesFromRecentRepos_Query = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "defaultValue": 3,
+    "defaultValue": 2,
     "kind": "LocalArgument",
     "name": "count"
   },
@@ -263,16 +263,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e51af30f77bcd94edfc67e1b346d1a57",
+    "cacheID": "2b67d2559632d8c02438d6d044225765",
     "id": null,
     "metadata": {},
     "name": "IssuesFromRecentRepos_Query",
     "operationKind": "query",
-    "text": "query IssuesFromRecentRepos_Query(\n  $count: Int = 3\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...IssuesFromRecentRepos_1G22uz\n    id\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromRecentRepos_1G22uz on User {\n  issuesFromOtherRecentRepos(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query IssuesFromRecentRepos_Query(\n  $count: Int = 2\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...IssuesFromRecentRepos_1G22uz\n    id\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromRecentRepos_1G22uz on User {\n  issuesFromOtherRecentRepos(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "744a404a09186f6b7bb008592166a88c";
+(node as any).hash = "2459acd8cae083e81dcd0118403d60dd";
 
 export default node;

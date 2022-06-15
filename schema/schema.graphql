@@ -45,6 +45,16 @@ type BadgeEdge {
 	cursor: String!
 }
 
+type GitContributionStats {
+	issues: Int!
+	pullRequests: Int!
+}
+
+input GitContributionStatsInput {
+	issues: Int!
+	pullRequests: Int!
+}
+
 type Issue implements Node {
 	body: String!
 	commentCount: Int!
@@ -68,27 +78,47 @@ type IssueEdge {
 	cursor: String!
 }
 
+type Reputation {
+	value: Float!
+}
+
+input ReputationInput {
+	value: Float!
+}
+
 type User implements Node {
+	avatar: String!
 	badges(first: Int, last: Int, after: String, before: String): BadgesConnection!
+	bio: String!
+	gitContributionStats: GitContributionStats!
 	handle: String!
 	id: ID!
 	issuesFromLastRepo(first: Int, last: Int, after: String, before: String): IssuesConnection!
 	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String): IssuesConnection!
 	name: String!
 	relevantIssues(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	reputation: Reputation!
 	timeCreated: Time!
 	timeUpdated: Time!
 }
 
-input CreateUserInput {
+input UserInput {
+	avatar: String!
+	bio: String! 
+	gitContributionStats: GitContributionStatsInput!
 	handle: String!
-	name: String!
+	name: String! 
+	reputation: ReputationInput!
 }
-
 input UpdateUserInput {
-	name: String!
+	id: ID!
+	bio: String 
+	gitContributionStats: GitContributionStatsInput
+	name: String 
+	reputation: ReputationInput
 }
 
 type Mutation { 
-	createUser(user: CreateUserInput!): User!
+	createUser(user:UserInput!): User! 
+	updateUser(user: UpdateUserInput!): User!
 }
