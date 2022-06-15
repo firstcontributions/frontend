@@ -43,7 +43,8 @@ export const makeFetchGraphql=(ctx) => {
       }),
     })
     
-    const text = await results.text()    
+    const text = await results.text()  
+    console.log("response", text)
     const data = JSON.parse(
       text,
       withHydrateDatetime

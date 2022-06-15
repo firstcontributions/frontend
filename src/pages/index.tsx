@@ -9,6 +9,7 @@ import RelevantIssues from '../components/issue/RelevantIssues';
 import IssuesFromLastRepo from '../components/issue/IssuesFromLastRepo';
 import IssuesFromRecentRepos from '../components/issue/IssuesFromRecentRepo';
 import Layout from '../components/Layout';
+import Login from '../components/Login';
 
 
 const FeedsQuery = graphql`
@@ -24,11 +25,17 @@ const FeedsQuery = graphql`
 `
 const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => {
   const query = usePreloadedQuery(FeedsQuery, preloadedQuery);
-  const leftSidebar = (
-    <Card>
-      <UserDetails user={query.viewer}/>
-    </Card>
+  let leftSidebar = (
+    <Login/>
   )
+  if (query.viewer) {
+    leftSidebar = (
+      <Card>
+        <UserDetails user={query.viewer}/>
+      </Card>
+    )
+  }
+  
   return (
     <Layout sidebarContentLeft={leftSidebar} sidebarContentRight={<div>Promoted</div>}>
       <Card>Posts</Card>
