@@ -227,25 +227,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@react-editor-js/client@2.0.6":
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/@react-editor-js/client/-/client-2.0.6.tgz"
-  integrity sha512-LMMJLAXAwk1kVMy7fxTRFK6OdouvoseqJbmVUygJb2EcfuT84nC9OAtvGEL4vsVLUcnzEV400+F9t5OKa77FGQ==
-  dependencies:
-    "@react-editor-js/core" "2.0.6"
-
-"@react-editor-js/core@2.0.6":
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/@react-editor-js/core/-/core-2.0.6.tgz"
-  integrity sha512-mvHM2I+gT3AnvFpFhTZI0EFLKD9pRpgXDf286uwv6n6tngwLfnCCmtCbgiGI9ICph2GJvRZfaQubE+MHQ6YV8g==
-
-"@react-editor-js/server@2.0.6":
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/@react-editor-js/server/-/server-2.0.6.tgz"
-  integrity sha512-soW/bV5auciYr8gEYISWK4fuIblAcc4bcwPuCKnDBj9W9r/nAxMmNgCG+z9rs9Gnroa0Ko3Hzwzs9d5MdOShzg==
-  dependencies:
-    "@react-editor-js/core" "2.0.6"
-
 "@react-icons/all-files@^4.1.0":
   version "4.1.0"
   resolved "https://registry.npmjs.org/@react-icons/all-files/-/all-files-4.1.0.tgz"
@@ -2074,14 +2055,6 @@ react-dom@17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
-
-react-editor-js@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/react-editor-js/-/react-editor-js-2.0.6.tgz"
-  integrity sha512-8u47IbhExiFB2kGNdJYlsX5iVlSzac38A3oJ7bmnTz3Lp7Slys1xreoYdG71+KiOcfX0dEgOIavV4e6TJeB5eg==
-  dependencies:
-    "@react-editor-js/client" "2.0.6"
-    "@react-editor-js/server" "2.0.6"
 
 react-is@^16.13.1:
   version "16.13.1"
