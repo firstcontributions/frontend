@@ -8,7 +8,7 @@ const BadgeList = ({user}: any) => {
         fragment BadgeList_user on User 
         @refetchable(queryName: "BadgeList_userQuery")
         @argumentDefinitions(
-            count: {type: "Int", defaultValue: 2}
+            count: {type: "Int", defaultValue: 5}
             cursor: {type: "String"}
         ){
             badges(first:$count, after: $cursor) 
