@@ -18,11 +18,22 @@ const DEFAULT_INITIAL_DATA = () => {
     ]
   }
 }
+
+const getAbstract = (content) => {
+  let abstract = ''
+  for(let i =0; i< content.blocks.length; i++){
+    if (content.blocks[i].type == "header" || content.blocks[i].type =="paragraph") {
+      abstract += content.blocks[i].data.text
+    }
+    if (abstract.length >= 200) break;
+  }
+  return abstract;
+}
  
 const EDITTOR_HOLDER_ID = 'editorjs';
 
 export default function Editor () {
-    const [postTitle, setPostTitle] = useState('Enter Title')
+    const [postTitle, setPostTitle] = useState('Your Title Goes Here')
     const ejInstance = useRef();
     const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
    
@@ -65,11 +76,15 @@ export default function Editor () {
         `
     );
     const handleStorySubmit = () => {
-        console.log(postTitle)
-        console.log(editorData)
         commitMutation({
             variables: {
-              input: {title: postTitle, contentJson: JSON.stringify(editorData), abstractContent: '', urlSuffix: '', thumbnail: ''},
+              input: {
+                title: postTitle, 
+                contentJson: JSON.stringify(editorData), 
+                abstractContent: getAbstract(editorData), 
+                urlSuffix: postTitle.toLowerCase().replace(" ", "-").substring(0, 32), 
+                thumbnail: ''
+              },
             },
         })
     }

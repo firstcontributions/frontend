@@ -9,7 +9,7 @@ sidebarContentLeft?: ReactNode
 
 export default function Layout ({sidebarContentLeft, children, sidebarContentRight}: LayoutProps) {
     return (
-        <div className="mx-auto bg-gray-100">
+        <div className="mx-auto bg-gray-100 min-h-screen">
             <Navbar />
         <div className="grid grid-cols-9 gap-10 mt-10 px-20 pt-10">
             {sidebarContentLeft && (
