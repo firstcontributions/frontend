@@ -29,13 +29,13 @@ const BadgeList = ({user}: any) => {
     }
 
     return (
-        <>
+        <div className="space-y-4">
             {
                 data.badges.edges.map((badge)=> (<Badge key={badge.node.id} badge={badge.node}/>))
             }
             {hasNext? <button onClick={()=>{loadNext(2)}}>Load more</button>: null}
             
-        </>
+        </div>
     )
 }
 
