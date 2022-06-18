@@ -12,6 +12,7 @@ type Query {
 	  # The ID of an object
 	  id: ID!
 	): Node
+	feeds(first: Int, last: Int, after: String, before: String): StoriesConnection!
 }
 
 interface Node {
@@ -42,6 +43,35 @@ type BadgesConnection {
 
 type BadgeEdge {
 	node: Badge!
+	cursor: String!
+}
+
+type Comment implements Node {
+	abstractContent: String!
+	contentJson: String!
+	createdBy: User!
+	id: ID!
+	reactions(first: Int, last: Int, after: String, before: String): ReactionsConnection!
+	timeCreated: Time!
+	timeUpdated: Time!
+}
+
+input CommentInput {
+	abstractContent: String!
+	contentJson: String!
+	storyID: ID!
+}
+input UpdateCommentInput {
+	id: ID!
+} 
+
+type CommentsConnection {
+	edges: [CommentEdge]!
+	pageInfo: PageInfo!
+} 
+
+type CommentEdge {
+	node: Comment!
 	cursor: String!
 }
 
@@ -78,12 +108,72 @@ type IssueEdge {
 	cursor: String!
 }
 
+type Reaction implements Node {
+	createdBy: User!
+	id: ID!
+	timeCreated: Time!
+	timeUpdated: Time!
+}
+
+input ReactionInput {
+	commentID: ID!
+	storyID: ID!
+}
+input UpdateReactionInput {
+	id: ID!
+} 
+
+type ReactionsConnection {
+	edges: [ReactionEdge]!
+	pageInfo: PageInfo!
+} 
+
+type ReactionEdge {
+	node: Reaction!
+	cursor: String!
+}
+
 type Reputation {
 	value: Float!
 }
 
 input ReputationInput {
 	value: Float!
+}
+
+type Story implements Node {
+	abstractContent: String!
+	comments(first: Int, last: Int, after: String, before: String): CommentsConnection!
+	contentJson: String!
+	createdBy: User!
+	id: ID!
+	reactions(first: Int, last: Int, after: String, before: String): ReactionsConnection!
+	thumbnail: String!
+	timeCreated: Time!
+	timeUpdated: Time!
+	title: String!
+	urlSuffix: String!
+}
+
+input StoryInput {
+	abstractContent: String!
+	contentJson: String!
+	thumbnail: String!
+	title: String!
+	urlSuffix: String!
+}
+input UpdateStoryInput {
+	id: ID!
+} 
+
+type StoriesConnection {
+	edges: [StoryEdge]!
+	pageInfo: PageInfo!
+} 
+
+type StoryEdge {
+	node: Story!
+	cursor: String!
 }
 
 type User implements Node {
@@ -98,6 +188,7 @@ type User implements Node {
 	name: String!
 	relevantIssues(first: Int, last: Int, after: String, before: String): IssuesConnection!
 	reputation: Reputation!
+	stories(first: Int, last: Int, after: String, before: String): StoriesConnection!
 	timeCreated: Time!
 	timeUpdated: Time!
 }
@@ -112,6 +203,7 @@ input UserInput {
 }
 input UpdateUserInput {
 	id: ID!
+	avatar: String
 	bio: String 
 	gitContributionStats: GitContributionStatsInput
 	name: String 
@@ -119,6 +211,12 @@ input UpdateUserInput {
 }
 
 type Mutation { 
+	createComment(comment:CommentInput!): Comment! 
+	updateComment(comment: UpdateCommentInput!): Comment! 
+	createReaction(reaction:ReactionInput!): Reaction! 
+	updateReaction(reaction: UpdateReactionInput!): Reaction! 
+	createStory(story:StoryInput!): Story! 
+	updateStory(story: UpdateStoryInput!): Story! 
 	createUser(user:UserInput!): User! 
 	updateUser(user: UpdateUserInput!): User!
 }
