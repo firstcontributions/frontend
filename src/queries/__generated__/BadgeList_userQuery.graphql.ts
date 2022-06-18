@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a762b445bb0034afc5515e9fb6759d93>>
+ * @generated SignedSource<<bae48e922a5c4b783f04a03746b3f70c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -30,7 +30,7 @@ export type BadgeList_userQuery = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "defaultValue": 2,
+    "defaultValue": 5,
     "kind": "LocalArgument",
     "name": "count"
   },
@@ -174,6 +174,13 @@ return {
                             "name": "progressPercentageToNextLevel",
                             "storageKey": null
                           },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "currentLevel",
+                            "storageKey": null
+                          },
                           (v2/*: any*/)
                         ],
                         "storageKey": null
@@ -235,16 +242,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c33e4f674ff422ceb16980ec43d5678f",
+    "cacheID": "0a9ba44125fcf7e06a24e575eea94636",
     "id": null,
     "metadata": {},
     "name": "BadgeList_userQuery",
     "operationKind": "query",
-    "text": "query BadgeList_userQuery(\n  $count: Int = 2\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n"
+    "text": "query BadgeList_userQuery(\n  $count: Int = 5\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n"
   }
 };
 })();
 
-(node as any).hash = "81b8e5b7bf812b3295de85e80f0a42c9";
+(node as any).hash = "538319f030115861881c1c910899653c";
 
 export default node;

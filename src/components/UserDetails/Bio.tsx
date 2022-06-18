@@ -1,46 +1,49 @@
-import { useState } from "react";
-import { graphql, useFragment, useMutation } from "react-relay";
+import { useState } from 'react'
+import { graphql, useFragment, useMutation } from 'react-relay'
+import { Bio_user$key } from '../../queries/__generated__/Bio_user.graphql'
 
-
-const Bio = ({user}) => {
-
-    const data = useFragment(
-        graphql`
-            fragment Bio_user on User {
-                id
-                bio
-            }
-        `, user
-    );
-    
-    const [bio, setBio] = useState(data.bio);
-
-    const [commitMutation, isMutationInFlight] = useMutation(
-        graphql`
-          mutation BioUpdateMutation($input: UpdateUserInput!) {
-            updateUser(user:$input) {
-                id
-                bio
-            }
-          }
-        `
-    );
-    const onChange = (evt) => setBio(evt.target.textContent); 
-    const onSubmit = () => {
-        console.log(bio);
-        commitMutation({
-            variables: {
-              input: {id: data.id, bio: bio},
-            },
-        })
-    }
-
-    return (
-        <p contentEditable={true} onInput={onChange} onBlur={onSubmit}>
-            {data.bio}
-        </p>
-    )
+type BioProps = {
+  user: Bio_user$key
 }
 
+const Bio = ({ user }: BioProps) => {
+  const data = useFragment(
+    graphql`
+      fragment Bio_user on User {
+        id
+        bio
+      }
+    `,
+    user
+  )
+
+  const [bio, setBio] = useState(data.bio)
+
+  const [commitMutation, isMutationInFlight] = useMutation(
+    graphql`
+      mutation BioUpdateMutation($input: UpdateUserInput!) {
+        updateUser(user: $input) {
+          id
+          bio
+        }
+      }
+    `
+  )
+  const onChange = (evt: any) => setBio(evt.target.textContent)
+  const onSubmit = () => {
+    console.log(bio)
+    commitMutation({
+      variables: {
+        input: { id: data.id, bio: bio },
+      },
+    })
+  }
+
+  return (
+    <p contentEditable={true} onInput={onChange} onBlur={onSubmit}>
+      {data.bio}
+    </p>
+  )
+}
 
 export default Bio

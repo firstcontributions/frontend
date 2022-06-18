@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b3ba4f4872d7a0a7c22e1ec2b75fb800>>
+ * @generated SignedSource<<d09710f6dca0971159b337c85d28401e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,7 +10,7 @@
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type UpdateUserInput = {
-  Id: string;
+  id: string;
   bio?: string | null;
   gitContributionStats?: GitContributionStatsInput | null;
   name?: string | null;
