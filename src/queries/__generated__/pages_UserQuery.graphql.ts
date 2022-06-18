@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3cb0b5404c24105fa5b6226ecd8c6d0f>>
+ * @generated SignedSource<<0876db3fc0fbeab4308d7d9eb4d381d6>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -43,7 +43,7 @@ v2 = [
   {
     "kind": "Literal",
     "name": "first",
-    "value": 2
+    "value": 5
   }
 ],
 v3 = {
@@ -161,6 +161,13 @@ v7 = [
     "storageKey": null
   },
   (v5/*: any*/)
+],
+v8 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 2
+  }
 ];
 return {
   "fragment": {
@@ -299,6 +306,13 @@ return {
                         "name": "progressPercentageToNextLevel",
                         "storageKey": null
                       },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "currentLevel",
+                        "storageKey": null
+                      },
                       (v3/*: any*/)
                     ],
                     "storageKey": null
@@ -309,7 +323,7 @@ return {
               },
               (v5/*: any*/)
             ],
-            "storageKey": "badges(first:2)"
+            "storageKey": "badges(first:5)"
           },
           {
             "alias": null,
@@ -341,7 +355,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v2/*: any*/),
+            "args": (v8/*: any*/),
             "concreteType": "IssuesConnection",
             "kind": "LinkedField",
             "name": "issuesFromLastRepo",
@@ -351,7 +365,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v2/*: any*/),
+            "args": (v8/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "IssuesFromLastRepo__issuesFromLastRepo",
@@ -360,7 +374,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v2/*: any*/),
+            "args": (v8/*: any*/),
             "concreteType": "IssuesConnection",
             "kind": "LinkedField",
             "name": "issuesFromOtherRecentRepos",
@@ -370,7 +384,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v2/*: any*/),
+            "args": (v8/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "IssuesFromRecentRepos__issuesFromOtherRecentRepos",
@@ -383,12 +397,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c0c150c42ea65b6e6838ac6388619cac",
+    "cacheID": "b87232331392593a2cedb610263ebdaf",
     "id": null,
     "metadata": {},
     "name": "pages_UserQuery",
     "operationKind": "query",
-    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 2) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n"
+    "text": "query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n"
   }
 };
 })();

@@ -1,6 +1,6 @@
 import { graphql, useFragment } from "react-relay"
-import CircularProgress from './CircularProgress'
-import { DiAndroid } from '@react-icons/all-files/di/DiAndroid'
+import BadgeIcon from "./BadgeIcon"
+import Hexagon from "./Hexagon"
 
 const Badge = ({badge}: any) => {
     const data = useFragment(
@@ -8,6 +8,7 @@ const Badge = ({badge}: any) => {
             fragment Badge_node on Badge {
                 displayName
                 progressPercentageToNextLevel
+                currentLevel
             }
         `, badge
     )
@@ -15,7 +16,10 @@ const Badge = ({badge}: any) => {
     return (
         <>
             <h4>{data.displayName}</h4>
-            <DiAndroid  className="w-10 h-10 text-green-600 "/>
+                <Hexagon size={60} color="red" >
+                    <BadgeIcon displayName={data.displayName} />
+                </Hexagon>
+            {data.currentLevel}
         </>
     )
 }

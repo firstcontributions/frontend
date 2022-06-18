@@ -36,7 +36,7 @@ const UserDetails = ({user}: Props)=> {
             @{data.handle}
         </h1>
         <Bio user={data}/>
-        <div className="my-4">
+        <div className="my-4 flex space-x-4">
             <span className="font-bold mb-2 flex">
                 <span className="text-2xl mr-2">
                     <GoIssueOpened />
