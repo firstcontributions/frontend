@@ -1,20 +1,19 @@
-import type { NextPage } from 'next'
+import type { NextPage, NextPageContext } from 'next'
 import UserDetails from '../components/UserDetails/UserDetails'
-import { graphql, usePreloadedQuery } from 'react-relay';
-import { withRelay, RelayProps } from 'relay-nextjs';
-import {pages_UserQuery} from '../queries/__generated__/pages_UserQuery.graphql'
-import { getClientEnvironment } from '../lib/client_environment';
-import Card from '../components/Card';
-import RelevantIssues from '../components/issue/RelevantIssues';
-import IssuesFromLastRepo from '../components/issue/IssuesFromLastRepo';
-import IssuesFromRecentRepos from '../components/issue/IssuesFromRecentRepo';
-import Layout from '../components/Layout';
-import Login from '../components/Login';
-
+import { graphql, usePreloadedQuery } from 'react-relay'
+import { withRelay, RelayProps } from 'relay-nextjs'
+import { pages_UserQuery } from '../queries/__generated__/pages_UserQuery.graphql'
+import { getClientEnvironment } from '../lib/client_environment'
+import Card from '../components/Card'
+import RelevantIssues from '../components/issue/RelevantIssues'
+import IssuesFromLastRepo from '../components/issue/IssuesFromLastRepo'
+import IssuesFromRecentRepos from '../components/issue/IssuesFromRecentRepo'
+import Layout from '../components/Layout'
+import Login from '../components/Login'
 
 const FeedsQuery = graphql`
-  query pages_UserQuery{ 
-    viewer { 
+  query pages_UserQuery {
+    viewer {
       handle
       ...UserDetails_user
       ...RelevantIssues
@@ -23,40 +22,43 @@ const FeedsQuery = graphql`
     }
   }
 `
-const Home: NextPage = ({ preloadedQuery }: RelayProps<{}, pages_UserQuery>) => {
-  const query = usePreloadedQuery(FeedsQuery, preloadedQuery);
-  let leftSidebar = (
-    <Login/>
-  )
+const Home = ({
+  preloadedQuery,
+}: RelayProps<Record<string, never>, pages_UserQuery>) => {
+  const query = usePreloadedQuery(FeedsQuery, preloadedQuery)
+  let leftSidebar = <Login />
   if (query.viewer) {
     leftSidebar = (
       <Card>
-        <UserDetails user={query.viewer}/>
+        <UserDetails user={query.viewer} />
       </Card>
     )
   }
-  
+
   return (
-    <Layout sidebarContentLeft={leftSidebar} sidebarContentRight={<div>Promoted</div>}>
+    <Layout
+      sidebarContentLeft={leftSidebar}
+      sidebarContentRight={<div>Promoted</div>}
+    >
       <Card>Posts</Card>
-      <IssuesFromLastRepo user={query.viewer} />
-      <IssuesFromRecentRepos user={query.viewer} />
-      <RelevantIssues user={query.viewer} />
+      {query.viewer && (
+        <>
+          <IssuesFromLastRepo user={query.viewer} />
+          <IssuesFromRecentRepos user={query.viewer} />
+          <RelevantIssues user={query.viewer} />
+        </>
+      )}
     </Layout>
   )
 }
 
 export default withRelay(Home, FeedsQuery, {
   createClientEnvironment: () => getClientEnvironment()!,
-  createServerEnvironment: async (ctx) => {
-
+  createServerEnvironment: async (ctx: NextPageContext) => {
     const { createServerEnvironment } = await import(
       '../lib/server/server_environment'
-    );
+    )
 
-    return createServerEnvironment(ctx);
+    return createServerEnvironment(ctx)
   },
-});
-
-
-
+})
