@@ -1,4 +1,5 @@
 import EditorJS, { LogLevels, OutputData } from '@editorjs/editorjs'
+import { Http2ServerRequest } from 'http2'
 import React, { useEffect, useRef, useState } from 'react'
 import { graphql, useMutation } from 'react-relay'
 import Button from '../Button'
@@ -36,11 +37,18 @@ const getAbstract = (content: OutputData) => {
 
 const EDITTOR_HOLDER_ID = 'editorjs'
 
-export default function Editor() {
-  const [postTitle, setPostTitle] = useState('Your Title Goes Here')
-  const ejInstance = useRef<EditorJS | null>()
-  const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA)
+type EditorProps = {
+  title?: string
+  body?: string
+}
 
+export default function Editor({ title, body }: EditorProps) {
+  const [postTitle, setPostTitle] = useState(title || 'Your Title Goes Here')
+  const ejInstance = useRef<EditorJS | null>()
+
+  const [editorData, setEditorData] = React.useState(
+    (body && JSON.parse(decodeURI(body))) || DEFAULT_INITIAL_DATA
+  )
   useEffect(() => {
     if (!ejInstance.current) {
       initEditor()
