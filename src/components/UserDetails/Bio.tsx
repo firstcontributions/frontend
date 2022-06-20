@@ -31,7 +31,6 @@ const Bio = ({ user }: BioProps) => {
   )
   const onChange = (evt: any) => setBio(evt.target.textContent)
   const onSubmit = () => {
-    console.log(bio)
     commitMutation({
       variables: {
         input: { id: data.id, bio: bio },

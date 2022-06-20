@@ -48,7 +48,6 @@ export const makeFetchGraphql = (ctx: NextPageContext) => {
     )
 
     const text = await results.text()
-    console.log('response', text)
     const data = JSON.parse(text, withHydrateDatetime) as GraphQLResponse
 
     return data
