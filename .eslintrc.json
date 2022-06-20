@@ -17,5 +17,8 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "rules": {
+    "@next/next/no-html-link-for-pages": "off"
+  },
   "plugins": ["@typescript-eslint"]
 }
