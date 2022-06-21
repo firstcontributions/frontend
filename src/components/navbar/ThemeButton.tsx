@@ -2,17 +2,19 @@ import { useEffect, useState } from 'react'
 import Button from '../Button'
 
 export default function ThemeButton() {
-  const [darkMode, setDarkMode] = useState<boolean | undefined>(undefined)
-  useEffect(() => {
-    setDarkMode(document.documentElement.classList.contains('dark'))
-  }, [])
+  const darkModePreference =
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  const [darkMode, setDarkMode] = useState(darkModePreference)
+  darkModePreference && window.document.documentElement.classList.add('dark')
   useEffect(() => {
     if (darkMode) {
       window.document.documentElement.classList.add('dark')
-      localStorage.setItem('vidyaDarkMode', 'true')
+      localStorage.setItem('preferenceDarkMode', 'true')
     } else {
       window.document.documentElement.classList.remove('dark')
-      localStorage.setItem('vidyaDarkMode', 'false')
+      localStorage.setItem('preferenceDarkMode', 'false')
     }
   }, [darkMode])
   const onClick = () => {

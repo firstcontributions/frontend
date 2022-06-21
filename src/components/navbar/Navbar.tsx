@@ -1,7 +1,10 @@
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Button from '../Button'
-import ThemeButton from './ThemeButton'
+const ThemeButton = dynamic(() => import('./ThemeButton'), {
+  ssr: false,
+})
 
 export default function Navbar() {
   const router = useRouter()
@@ -16,9 +19,7 @@ export default function Navbar() {
           <ThemeButton />
           {pathname !== '/story' && (
             <Button>
-              <a href="/story">
-                <a>Create Post </a>
-              </a>
+              <a href="/story">Create Post</a>
             </Button>
           )}
         </div>
