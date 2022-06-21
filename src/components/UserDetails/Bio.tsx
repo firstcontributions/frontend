@@ -39,7 +39,12 @@ const Bio = ({ user }: BioProps) => {
   }
 
   return (
-    <p contentEditable={true} onInput={onChange} onBlur={onSubmit}>
+    <p
+      contentEditable={true}
+      onInput={onChange}
+      onBlur={onSubmit}
+      className="dark:text-gray-300"
+    >
       {data.bio}
     </p>
   )

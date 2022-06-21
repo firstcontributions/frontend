@@ -30,13 +30,15 @@ const Issue = ({ issue }: IssueProps) => {
           />
           <div className="flex flex-col ml-4">
             <div className="">
-              <span className="font-bold text-xl">{data.repository}</span>
+              <span className="font-bold text-xl dark:text-gray-300">
+                {data.repository}
+              </span>
             </div>
             <div className="space-x-2">
               {data.labels.map((label) => (
                 <span
                   key={label}
-                  className="bg-blue-300 rounded-sm px-2 py-0.5"
+                  className="bg-blue-300 dark:bg-blue-900 dark:text-gray-300 rounded-sm px-2 py-0.5"
                 >
                   {label}
                 </span>
@@ -46,7 +48,7 @@ const Issue = ({ issue }: IssueProps) => {
         </div>
       </a>
       <div className="mt-2">
-        <span className="text-l">{data.title}</span>
+        <span className="text-l dark:text-gray-300">{data.title}</span>
       </div>
     </div>
   )
