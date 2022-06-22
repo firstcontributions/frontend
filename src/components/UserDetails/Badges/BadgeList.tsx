@@ -36,6 +36,7 @@ const BadgeList = ({ user }: any) => {
       ))}
       {hasNext ? (
         <button
+          className="text-gray-600 dark:text-gray-300"
           onClick={() => {
             loadNext(2)
           }}
