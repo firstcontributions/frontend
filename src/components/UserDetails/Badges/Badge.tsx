@@ -1,8 +1,9 @@
 import { graphql, useFragment } from 'react-relay'
-import BadgeIcon from './BadgeIcon'
+import { Badge_node$key } from '../../../queries/__generated__/Badge_node.graphql'
+import BadgeIcon, { LanguageName } from './BadgeIcon'
 import Hexagon from './Hexagon'
 
-const Badge = ({ badge }: any) => {
+const Badge = ({ badge }: { badge: Badge_node$key }) => {
   const data = useFragment(
     graphql`
       fragment Badge_node on Badge {
@@ -17,7 +18,7 @@ const Badge = ({ badge }: any) => {
   return (
     <div className="flex items-center ">
       <Hexagon size={60} color="red">
-        <BadgeIcon displayName={data.displayName} />
+        <BadgeIcon displayName={data.displayName as LanguageName} />
       </Hexagon>
       <div className=" ml-8 dark:text-gray-300">
         <span className="font-bold block">Level: {data.currentLevel}</span>

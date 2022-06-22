@@ -98,7 +98,7 @@ export default function Editor({ title, body }: EditorProps) {
     })
   }
   return (
-    <Card classes="prose max-w-none">
+    <Card classes="prose max-w-none dark:prose-invert">
       <div>
         <div id={EDITTOR_HOLDER_ID}> </div>
       </div>

@@ -25,8 +25,10 @@ const iconMap = {
   PHP: <SiPhp />,
 }
 
+export type LanguageName = keyof typeof iconMap
+
 type BadgeIconProps = {
-  displayName: keyof typeof iconMap
+  displayName: LanguageName
 }
 
 export default function BadgeIcon({ displayName }: BadgeIconProps) {
