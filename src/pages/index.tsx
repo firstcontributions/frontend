@@ -10,8 +10,9 @@ import IssuesFromLastRepo from '../components/issue/IssuesFromLastRepo'
 import IssuesFromRecentRepos from '../components/issue/IssuesFromRecentRepo'
 import Layout from '../components/Layout'
 import Login from '../components/Login'
+import Feed from '../components/feed/Feed'
 
-const FeedsQuery = graphql`
+const RootQuery = graphql`
   query pages_UserQuery {
     viewer {
       handle
@@ -20,12 +21,13 @@ const FeedsQuery = graphql`
       ...IssuesFromLastRepo
       ...IssuesFromRecentRepos
     }
+    ...FeedsQuery
   }
 `
 const Home = ({
   preloadedQuery,
 }: RelayProps<Record<string, never>, pages_UserQuery>) => {
-  const query = usePreloadedQuery(FeedsQuery, preloadedQuery)
+  const query = usePreloadedQuery(RootQuery, preloadedQuery)
   let leftSidebar = <Login />
   if (query.viewer) {
     leftSidebar = (
@@ -43,6 +45,7 @@ const Home = ({
       <Card>Posts</Card>
       {query.viewer && (
         <>
+          <Feed root={query} />
           <IssuesFromLastRepo user={query.viewer} />
           <IssuesFromRecentRepos user={query.viewer} />
           <RelevantIssues user={query.viewer} />
@@ -52,7 +55,7 @@ const Home = ({
   )
 }
 
-export default withRelay(Home, FeedsQuery, {
+export default withRelay(Home, RootQuery, {
   createClientEnvironment: () => getClientEnvironment()!,
   createServerEnvironment: async (ctx: NextPageContext) => {
     const { createServerEnvironment } = await import(

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9d1e32a9f684303a0547221f12e903b0>>
+ * @generated SignedSource<<04e48cd791c251ffd5112a274e3455c0>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,112 +8,92 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest, Mutation } from 'relay-runtime';
+import { ConcreteRequest, Mutation } from 'relay-runtime'
 export type StoryInput = {
-  abstractContent: string;
-  contentJson: string;
-  thumbnail: string;
-  title: string;
-  urlSuffix: string;
-};
+  abstractContent: string
+  contentJson: string
+  thumbnail: string
+  title: string
+  urlSuffix: string
+}
 export type StoryEditorCreateMutation$variables = {
-  input: StoryInput;
-};
-export type StoryEditorCreateMutationVariables = StoryEditorCreateMutation$variables;
+  input: StoryInput
+}
+export type StoryEditorCreateMutationVariables =
+  StoryEditorCreateMutation$variables
 export type StoryEditorCreateMutation$data = {
   readonly createStory: {
-    readonly title: string;
-  };
-};
-export type StoryEditorCreateMutationResponse = StoryEditorCreateMutation$data;
+    readonly id: string
+  }
+}
+export type StoryEditorCreateMutationResponse = StoryEditorCreateMutation$data
 export type StoryEditorCreateMutation = {
-  variables: StoryEditorCreateMutationVariables;
-  response: StoryEditorCreateMutation$data;
-};
+  variables: StoryEditorCreateMutationVariables
+  response: StoryEditorCreateMutation$data
+}
 
-const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "input"
-  }
-],
-v1 = [
-  {
-    "kind": "Variable",
-    "name": "story",
-    "variableName": "input"
-  }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "title",
-  "storageKey": null
-};
-return {
-  "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
-    "kind": "Fragment",
-    "metadata": null,
-    "name": "StoryEditorCreateMutation",
-    "selections": [
+const node: ConcreteRequest = (function () {
+  var v0 = [
       {
-        "alias": null,
-        "args": (v1/*: any*/),
-        "concreteType": "Story",
-        "kind": "LinkedField",
-        "name": "createStory",
-        "plural": false,
-        "selections": [
-          (v2/*: any*/)
-        ],
-        "storageKey": null
-      }
+        defaultValue: null,
+        kind: 'LocalArgument',
+        name: 'input',
+      },
     ],
-    "type": "Mutation",
-    "abstractKey": null
-  },
-  "kind": "Request",
-  "operation": {
-    "argumentDefinitions": (v0/*: any*/),
-    "kind": "Operation",
-    "name": "StoryEditorCreateMutation",
-    "selections": [
+    v1 = [
       {
-        "alias": null,
-        "args": (v1/*: any*/),
-        "concreteType": "Story",
-        "kind": "LinkedField",
-        "name": "createStory",
-        "plural": false,
-        "selections": [
-          (v2/*: any*/),
+        alias: null,
+        args: [
           {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          }
+            kind: 'Variable',
+            name: 'story',
+            variableName: 'input',
+          },
         ],
-        "storageKey": null
-      }
+        concreteType: 'Story',
+        kind: 'LinkedField',
+        name: 'createStory',
+        plural: false,
+        selections: [
+          {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'id',
+            storageKey: null,
+          },
+        ],
+        storageKey: null,
+      },
     ]
-  },
-  "params": {
-    "cacheID": "b92456e688a6fd289ff34a69d162cf15",
-    "id": null,
-    "metadata": {},
-    "name": "StoryEditorCreateMutation",
-    "operationKind": "mutation",
-    "text": "mutation StoryEditorCreateMutation(\n  $input: StoryInput!\n) {\n  createStory(story: $input) {\n    title\n    id\n  }\n}\n"
+  return {
+    fragment: {
+      argumentDefinitions: v0 /*: any*/,
+      kind: 'Fragment',
+      metadata: null,
+      name: 'StoryEditorCreateMutation',
+      selections: v1 /*: any*/,
+      type: 'Mutation',
+      abstractKey: null,
+    },
+    kind: 'Request',
+    operation: {
+      argumentDefinitions: v0 /*: any*/,
+      kind: 'Operation',
+      name: 'StoryEditorCreateMutation',
+      selections: v1 /*: any*/,
+    },
+    params: {
+      cacheID: '4d0438c4e76f418e737bed4515f824ae',
+      id: null,
+      metadata: {},
+      name: 'StoryEditorCreateMutation',
+      operationKind: 'mutation',
+      text: 'mutation StoryEditorCreateMutation(\n  $input: StoryInput!\n) {\n  createStory(story: $input) {\n    id\n  }\n}\n',
+    },
   }
-};
-})();
+})()
 
-(node as any).hash = "1f1e4d00a0a756a1a7b351496d4a44b8";
+;(node as any).hash = '7257711acc2b8d3178238d03736b336b'
 
-export default node;
+export default node
