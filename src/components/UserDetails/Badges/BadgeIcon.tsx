@@ -16,7 +16,7 @@ const iconMap = {
   Python: <SiPython />,
   C: <SiC />,
   'C++': <SiCplusplus />,
-  JavaScript: <SiJava />,
+  JavaScript: <SiJavascript />,
   TypeScript: <SiTypescript />,
   Java: <SiJava />,
   Ruby: <SiRuby />,
