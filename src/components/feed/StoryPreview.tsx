@@ -26,10 +26,10 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
 
   return (
     <>
-      <Card classes="my-8">
+      <Card classes="my-8 flex flex-col">
         <UserSnippet user={data.createdBy} />
-        <div className="prose">
-          <h3>{data.title}</h3>
+        <div className="prose dark:text-gray-100">
+          <h3 className="dark:text-gray-200">{data.title}</h3>
           <p>{data.abstractContent}</p>
         </div>
       </Card>

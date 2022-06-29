@@ -24,3 +24,7 @@
 .dark .ce-block--selected {
     @apply bg-dark-500 text-gray-800
 }
+
+.dark {
+    @apply text-gray-300
+}

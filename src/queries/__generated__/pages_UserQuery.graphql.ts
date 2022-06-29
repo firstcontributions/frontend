@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<82a2032f81b41df6ab3e2e4913130438>>
+ * @generated SignedSource<<afa691d0e08b62f54705909211a21600>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -52,28 +52,35 @@ const node: ConcreteRequest = (function () {
       name: 'avatar',
       storageKey: null,
     },
-    v3 = [
+    v3 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'bio',
+      storageKey: null,
+    },
+    v4 = [
       {
         kind: 'Literal',
         name: 'first',
         value: 5,
       },
     ],
-    v4 = {
+    v5 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
       name: '__typename',
       storageKey: null,
     },
-    v5 = {
+    v6 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
       name: 'cursor',
       storageKey: null,
     },
-    v6 = {
+    v7 = {
       alias: null,
       args: null,
       concreteType: 'PageInfo',
@@ -98,21 +105,21 @@ const node: ConcreteRequest = (function () {
       ],
       storageKey: null,
     },
-    v7 = [
+    v8 = [
       {
         kind: 'Literal',
         name: 'first',
         value: 10,
       },
     ],
-    v8 = {
+    v9 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
       name: 'title',
       storageKey: null,
     },
-    v9 = [
+    v10 = [
       {
         alias: null,
         args: null,
@@ -144,7 +151,7 @@ const node: ConcreteRequest = (function () {
                 name: 'repository',
                 storageKey: null,
               },
-              v8 /*: any*/,
+              v9 /*: any*/,
               {
                 alias: null,
                 args: null,
@@ -166,17 +173,17 @@ const node: ConcreteRequest = (function () {
                 name: 'commentCount',
                 storageKey: null,
               },
-              v4 /*: any*/,
+              v5 /*: any*/,
             ],
             storageKey: null,
           },
-          v5 /*: any*/,
+          v6 /*: any*/,
         ],
         storageKey: null,
       },
-      v6 /*: any*/,
+      v7 /*: any*/,
     ],
-    v10 = [
+    v11 = [
       {
         kind: 'Literal',
         name: 'first',
@@ -248,13 +255,7 @@ const node: ConcreteRequest = (function () {
             v0 /*: any*/,
             v1 /*: any*/,
             v2 /*: any*/,
-            {
-              alias: null,
-              args: null,
-              kind: 'ScalarField',
-              name: 'bio',
-              storageKey: null,
-            },
+            v3 /*: any*/,
             {
               alias: null,
               args: null,
@@ -282,7 +283,7 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v3 /*: any*/,
+              args: v4 /*: any*/,
               concreteType: 'BadgesConnection',
               kind: 'LinkedField',
               name: 'badges',
@@ -326,21 +327,21 @@ const node: ConcreteRequest = (function () {
                           name: 'currentLevel',
                           storageKey: null,
                         },
-                        v4 /*: any*/,
+                        v5 /*: any*/,
                       ],
                       storageKey: null,
                     },
-                    v5 /*: any*/,
+                    v6 /*: any*/,
                   ],
                   storageKey: null,
                 },
-                v6 /*: any*/,
+                v7 /*: any*/,
               ],
               storageKey: 'badges(first:5)',
             },
             {
               alias: null,
-              args: v3 /*: any*/,
+              args: v4 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'BadgeList__badges',
@@ -349,17 +350,17 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v7 /*: any*/,
+              args: v8 /*: any*/,
               concreteType: 'IssuesConnection',
               kind: 'LinkedField',
               name: 'relevantIssues',
               plural: false,
-              selections: v9 /*: any*/,
+              selections: v10 /*: any*/,
               storageKey: 'relevantIssues(first:10)',
             },
             {
               alias: null,
-              args: v7 /*: any*/,
+              args: v8 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'RelevantIssues__relevantIssues',
@@ -368,17 +369,17 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v10 /*: any*/,
+              args: v11 /*: any*/,
               concreteType: 'IssuesConnection',
               kind: 'LinkedField',
               name: 'issuesFromLastRepo',
               plural: false,
-              selections: v9 /*: any*/,
+              selections: v10 /*: any*/,
               storageKey: 'issuesFromLastRepo(first:2)',
             },
             {
               alias: null,
-              args: v10 /*: any*/,
+              args: v11 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'IssuesFromLastRepo__issuesFromLastRepo',
@@ -387,17 +388,17 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v10 /*: any*/,
+              args: v11 /*: any*/,
               concreteType: 'IssuesConnection',
               kind: 'LinkedField',
               name: 'issuesFromOtherRecentRepos',
               plural: false,
-              selections: v9 /*: any*/,
+              selections: v10 /*: any*/,
               storageKey: 'issuesFromOtherRecentRepos(first:2)',
             },
             {
               alias: null,
-              args: v10 /*: any*/,
+              args: v11 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'IssuesFromRecentRepos__issuesFromOtherRecentRepos',
@@ -409,7 +410,7 @@ const node: ConcreteRequest = (function () {
         },
         {
           alias: null,
-          args: v7 /*: any*/,
+          args: v8 /*: any*/,
           concreteType: 'StoriesConnection',
           kind: 'LinkedField',
           name: 'feeds',
@@ -453,7 +454,7 @@ const node: ConcreteRequest = (function () {
                       name: 'timeCreated',
                       storageKey: null,
                     },
-                    v8 /*: any*/,
+                    v9 /*: any*/,
                     {
                       alias: null,
                       args: null,
@@ -465,6 +466,7 @@ const node: ConcreteRequest = (function () {
                         v2 /*: any*/,
                         v1 /*: any*/,
                         v0 /*: any*/,
+                        v3 /*: any*/,
                         {
                           alias: null,
                           args: null,
@@ -486,21 +488,21 @@ const node: ConcreteRequest = (function () {
                       ],
                       storageKey: null,
                     },
-                    v4 /*: any*/,
+                    v5 /*: any*/,
                   ],
                   storageKey: null,
                 },
-                v5 /*: any*/,
+                v6 /*: any*/,
               ],
               storageKey: null,
             },
-            v6 /*: any*/,
+            v7 /*: any*/,
           ],
           storageKey: 'feeds(first:10)',
         },
         {
           alias: null,
-          args: v7 /*: any*/,
+          args: v8 /*: any*/,
           filters: null,
           handle: 'connection',
           key: 'RootQuery__feeds',
@@ -510,12 +512,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'aa0bfc1569695b8b0cf7fd10e3c9f8a5',
+      cacheID: '5176a90694c993036e67cd57673fc15c',
       id: null,
       metadata: {},
       name: 'pages_UserQuery',
       operationKind: 'query',
-      text: 'query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n  ...FeedsQuery\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment FeedsQuery on Query {\n  feeds(first: 10) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  reputation {\n    value\n  }\n}\n',
+      text: 'query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n  ...FeedsQuery\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment FeedsQuery on Query {\n  feeds(first: 10) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

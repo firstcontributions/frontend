@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<437789ee8729995bc072d59f71a47fdc>>
+ * @generated SignedSource<<605949b12f48df9543da0e1852df5fbd>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,6 +14,7 @@ export type UserSnippet_user$data = {
   readonly avatar: string
   readonly id: string
   readonly handle: string
+  readonly bio: string
   readonly reputation: {
     readonly value: number
   }
@@ -55,6 +56,13 @@ const node: ReaderFragment = {
     {
       alias: null,
       args: null,
+      kind: 'ScalarField',
+      name: 'bio',
+      storageKey: null,
+    },
+    {
+      alias: null,
+      args: null,
       concreteType: 'Reputation',
       kind: 'LinkedField',
       name: 'reputation',
@@ -75,6 +83,6 @@ const node: ReaderFragment = {
   abstractKey: null,
 }
 
-;(node as any).hash = '9527f755e8d470669805cdfd31f2f97e'
+;(node as any).hash = 'e0b295d4d5a3cc90bae0e4ee8901a3e5'
 
 export default node
