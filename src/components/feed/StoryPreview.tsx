@@ -1,6 +1,8 @@
 import { graphql, useFragment } from 'react-relay'
 import { StoryPreview_node$key } from '../../queries/__generated__/StoryPreview_node.graphql'
 import Card from '../Card'
+import StoryAbstract from './StoryAbstract'
+import StoryPreviewFooter from './StoryPreviewFooter'
 import UserSnippet from './UserSnippet'
 
 type StoryPreviewProps = {
@@ -25,15 +27,15 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
   )
 
   return (
-    <>
-      <Card classes="my-8 flex flex-col">
-        <UserSnippet user={data.createdBy} />
-        <div className="prose dark:text-gray-100">
-          <h3 className="dark:text-gray-200">{data.title}</h3>
-          <p>{data.abstractContent}</p>
-        </div>
-      </Card>
-    </>
+    <Card classes="my-8 flex flex-col">
+      <UserSnippet user={data.createdBy} />
+      <div className="prose dark:text-gray-100">
+        <h3 className="dark:text-gray-200">{data.title}</h3>
+        <p>{data.abstractContent}</p>
+      </div>
+      <StoryAbstract abstract={data.abstractContent} />
+      <StoryPreviewFooter />
+    </Card>
   )
 }
 

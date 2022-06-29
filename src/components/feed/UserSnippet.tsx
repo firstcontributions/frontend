@@ -27,7 +27,7 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
       <img
         src={data.avatar}
         alt={`${data.handle}'s avatar`}
-        className="w-12 h-12 rounded-sm"
+        className="w-12 h-12 rounded-md"
       />
       <div className="flex flex-col mx-2">
         <div className="flex flex-row">
