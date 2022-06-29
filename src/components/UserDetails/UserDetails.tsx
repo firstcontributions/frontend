@@ -30,7 +30,7 @@ const UserDetails = ({ user }: Props) => {
 
   return (
     <div className="flex flex-col items-center">
-      <img className="rounded-md w-32" src={data.avatar} alt={data.handle} />
+      <img className="rounded-md w-20" src={data.avatar} alt={data.handle} />
       <h1 className="dark:text-gray-400">@{data.handle}</h1>
       <Bio user={data} />
       <div className="my-4 flex space-x-4 dark:text-gray-400">

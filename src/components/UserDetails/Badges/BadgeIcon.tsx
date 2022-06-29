@@ -33,7 +33,7 @@ type BadgeIconProps = {
 
 export default function BadgeIcon({ displayName }: BadgeIconProps) {
   return (
-    <div className="text-3xl z-10 badge-icon">
+    <div className="text-xl z-10 badge-icon">
       {iconMap[displayName]}
       <style>
         {`

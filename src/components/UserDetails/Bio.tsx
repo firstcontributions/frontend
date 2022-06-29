@@ -29,7 +29,7 @@ const Bio = ({ user }: BioProps) => {
       }
     `
   )
-  const onChange = (evt: any) => setBio(evt.target.textContent)
+  const onChange = (evt: any) => setBio(evt.target.value)
   const onSubmit = () => {
     commitMutation({
       variables: {
@@ -39,14 +39,13 @@ const Bio = ({ user }: BioProps) => {
   }
 
   return (
-    <p
-      contentEditable={true}
-      onInput={onChange}
+    <input
+      onChange={onChange}
       onBlur={onSubmit}
       className="dark:text-gray-300"
-    >
-      {data.bio}
-    </p>
+      type="text"
+      defaultValue={data.bio}
+    />
   )
 }
 

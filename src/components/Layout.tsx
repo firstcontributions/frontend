@@ -15,7 +15,7 @@ export default function Layout({
   return (
     <div className="mx-auto bg-gray-100 dark:bg-dark-800 min-h-screen">
       <Navbar />
-      <div className="grid grid-cols-9 gap-10 mt-10 px-20 pt-10">
+      <div className="grid grid-cols-9 gap-10 mt-10 px-60 pt-10">
         {sidebarContentLeft && (
           <aside className="col-span-2">{sidebarContentLeft}</aside>
         )}
