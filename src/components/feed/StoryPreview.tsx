@@ -27,15 +27,29 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
   )
 
   return (
-    <Card classes="my-8 flex flex-col">
-      <UserSnippet user={data.createdBy} />
-      <div className="prose dark:text-gray-100">
-        <h3 className="dark:text-gray-200">{data.title}</h3>
-        <p>{data.abstractContent}</p>
+    <div className="my-8 flex flex-col bg-white  dark:bg-dark-700 rounded-lg">
+      <div>
+        <img className="cover-image" src={data.thumbnail} alt="" />
       </div>
-      <StoryAbstract abstract={data.abstractContent} />
-      <StoryPreviewFooter />
-    </Card>
+      <div className="px-4 pb-4">
+        <UserSnippet user={data.createdBy} />
+        <div className="prose dark:text-gray-100">
+          <h3 className="dark:text-gray-200">{data.title}</h3>
+          <p>{data.abstractContent}</p>
+        </div>
+        <StoryPreviewFooter />
+      </div>
+      <style jsx>
+        {`
+          .cover-image {
+            border-radius: 0.5rem 0.5rem 0 0;
+            max-height: 10rem;
+            width: 100%;
+            object-fit: cover;
+          }
+        `}
+      </style>
+    </div>
   )
 }
 

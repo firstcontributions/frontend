@@ -13,7 +13,7 @@ export default function Layout({
   sidebarContentRight,
 }: LayoutProps) {
   return (
-    <div className="mx-auto bg-gray-100 dark:bg-dark-800 min-h-screen">
+    <div className="mx-auto bg-gray-200 dark:bg-dark-800 min-h-screen">
       <Navbar />
       <div className="grid grid-cols-9 gap-10 mt-10 px-60 pt-10">
         {sidebarContentLeft && (

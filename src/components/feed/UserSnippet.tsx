@@ -23,13 +23,13 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
   )
 
   return (
-    <div className="flex">
-      <img
-        src={data.avatar}
-        alt={`${data.handle}'s avatar`}
-        className="w-12 h-12 rounded-md"
-      />
-      <div className="flex flex-col mx-2">
+    <div className="flex flex-col">
+      <div className="flex min-h-32">
+        <img
+          src={data.avatar}
+          alt={`${data.handle}'s avatar`}
+          className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700"
+        />
         <div className="flex flex-row">
           <Link href={`/${data.handle}`}>
             <a className=" font-bold">{`@${data.handle}`}</a>
@@ -38,8 +38,8 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
             {data.reputation.value}
           </span>
         </div>
-        <span className=" text-sm">{data.bio}</span>
       </div>
+      <span className=" text-sm">{data.bio}</span>
     </div>
   )
 }
