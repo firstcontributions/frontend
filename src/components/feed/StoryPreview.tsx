@@ -1,9 +1,8 @@
 import { graphql, useFragment } from 'react-relay'
 import { StoryPreview_node$key } from '../../queries/__generated__/StoryPreview_node.graphql'
-import Card from '../Card'
-import StoryAbstract from './StoryAbstract'
 import StoryPreviewFooter from './StoryPreviewFooter'
 import UserSnippet from './UserSnippet'
+import { GoKebabVertical } from '@react-icons/all-files/go/GoKebabVertical'
 
 type StoryPreviewProps = {
   story: StoryPreview_node$key
@@ -32,13 +31,16 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
         <img className="cover-image" src={data.thumbnail} alt="" />
       </div>
       <div className="px-4 pb-4">
-        <UserSnippet user={data.createdBy} />
+        <div className="flex flex-row justify-between">
+          <UserSnippet user={data.createdBy} />
+          <GoKebabVertical className="mt-4" />
+        </div>
         <div className="prose dark:text-gray-100">
           <h3 className="dark:text-gray-200">{data.title}</h3>
-          <p>{data.abstractContent}</p>
+          <p className="abstract-content">{data.abstractContent}</p>
         </div>
-        <StoryPreviewFooter />
       </div>
+      <StoryPreviewFooter />
       <style jsx>
         {`
           .cover-image {
@@ -46,6 +48,16 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
             max-height: 10rem;
             width: 100%;
             object-fit: cover;
+          }
+
+          .abstract-content {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            // Addition lines for 2 line or multiline ellipsis
+            display: -webkit-box !important;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            white-space: normal;
           }
         `}
       </style>

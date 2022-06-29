@@ -30,11 +30,11 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
           alt={`${data.handle}'s avatar`}
           className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700"
         />
-        <div className="flex flex-row">
+        <div className="flex flex-row mt-2">
           <Link href={`/${data.handle}`}>
             <a className=" font-bold">{`@${data.handle}`}</a>
           </Link>
-          <span className="bg-sky-400/20 text-sky-600 px-2 ml-2 rounded-md text-sm font-bold leading-6">
+          <span className="bg-sky-400/20 text-sky-600 px-2 ml-2 mb-2 rounded-md text-sm font-bold leading-6">
             {data.reputation.value}
           </span>
         </div>
