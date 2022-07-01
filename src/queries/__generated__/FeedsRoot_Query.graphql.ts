@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<82226fd9b1649dbb44e52acb1988f0eb>>
+ * @generated SignedSource<<404f46716b58c2dd11591548c8bd1fe2>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -145,6 +145,13 @@ const node: ConcreteRequest = (function () {
                     {
                       alias: null,
                       args: null,
+                      kind: 'ScalarField',
+                      name: 'urlSuffix',
+                      storageKey: null,
+                    },
+                    {
+                      alias: null,
+                      args: null,
                       concreteType: 'User',
                       kind: 'LinkedField',
                       name: 'createdBy',
@@ -253,12 +260,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'cd20b61787fb5d5c0641eeb51125c7c7',
+      cacheID: '02da4fa454a930fd07ecf98a78201ffb',
       id: null,
       metadata: {},
       name: 'FeedsRoot_Query',
       operationKind: 'query',
-      text: 'query FeedsRoot_Query(\n  $count: Int = 10\n  $cursor: String\n) {\n  ...FeedsQuery_1G22uz\n}\n\nfragment FeedsQuery_1G22uz on Query {\n  feeds(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query FeedsRoot_Query(\n  $count: Int = 10\n  $cursor: String\n) {\n  ...FeedsQuery_1G22uz\n}\n\nfragment FeedsQuery_1G22uz on Query {\n  feeds(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

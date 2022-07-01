@@ -12,10 +12,14 @@ const nextConfig = {
     return [
       {
         source: '/@:handle([a-zA-Z0-9]+)/:id*',
-        destination: "/users/:handle/:id*",
-      }
+        destination: '/users/:handle/:id*',
+      },
+      {
+        source: '/story/:id([a-zA-Z0-9=+-/]+)___:suffix*',
+        destination: '/story/:id',
+      },
     ]
-  }
+  },
 }
 
 module.exports = nextConfig

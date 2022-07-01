@@ -3,6 +3,7 @@ import { StoryPreview_node$key } from '../../queries/__generated__/StoryPreview_
 import StoryPreviewFooter from './StoryPreviewFooter'
 import UserSnippet from './UserSnippet'
 import { GoKebabVertical } from '@react-icons/all-files/go/GoKebabVertical'
+import Link from 'next/link'
 
 type StoryPreviewProps = {
   story: StoryPreview_node$key
@@ -17,6 +18,7 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
         thumbnail
         timeCreated
         title
+        urlSuffix
         createdBy {
           ...UserSnippet_user
         }
@@ -28,7 +30,11 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
   return (
     <div className="my-8 flex flex-col bg-white  dark:bg-dark-700 rounded-lg">
       <div>
-        <img className="cover-image" src={data.thumbnail} alt="" />
+        {data.thumbnail ? (
+          <img className="cover-image" src={data.thumbnail} alt="" />
+        ) : (
+          <div className="image-placeholder bg-gray-100 dark:bg-dark-500"></div>
+        )}
       </div>
       <div className="px-4 pb-4">
         <div className="flex flex-row justify-between">
@@ -36,13 +42,22 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
           <GoKebabVertical className="mt-4" />
         </div>
         <div className="prose dark:text-gray-100">
-          <h3 className="dark:text-gray-200">{data.title}</h3>
+          <Link href={`/story/${data.id}___${data.urlSuffix}`}>
+            <a>
+              <h3 className="dark:text-gray-200">{data.title}</h3>
+            </a>
+          </Link>
           <p className="abstract-content">{data.abstractContent}</p>
         </div>
       </div>
       <StoryPreviewFooter />
       <style jsx>
         {`
+          .image-placeholder {
+            border-radius: 0.5rem 0.5rem 0 0;
+            content: '';
+            height: 4rem;
+          }
           .cover-image {
             border-radius: 0.5rem 0.5rem 0 0;
             max-height: 10rem;

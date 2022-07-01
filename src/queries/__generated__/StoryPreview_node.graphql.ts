@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3e8e81e49f9e2d8e79c32a24715449f5>>
+ * @generated SignedSource<<670b6ad8c35a9c84d13213577375ed7e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,6 +16,7 @@ export type StoryPreview_node$data = {
   readonly thumbnail: string
   readonly timeCreated: any
   readonly title: string
+  readonly urlSuffix: string
   readonly createdBy: {
     readonly ' $fragmentSpreads': FragmentRefs<'UserSnippet_user'>
   }
@@ -71,6 +72,13 @@ const node: ReaderFragment = {
     {
       alias: null,
       args: null,
+      kind: 'ScalarField',
+      name: 'urlSuffix',
+      storageKey: null,
+    },
+    {
+      alias: null,
+      args: null,
       concreteType: 'User',
       kind: 'LinkedField',
       name: 'createdBy',
@@ -89,6 +97,6 @@ const node: ReaderFragment = {
   abstractKey: null,
 }
 
-;(node as any).hash = 'a6cfa2b89ab85e087e26da903d3d983e'
+;(node as any).hash = '2788b8769164d7972fa3b6f9b8e5447b'
 
 export default node
