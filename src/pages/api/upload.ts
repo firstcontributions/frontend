@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// @ts-nocheck
 import type { NextApiRequest, NextApiResponse } from 'next'
 import formidable from 'formidable'
 import FormData from 'form-data'
@@ -15,7 +17,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   inComingForm.parse(req, (err, fields, files) => {
     const form = new FormData()
     form.append('source', fs.createReadStream(files.source.filepath))
-    if (!!err) {
+    if (err) {
       res.status(400).json({
         success: 0,
       })

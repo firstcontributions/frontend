@@ -1,6 +1,5 @@
 import { NextPageContext } from 'next'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
 import { graphql, usePreloadedQuery } from 'react-relay'
 import { RelayProps, withRelay } from 'relay-nextjs'
 import Layout from '../../components/Layout'
@@ -25,9 +24,6 @@ const StoryQuery = graphql`
 const Story = ({
   preloadedQuery,
 }: RelayProps<Record<string, never>, Id_StoryQuery>) => {
-  const router = useRouter()
-  const { id } = router.query
-
   const query = usePreloadedQuery(StoryQuery, preloadedQuery)
   return (
     <div>

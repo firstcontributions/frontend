@@ -1,6 +1,6 @@
-import EditorJS, { LogLevels, OutputData } from '@editorjs/editorjs'
+import EditorJS, { OutputData } from '@editorjs/editorjs'
 import { stripHtml } from 'string-strip-html'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { graphql, useMutation } from 'react-relay'
 import Button from '../Button'
 import Card from '../Card'
@@ -101,7 +101,7 @@ export default function Editor({ editable, body }: EditorProps) {
       readOnly: !editable,
     })
   }
-  const [commitMutation, isMutationInFlight] = useMutation(
+  const [commitMutation] = useMutation(
     graphql`
       mutation StoryEditorCreateMutation($input: StoryInput!) {
         createStory(story: $input) {

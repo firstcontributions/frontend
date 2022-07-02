@@ -7,7 +7,7 @@ type FeedProps = {
 }
 
 const Feed = ({ root }: FeedProps) => {
-  const { data, loadNext, hasNext } = usePaginationFragment(
+  const { data } = usePaginationFragment(
     graphql`
       fragment FeedsQuery on Query
       @refetchable(queryName: "FeedsRoot_Query")
@@ -32,7 +32,7 @@ const Feed = ({ root }: FeedProps) => {
   return (
     <>
       {data.feeds.edges.map(
-        (edge) => edge && <StoryPreview story={edge?.node} />
+        (edge) => edge && <StoryPreview story={edge?.node} key={edge.node.id} />
       )}
     </>
   )

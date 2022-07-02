@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 
 const Editor = dynamic(() => import('../../components/story/StoryEditor'), {
@@ -7,7 +6,6 @@ const Editor = dynamic(() => import('../../components/story/StoryEditor'), {
 })
 
 export default function Story() {
-  const router = useRouter()
   return (
     <div>
       <Layout
