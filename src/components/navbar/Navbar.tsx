@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Button from '../Button'
@@ -12,14 +13,18 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 w-full h-16 bg-white dark:bg-dark-700 p-3 shadow-sm">
       <div className="container m-auto flex justify-between">
-        <a href="/">
-          <div className="logo w-10 h-10"></div>
-        </a>
+        <Link href="/">
+          <a>
+            <div className="logo w-10 h-10"></div>
+          </a>
+        </Link>
         <div className="space-x-4">
           <ThemeButton />
           {pathname !== '/story' && (
             <Button>
-              <a href="/story">Create Post</a>
+              <Link href="/story">
+                <a>Create Post</a>
+              </Link>
             </Button>
           )}
         </div>
