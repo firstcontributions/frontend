@@ -4,6 +4,12 @@ schema {
 	mutation: Mutation
 }
 scalar Time
+
+enum SortOrder {
+	asc,
+	desc,
+}
+
 type Query {
 	viewer: User
   
@@ -12,7 +18,8 @@ type Query {
 	  # The ID of an object
 	  id: ID!
 	): Node
-	feeds(first: Int, last: Int, after: String, before: String): StoriesConnection!
+	feeds(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): StoriesConnection!
+	user(handle: String): User!
 }
 
 interface Node {
@@ -39,11 +46,16 @@ type Badge implements Node {
 type BadgesConnection {
 	edges: [BadgeEdge]!
 	pageInfo: PageInfo!
+	totalCount: Int!
 } 
 
 type BadgeEdge {
 	node: Badge!
 	cursor: String!
+} 
+
+enum BadgeSortBy {
+	time_created,
 }
 
 type Comment implements Node {
@@ -51,7 +63,6 @@ type Comment implements Node {
 	contentJson: String!
 	createdBy: User!
 	id: ID!
-	reactions(first: Int, last: Int, after: String, before: String): ReactionsConnection!
 	timeCreated: Time!
 	timeUpdated: Time!
 }
@@ -68,11 +79,17 @@ input UpdateCommentInput {
 type CommentsConnection {
 	edges: [CommentEdge]!
 	pageInfo: PageInfo!
+	totalCount: Int!
+	hasViewerAssociation: Boolean!
 } 
 
 type CommentEdge {
 	node: Comment!
 	cursor: String!
+} 
+
+enum CommentSortBy {
+	time_created,
 }
 
 type GitContributionStats {
@@ -101,11 +118,16 @@ type Issue implements Node {
 type IssuesConnection {
 	edges: [IssueEdge]!
 	pageInfo: PageInfo!
+	totalCount: Int!
 } 
 
 type IssueEdge {
 	node: Issue!
 	cursor: String!
+} 
+
+enum IssueSortBy {
+	time_created,
 }
 
 type Reaction implements Node {
@@ -116,7 +138,6 @@ type Reaction implements Node {
 }
 
 input ReactionInput {
-	commentID: ID!
 	storyID: ID!
 }
 input UpdateReactionInput {
@@ -126,11 +147,17 @@ input UpdateReactionInput {
 type ReactionsConnection {
 	edges: [ReactionEdge]!
 	pageInfo: PageInfo!
+	totalCount: Int!
+	hasViewerAssociation: Boolean!
 } 
 
 type ReactionEdge {
 	node: Reaction!
 	cursor: String!
+} 
+
+enum ReactionSortBy {
+	time_created,
 }
 
 type Reputation {
@@ -143,11 +170,11 @@ input ReputationInput {
 
 type Story implements Node {
 	abstractContent: String!
-	comments(first: Int, last: Int, after: String, before: String): CommentsConnection!
+	comments(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): CommentsConnection!
 	contentJson: String!
 	createdBy: User!
 	id: ID!
-	reactions(first: Int, last: Int, after: String, before: String): ReactionsConnection!
+	reactions(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): ReactionsConnection!
 	thumbnail: String!
 	timeCreated: Time!
 	timeUpdated: Time!
@@ -169,26 +196,32 @@ input UpdateStoryInput {
 type StoriesConnection {
 	edges: [StoryEdge]!
 	pageInfo: PageInfo!
+	totalCount: Int!
+	hasViewerAssociation: Boolean!
 } 
 
 type StoryEdge {
 	node: Story!
 	cursor: String!
+} 
+
+enum StorySortBy {
+	time_created,
 }
 
 type User implements Node {
 	avatar: String!
-	badges(first: Int, last: Int, after: String, before: String): BadgesConnection!
+	badges(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): BadgesConnection!
 	bio: String!
 	gitContributionStats: GitContributionStats!
 	handle: String!
 	id: ID!
-	issuesFromLastRepo(first: Int, last: Int, after: String, before: String): IssuesConnection!
-	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	issuesFromLastRepo(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): IssuesConnection!
+	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): IssuesConnection!
 	name: String!
-	relevantIssues(first: Int, last: Int, after: String, before: String): IssuesConnection!
+	relevantIssues(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): IssuesConnection!
 	reputation: Reputation!
-	stories(first: Int, last: Int, after: String, before: String): StoriesConnection!
+	stories(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): StoriesConnection!
 	timeCreated: Time!
 	timeUpdated: Time!
 }
@@ -208,6 +241,21 @@ input UpdateUserInput {
 	gitContributionStats: GitContributionStatsInput
 	name: String 
 	reputation: ReputationInput
+} 
+
+type UsersConnection {
+	edges: [UserEdge]!
+	pageInfo: PageInfo!
+	totalCount: Int!
+} 
+
+type UserEdge {
+	node: User!
+	cursor: String!
+} 
+
+enum UserSortBy {
+	time_created,
 }
 
 type Mutation { 

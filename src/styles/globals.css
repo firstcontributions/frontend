@@ -3,28 +3,6 @@
 @tailwind utilities;
 
 
-.dark .ce-inline-tool,
-.dark .ce-toolbar__plus,
-.dark .ce-toolbar__settings-btn {
-    @apply text-gray-400
-}
-
-.dark .ce-inline-toolbar,
-.dark .ce-conversion-toolbar,
-.dark .ce-toolbox,
-.dark .ce-popover,
-.dark .ce-settings  {
-    @apply bg-dark-600 border-dark-500
-}
-
-.dark .ce-popover__item-icon {
-    @apply bg-dark-500
-}
-
-.dark .ce-block--selected {
-    @apply bg-dark-500 text-gray-800
-}
-
 .dark {
     @apply text-gray-300
 }

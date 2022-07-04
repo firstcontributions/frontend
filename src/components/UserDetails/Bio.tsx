@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GoPencil, GrPencil } from '@react-icons/all-files/go/GoPencil'
+import { GoPencil } from '@react-icons/all-files/go/GoPencil'
 import { GoCheck } from '@react-icons/all-files/go/GoCheck'
 import { graphql, useFragment, useMutation } from 'react-relay'
 import { Bio_user$key } from '../../queries/__generated__/Bio_user.graphql'
