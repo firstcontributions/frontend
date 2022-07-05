@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<404f46716b58c2dd11591548c8bd1fe2>>
+ * @generated SignedSource<<a67b21326ce83eb332d849bf9e872c24>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -54,6 +54,13 @@ const node: ConcreteRequest = (function () {
       args: null,
       kind: 'ScalarField',
       name: 'id',
+      storageKey: null,
+    },
+    v3 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'totalCount',
       storageKey: null,
     }
   return {
@@ -203,6 +210,35 @@ const node: ConcreteRequest = (function () {
                     {
                       alias: null,
                       args: null,
+                      concreteType: 'ReactionsConnection',
+                      kind: 'LinkedField',
+                      name: 'reactions',
+                      plural: false,
+                      selections: [
+                        v3 /*: any*/,
+                        {
+                          alias: null,
+                          args: null,
+                          kind: 'ScalarField',
+                          name: 'hasViewerAssociation',
+                          storageKey: null,
+                        },
+                      ],
+                      storageKey: null,
+                    },
+                    {
+                      alias: null,
+                      args: null,
+                      concreteType: 'CommentsConnection',
+                      kind: 'LinkedField',
+                      name: 'comments',
+                      plural: false,
+                      selections: [v3 /*: any*/],
+                      storageKey: null,
+                    },
+                    {
+                      alias: null,
+                      args: null,
                       kind: 'ScalarField',
                       name: '__typename',
                       storageKey: null,
@@ -260,12 +296,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '02da4fa454a930fd07ecf98a78201ffb',
+      cacheID: 'bdcb5f9aa2b2f926b441748d4fbe5034',
       id: null,
       metadata: {},
       name: 'FeedsRoot_Query',
       operationKind: 'query',
-      text: 'query FeedsRoot_Query(\n  $count: Int = 10\n  $cursor: String\n) {\n  ...FeedsQuery_1G22uz\n}\n\nfragment FeedsQuery_1G22uz on Query {\n  feeds(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query FeedsRoot_Query(\n  $count: Int = 10\n  $cursor: String\n) {\n  ...FeedsQuery_1G22uz\n}\n\nfragment FeedsQuery_1G22uz on Query {\n  feeds(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

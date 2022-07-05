@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<670b6ad8c35a9c84d13213577375ed7e>>
+ * @generated SignedSource<<09d7f148844683fb5e3419bb36ed50cc>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,6 +20,7 @@ export type StoryPreview_node$data = {
   readonly createdBy: {
     readonly ' $fragmentSpreads': FragmentRefs<'UserSnippet_user'>
   }
+  readonly ' $fragmentSpreads': FragmentRefs<'StoryPreviewFooter_story'>
   readonly ' $fragmentType': 'StoryPreview_node'
 }
 export type StoryPreview_node = StoryPreview_node$data
@@ -92,11 +93,16 @@ const node: ReaderFragment = {
       ],
       storageKey: null,
     },
+    {
+      args: null,
+      kind: 'FragmentSpread',
+      name: 'StoryPreviewFooter_story',
+    },
   ],
   type: 'Story',
   abstractKey: null,
 }
 
-;(node as any).hash = '2788b8769164d7972fa3b6f9b8e5447b'
+;(node as any).hash = '63468627b5b05754efc601e975751963'
 
 export default node
