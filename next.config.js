@@ -11,7 +11,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/@:handle([a-zA-Z0-9]+)/:id*',
+        source: '/@:handle([a-zA-Z0-9/-_]+)/:id*',
         destination: '/users/:handle/:id*',
       },
       {

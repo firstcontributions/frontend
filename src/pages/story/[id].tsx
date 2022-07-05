@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import { graphql, usePreloadedQuery } from 'react-relay'
 import { RelayProps, withRelay } from 'relay-nextjs'
 import Layout from '../../components/Layout'
+import UserDetails from '../../components/UserDetails/UserDetails'
 import { getClientEnvironment } from '../../lib/client_environment'
 import { Id_StoryQuery } from '../../queries/__generated__/Id_StoryQuery.graphql'
 
@@ -16,6 +17,9 @@ const StoryQuery = graphql`
       ... on Story {
         id
         contentJson
+        createdBy {
+          ...UserDetails_user
+        }
       }
     }
   }
@@ -29,7 +33,13 @@ const Story = ({
     <div>
       <Layout
         sidebarContentRight={<div>Promoted</div>}
-        sidebarContentLeft={<div>Reactions</div>}
+        sidebarContentLeft={
+          <div>
+            {query.node?.createdBy && (
+              <UserDetails user={query?.node?.createdBy} />
+            )}
+          </div>
+        }
       >
         <Editor body={query?.node?.contentJson} editable={false} />
       </Layout>

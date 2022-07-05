@@ -1,7 +1,6 @@
 import { graphql, useFragment } from 'react-relay'
 import BadgeList from './Badges/BadgeList'
 import type { UserDetails_user$key } from '../../queries/__generated__/UserDetails_user.graphql'
-import { useState, ChangeEvent, FormEventHandler } from 'react'
 import Bio from './Bio'
 import { GoIssueOpened } from '@react-icons/all-files/go/GoIssueOpened'
 import { GoGitPullRequest } from '@react-icons/all-files/go/GoGitPullRequest'
