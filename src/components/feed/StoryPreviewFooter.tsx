@@ -41,7 +41,7 @@ export default function StoryPreviewFooter({ story }: StoryPreviewFooterProps) {
         input: { storyID: data.id },
       },
       onCompleted: () => {
-        refetch({})
+        refetch({}, { fetchPolicy: 'network-only' })
       },
     })
   }

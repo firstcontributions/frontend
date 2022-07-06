@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from 'react'
 
-export default function Container ({children}: any) {
-    return (
-        <div className="p-16">
-            {children}
-        </div>
-    )
+type ContainerProps = {
+  children: ReactNode
+}
+
+export default function Container({ children }: ContainerProps) {
+  return <div className="p-16">{children}</div>
 }

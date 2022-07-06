@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<841c77a68f07271eed453ac82bae7555>>
+ * @generated SignedSource<<50d908542cafedae602a3cdf1b323f89>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -77,7 +77,14 @@ const node: ConcreteRequest = (function () {
         name: 'first',
         variableName: 'count',
       },
-    ]
+    ],
+    v5 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'totalCount',
+      storageKey: null,
+    }
   return {
     fragment: {
       argumentDefinitions: v0 /*: any*/,
@@ -246,6 +253,35 @@ const node: ConcreteRequest = (function () {
                               ],
                               storageKey: null,
                             },
+                            {
+                              alias: null,
+                              args: null,
+                              concreteType: 'ReactionsConnection',
+                              kind: 'LinkedField',
+                              name: 'reactions',
+                              plural: false,
+                              selections: [
+                                v5 /*: any*/,
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'hasViewerAssociation',
+                                  storageKey: null,
+                                },
+                              ],
+                              storageKey: null,
+                            },
+                            {
+                              alias: null,
+                              args: null,
+                              concreteType: 'CommentsConnection',
+                              kind: 'LinkedField',
+                              name: 'comments',
+                              plural: false,
+                              selections: [v5 /*: any*/],
+                              storageKey: null,
+                            },
                             v2 /*: any*/,
                           ],
                           storageKey: null,
@@ -307,12 +343,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'd906cdba3ab532dc70f05768334c3790',
+      cacheID: 'e92290b79a378cf54c26c35ab9914104',
       id: null,
       metadata: {},
       name: 'MyStoriesUser_Query',
       operationKind: 'query',
-      text: 'query MyStoriesUser_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...MyStories__Query_1G22uz\n    id\n  }\n}\n\nfragment MyStories__Query_1G22uz on User {\n  stories(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query MyStoriesUser_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...MyStories__Query_1G22uz\n    id\n  }\n}\n\nfragment MyStories__Query_1G22uz on User {\n  stories(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()
