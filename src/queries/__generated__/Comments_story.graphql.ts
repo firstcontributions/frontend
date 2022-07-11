@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<331e8c0130e2affc570e79f9da686b61>>
+ * @generated SignedSource<<0c78d563d10f7f660638bf6aec5160de>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,7 @@ export type Comments_story$data = {
     readonly edges: ReadonlyArray<{
       readonly node: {
         readonly id: string
-        readonly contentJson: string
+        readonly ' $fragmentSpreads': FragmentRefs<'Comment_node'>
       }
     } | null>
   }
@@ -40,7 +40,7 @@ const node: ReaderFragment = (function () {
   return {
     argumentDefinitions: [
       {
-        defaultValue: 20,
+        defaultValue: 10,
         kind: 'LocalArgument',
         name: 'count',
       },
@@ -102,11 +102,9 @@ const node: ReaderFragment = (function () {
                 selections: [
                   v1 /*: any*/,
                   {
-                    alias: null,
                     args: null,
-                    kind: 'ScalarField',
-                    name: 'contentJson',
-                    storageKey: null,
+                    kind: 'FragmentSpread',
+                    name: 'Comment_node',
                   },
                   {
                     alias: null,
@@ -163,6 +161,6 @@ const node: ReaderFragment = (function () {
   }
 })()
 
-;(node as any).hash = '0d3f43bb7b5c1d45598fb121e396e39f'
+;(node as any).hash = '3043c01307053f363967f63cbd85a881'
 
 export default node

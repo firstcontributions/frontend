@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<127baeef35ee30d190f9a9648b91e525>>
+ * @generated SignedSource<<6d150273583b230d0f74fd54a2e63458>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -30,7 +30,7 @@ export type Comments_storyQuery = {
 const node: ConcreteRequest = (function () {
   var v0 = [
       {
-        defaultValue: 20,
+        defaultValue: 10,
         kind: 'LocalArgument',
         name: 'count',
       },
@@ -167,6 +167,57 @@ const node: ConcreteRequest = (function () {
                               name: 'contentJson',
                               storageKey: null,
                             },
+                            {
+                              alias: null,
+                              args: null,
+                              concreteType: 'User',
+                              kind: 'LinkedField',
+                              name: 'createdBy',
+                              plural: false,
+                              selections: [
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'avatar',
+                                  storageKey: null,
+                                },
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'handle',
+                                  storageKey: null,
+                                },
+                                v3 /*: any*/,
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'bio',
+                                  storageKey: null,
+                                },
+                                {
+                                  alias: null,
+                                  args: null,
+                                  concreteType: 'Reputation',
+                                  kind: 'LinkedField',
+                                  name: 'reputation',
+                                  plural: false,
+                                  selections: [
+                                    {
+                                      alias: null,
+                                      args: null,
+                                      kind: 'ScalarField',
+                                      name: 'value',
+                                      storageKey: null,
+                                    },
+                                  ],
+                                  storageKey: null,
+                                },
+                              ],
+                              storageKey: null,
+                            },
                             v2 /*: any*/,
                           ],
                           storageKey: null,
@@ -228,16 +279,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '061fbde9f2aad792041d5ab2b055572c',
+      cacheID: '1ae4bfc17d5d20c7319acce4cf468bea',
       id: null,
       metadata: {},
       name: 'Comments_storyQuery',
       operationKind: 'query',
-      text: 'query Comments_storyQuery(\n  $count: Int = 20\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        contentJson\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+      text: 'query Comments_storyQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    avatar\n    handle\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()
 
-;(node as any).hash = '0d3f43bb7b5c1d45598fb121e396e39f'
+;(node as any).hash = '3043c01307053f363967f63cbd85a881'
 
 export default node

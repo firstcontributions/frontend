@@ -4,9 +4,15 @@ import { UserSnippet_user$key } from '../../queries/__generated__/UserSnippet_us
 
 type UserSnippetProps = {
   user: UserSnippet_user$key
+  showAvatar?: boolean
+  showBio?: boolean
 }
 
-const UserSnippet = ({ user }: UserSnippetProps) => {
+const UserSnippet = ({
+  user,
+  showAvatar = true,
+  showBio = true,
+}: UserSnippetProps) => {
   const data = useFragment(
     graphql`
       fragment UserSnippet_user on User {
@@ -25,11 +31,13 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
   return (
     <div className="flex flex-col">
       <div className="flex min-h-32">
-        <img
-          src={data.avatar}
-          alt={`${data.handle}'s avatar`}
-          className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700"
-        />
+        {showAvatar && (
+          <img
+            src={data.avatar}
+            alt={`${data.handle}'s avatar`}
+            className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700"
+          />
+        )}
         <div className="flex flex-row mt-2">
           <Link href={`/@${data.handle}`}>
             <a className=" font-bold">{`@${data.handle}`}</a>
@@ -39,7 +47,7 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
           </span>
         </div>
       </div>
-      <span className=" text-sm">{data.bio}</span>
+      {showBio && <span className=" text-sm">{data.bio}</span>}
     </div>
   )
 }
