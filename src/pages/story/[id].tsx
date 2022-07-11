@@ -44,7 +44,7 @@ const Story = ({
         }
       >
         <Editor body={query?.node?.contentJson} editable={false} />
-        <Comments story={query.node} />
+        {query.node && <Comments story={query.node} />}
       </Layout>
     </div>
   )

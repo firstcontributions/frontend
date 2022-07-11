@@ -2,6 +2,7 @@ import { graphql, usePaginationFragment } from 'react-relay'
 import NewComment from './NewComment'
 import Comment from './Comment'
 import { Comments_story$key } from '../../queries/__generated__/Comments_story.graphql'
+import { UserSnippet_user$data } from '../../queries/__generated__/UserSnippet_user.graphql'
 
 type CommentsProps = {
   story: Comments_story$key
@@ -39,7 +40,11 @@ const Comments = ({ story }: CommentsProps) => {
       {data.comments.edges.map(
         (comment) =>
           comment?.node && (
-            <Comment comment={comment?.node} key={comment?.node.id} />
+            <Comment
+              comment={comment?.node}
+              key={comment?.node.id}
+              storyCreator={story.createdBy}
+            />
           )
       )}
       {hasNext ? (

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8e58adacc5b553c1d997504f5b6711c1>>
+ * @generated SignedSource<<7632fbc4807b1794d988fd49be666db0>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,6 +13,7 @@ import { FragmentRefs } from 'relay-runtime'
 export type Comment_node$data = {
   readonly contentJson: string
   readonly createdBy: {
+    readonly id: string
     readonly avatar: string
     readonly handle: string
     readonly ' $fragmentSpreads': FragmentRefs<'UserSnippet_user'>
@@ -50,6 +51,13 @@ const node: ReaderFragment = {
           alias: null,
           args: null,
           kind: 'ScalarField',
+          name: 'id',
+          storageKey: null,
+        },
+        {
+          alias: null,
+          args: null,
+          kind: 'ScalarField',
           name: 'avatar',
           storageKey: null,
         },
@@ -73,6 +81,6 @@ const node: ReaderFragment = {
   abstractKey: null,
 }
 
-;(node as any).hash = '51939eeef1689032d4c56bdacc08604b'
+;(node as any).hash = 'd3f5d775c9cbd2cd85f97f9555045a40'
 
 export default node

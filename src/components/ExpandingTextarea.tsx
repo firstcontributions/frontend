@@ -7,6 +7,7 @@ type ExpandingTextareaProps = {
   setValue: (value: string) => void
   className?: string
   placeholder?: string
+  disabled?: boolean
 }
 
 export default function ExpandingTextarea({
@@ -14,6 +15,7 @@ export default function ExpandingTextarea({
   setValue,
   className,
   placeholder,
+  disabled = false,
 }: ExpandingTextareaProps) {
   const textareaRef = React.useRef<null | HTMLTextAreaElement>(null)
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -35,6 +37,7 @@ export default function ExpandingTextarea({
     <textarea
       className={className}
       onChange={onChange}
+      disabled={disabled}
       placeholder={placeholder}
       ref={textareaRef}
       style={{

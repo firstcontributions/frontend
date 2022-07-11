@@ -32,6 +32,7 @@ export default function NewComment({ storyId, refetch }: NewCommentProps) {
         refetch({}, { fetchPolicy: 'network-only' })
       },
     })
+    setComment('')
   }
 
   return (
@@ -41,7 +42,8 @@ export default function NewComment({ storyId, refetch }: NewCommentProps) {
           value={comment}
           setValue={setComment}
           placeholder="Write a comment..."
-          className="w-full dark:text-gray-300 dark:bg-dark-600 focus-visible:outline-none"
+          disabled={isMutationInFlight}
+          className="w-full p-4 dark:text-gray-300 dark:bg-dark-600 focus-visible:outline-none"
         />
       </div>
       <Button onClick={() => handleCommentPost()}>Post</Button>

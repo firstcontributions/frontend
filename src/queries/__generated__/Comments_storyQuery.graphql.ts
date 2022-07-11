@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6d150273583b230d0f74fd54a2e63458>>
+ * @generated SignedSource<<f3e9ce2d8f5ccc3f42ea30fcfba9f437>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -175,6 +175,7 @@ const node: ConcreteRequest = (function () {
                               name: 'createdBy',
                               plural: false,
                               selections: [
+                                v3 /*: any*/,
                                 {
                                   alias: null,
                                   args: null,
@@ -189,7 +190,6 @@ const node: ConcreteRequest = (function () {
                                   name: 'handle',
                                   storageKey: null,
                                 },
-                                v3 /*: any*/,
                                 {
                                   alias: null,
                                   args: null,
@@ -279,12 +279,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '1ae4bfc17d5d20c7319acce4cf468bea',
+      cacheID: 'e3e64601ba1448d9e9124eeef4194eff',
       id: null,
       metadata: {},
       name: 'Comments_storyQuery',
       operationKind: 'query',
-      text: 'query Comments_storyQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    avatar\n    handle\n    ...UserSnippet_user\n    id\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query Comments_storyQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    id\n    avatar\n    handle\n    ...UserSnippet_user\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()
