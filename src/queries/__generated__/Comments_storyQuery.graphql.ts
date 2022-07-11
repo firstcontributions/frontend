@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f3e9ce2d8f5ccc3f42ea30fcfba9f437>>
+ * @generated SignedSource<<1e9f1f3733b08978b1d8ec02bbf030ff>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -77,6 +77,16 @@ const node: ConcreteRequest = (function () {
         name: 'first',
         variableName: 'count',
       },
+      {
+        kind: 'Literal',
+        name: 'sortBy',
+        value: 'time_created',
+      },
+      {
+        kind: 'Literal',
+        name: 'sortOrder',
+        value: 'desc',
+      },
     ]
   return {
     fragment: {
@@ -135,6 +145,16 @@ const node: ConcreteRequest = (function () {
             {
               kind: 'InlineFragment',
               selections: [
+                {
+                  alias: null,
+                  args: null,
+                  concreteType: 'User',
+                  kind: 'LinkedField',
+                  name: 'createdBy',
+                  plural: false,
+                  selections: [v3 /*: any*/],
+                  storageKey: null,
+                },
                 {
                   alias: null,
                   args: v4 /*: any*/,
@@ -235,6 +255,13 @@ const node: ConcreteRequest = (function () {
                     {
                       alias: null,
                       args: null,
+                      kind: 'ScalarField',
+                      name: 'totalCount',
+                      storageKey: null,
+                    },
+                    {
+                      alias: null,
+                      args: null,
                       concreteType: 'PageInfo',
                       kind: 'LinkedField',
                       name: 'pageInfo',
@@ -263,7 +290,7 @@ const node: ConcreteRequest = (function () {
                 {
                   alias: null,
                   args: v4 /*: any*/,
-                  filters: null,
+                  filters: ['sortBy', 'sortOrder'],
                   handle: 'connection',
                   key: 'Comments_story__comments',
                   kind: 'LinkedHandle',
@@ -279,16 +306,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'e3e64601ba1448d9e9124eeef4194eff',
+      cacheID: 'c139cafe4695965b8204b2ae8e0a4c4e',
       id: null,
       metadata: {},
       name: 'Comments_storyQuery',
       operationKind: 'query',
-      text: 'query Comments_storyQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    id\n    avatar\n    handle\n    ...UserSnippet_user\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query Comments_storyQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    id\n    avatar\n    handle\n    ...UserSnippet_user\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  id\n  createdBy {\n    id\n  }\n  comments(first: $count, after: $cursor, sortBy: "time_created", sortOrder: desc) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()
 
-;(node as any).hash = '3043c01307053f363967f63cbd85a881'
+;(node as any).hash = 'daea4b03349903ad1ebc3a4208b5e997'
 
 export default node

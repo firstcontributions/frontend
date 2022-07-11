@@ -36,14 +36,14 @@ export default function NewComment({ storyId, refetch }: NewCommentProps) {
   }
 
   return (
-    <div className="w-full dark:text-gray-300 dark:bg-dark-600 flex flex-col items-end">
+    <div className="w-full dark:text-gray-300 bg-white dark:bg-dark-600 flex flex-col items-end">
       <div className="textarea-container w-full">
         <ExpandingTextarea
           value={comment}
           setValue={setComment}
           placeholder="Write a comment..."
           disabled={isMutationInFlight}
-          className="w-full p-4 dark:text-gray-300 dark:bg-dark-600 focus-visible:outline-none"
+          className="w-full p-4 dark:text-gray-300 bg-white dark:bg-dark-600 focus-visible:outline-none"
         />
       </div>
       <Button onClick={() => handleCommentPost()}>Post</Button>

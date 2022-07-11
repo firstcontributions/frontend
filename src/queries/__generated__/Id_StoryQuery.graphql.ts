@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9aab997395d8bc3e0e25ee89f6cbe021>>
+ * @generated SignedSource<<11be4a782ebd8a6a520ea79a58e3531e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -131,6 +131,16 @@ const node: ConcreteRequest = (function () {
         kind: 'Literal',
         name: 'first',
         value: 10,
+      },
+      {
+        kind: 'Literal',
+        name: 'sortBy',
+        value: 'time_created',
+      },
+      {
+        kind: 'Literal',
+        name: 'sortOrder',
+        value: 'desc',
       },
     ]
   return {
@@ -379,14 +389,22 @@ const node: ConcreteRequest = (function () {
                       ],
                       storageKey: null,
                     },
+                    {
+                      alias: null,
+                      args: null,
+                      kind: 'ScalarField',
+                      name: 'totalCount',
+                      storageKey: null,
+                    },
                     v10 /*: any*/,
                   ],
-                  storageKey: 'comments(first:10)',
+                  storageKey:
+                    'comments(first:10,sortBy:"time_created",sortOrder:"desc")',
                 },
                 {
                   alias: null,
                   args: v11 /*: any*/,
-                  filters: null,
+                  filters: ['sortBy', 'sortOrder'],
                   handle: 'connection',
                   key: 'Comments_story__comments',
                   kind: 'LinkedHandle',
@@ -402,12 +420,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '2455ad05a11c7d3282cb7ea440b53c77',
+      cacheID: '84c89ecf713b403a2635998d2816087c',
       id: null,
       metadata: {},
       name: 'Id_StoryQuery',
       operationKind: 'query',
-      text: 'query Id_StoryQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ... on Story {\n      id\n      contentJson\n      createdBy {\n        ...UserDetails_user\n        id\n      }\n      ...Comments_story\n    }\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    id\n    avatar\n    handle\n    ...UserSnippet_user\n  }\n}\n\nfragment Comments_story on Story {\n  comments(first: 10) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query Id_StoryQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ... on Story {\n      id\n      contentJson\n      createdBy {\n        ...UserDetails_user\n        id\n      }\n      ...Comments_story\n    }\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Comment_node on Comment {\n  contentJson\n  createdBy {\n    id\n    avatar\n    handle\n    ...UserSnippet_user\n  }\n}\n\nfragment Comments_story on Story {\n  id\n  createdBy {\n    id\n  }\n  comments(first: 10, sortBy: "time_created", sortOrder: desc) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

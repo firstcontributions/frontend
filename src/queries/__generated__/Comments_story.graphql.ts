@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0c78d563d10f7f660638bf6aec5160de>>
+ * @generated SignedSource<<dcd3edaa29ed8743422c3f184c76339a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,10 @@
 import { ReaderFragment, RefetchableFragment } from 'relay-runtime'
 import { FragmentRefs } from 'relay-runtime'
 export type Comments_story$data = {
+  readonly id: string
+  readonly createdBy: {
+    readonly id: string
+  }
   readonly comments: {
     readonly edges: ReadonlyArray<{
       readonly node: {
@@ -18,8 +22,8 @@ export type Comments_story$data = {
         readonly ' $fragmentSpreads': FragmentRefs<'Comment_node'>
       }
     } | null>
+    readonly totalCount: number
   }
-  readonly id: string
   readonly ' $fragmentType': 'Comments_story'
 }
 export type Comments_story = Comments_story$data
@@ -76,9 +80,31 @@ const node: ReaderFragment = (function () {
     },
     name: 'Comments_story',
     selections: [
+      v1 /*: any*/,
+      {
+        alias: null,
+        args: null,
+        concreteType: 'User',
+        kind: 'LinkedField',
+        name: 'createdBy',
+        plural: false,
+        selections: [v1 /*: any*/],
+        storageKey: null,
+      },
       {
         alias: 'comments',
-        args: null,
+        args: [
+          {
+            kind: 'Literal',
+            name: 'sortBy',
+            value: 'time_created',
+          },
+          {
+            kind: 'Literal',
+            name: 'sortOrder',
+            value: 'desc',
+          },
+        ],
         concreteType: 'CommentsConnection',
         kind: 'LinkedField',
         name: '__Comments_story__comments_connection',
@@ -129,6 +155,13 @@ const node: ReaderFragment = (function () {
           {
             alias: null,
             args: null,
+            kind: 'ScalarField',
+            name: 'totalCount',
+            storageKey: null,
+          },
+          {
+            alias: null,
+            args: null,
             concreteType: 'PageInfo',
             kind: 'LinkedField',
             name: 'pageInfo',
@@ -152,15 +185,15 @@ const node: ReaderFragment = (function () {
             storageKey: null,
           },
         ],
-        storageKey: null,
+        storageKey:
+          '__Comments_story__comments_connection(sortBy:"time_created",sortOrder:"desc")',
       },
-      v1 /*: any*/,
     ],
     type: 'Story',
     abstractKey: null,
   }
 })()
 
-;(node as any).hash = '3043c01307053f363967f63cbd85a881'
+;(node as any).hash = 'daea4b03349903ad1ebc3a4208b5e997'
 
 export default node
