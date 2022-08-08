@@ -9,11 +9,13 @@ import IssuesFromLastRepo from '../../components/issue/IssuesFromLastRepo'
 import IssuesFromRecentRepos from '../../components/issue/IssuesFromRecentRepo'
 import RelevantIssues from '../../components/issue/RelevantIssues'
 import { issuesQuery } from '../../queries/__generated__/issuesQuery.graphql'
+import UserDetails from '../../components/UserDetails/UserDetails'
 
 const IssuesQuery = graphql`
   query issuesQuery {
     viewer {
       handle
+      ...UserDetails_user
       ...RelevantIssues
       ...IssuesFromLastRepo
       ...IssuesFromRecentRepos
@@ -31,7 +33,11 @@ const Issues = ({
       {query.viewer && (
         <Layout
           sidebarContentRight={query.viewer.handle}
-          sidebarContentLeft={<Card></Card>}
+          sidebarContentLeft={
+            <Card>
+              <UserDetails user={query.viewer} />
+            </Card>
+          }
         >
           <IssuesFromLastRepo user={query.viewer} />
           <IssuesFromRecentRepos user={query.viewer} />
