@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
+import { Virtuoso } from 'react-virtuoso'
 import { FeedsQuery$key } from '../../queries/__generated__/FeedsQuery.graphql'
 import StoryPreview from './StoryPreview'
 
@@ -7,12 +9,12 @@ type FeedProps = {
 }
 
 const Feed = ({ root }: FeedProps) => {
-  const { data } = usePaginationFragment(
+  const { data, loadNext } = usePaginationFragment(
     graphql`
       fragment FeedsQuery on Query
       @refetchable(queryName: "FeedsRoot_Query")
       @argumentDefinitions(
-        count: { type: "Int", defaultValue: 10 }
+        count: { type: "Int", defaultValue: 4 }
         cursor: { type: "String" }
       ) {
         feeds(first: $count, after: $cursor)
@@ -31,9 +33,25 @@ const Feed = ({ root }: FeedProps) => {
 
   return (
     <>
-      {data.feeds.edges.map(
-        (edge) => edge && <StoryPreview story={edge?.node} key={edge.node.id} />
-      )}
+      <Virtuoso
+        className="min-h-screen virtuoso-container"
+        data={data.feeds.edges}
+        endReached={loadNext}
+        overscan={200}
+        itemContent={(index, edge) => {
+          return (
+            edge?.node && <StoryPreview story={edge?.node} key={edge.node.id} />
+          )
+        }}
+      />
+      <style jsx>
+        {`
+          // hide scrollbar
+          -webkit-scrollbar {
+            display: none;
+          }
+        `}
+      </style>
     </>
   )
 }
