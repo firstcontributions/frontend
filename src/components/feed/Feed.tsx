@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
 import { Virtuoso } from 'react-virtuoso'
 import { FeedsQuery$key } from '../../queries/__generated__/FeedsQuery.graphql'
@@ -32,9 +31,9 @@ const Feed = ({ root }: FeedProps) => {
   )
 
   return (
-    <>
+    <div>
       <Virtuoso
-        className="min-h-screen virtuoso-container"
+        className="min-h-screen scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-700 scrollbar-track-gray-300 dark:scrollbar-track-gray-500"
         data={data.feeds.edges}
         endReached={loadNext}
         overscan={200}
@@ -44,15 +43,7 @@ const Feed = ({ root }: FeedProps) => {
           )
         }}
       />
-      <style jsx>
-        {`
-          // hide scrollbar
-          -webkit-scrollbar {
-            display: none;
-          }
-        `}
-      </style>
-    </>
+    </div>
   )
 }
 
