@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a5b8e6e725172ffbb83540b3e6dc39a5>>
+ * @generated SignedSource<<d89855a0dcba931a3eb4539beb5e2d1a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -66,21 +66,35 @@ const node: ConcreteRequest = (function () {
       name: '__typename',
       storageKey: null,
     },
-    v5 = [
+    v5 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'handle',
+      storageKey: null,
+    },
+    v6 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'avatar',
+      storageKey: null,
+    },
+    v7 = [
       {
         kind: 'Literal',
         name: 'first',
         value: 5,
       },
     ],
-    v6 = {
+    v8 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
       name: 'cursor',
       storageKey: null,
     },
-    v7 = {
+    v9 = {
       alias: null,
       args: null,
       concreteType: 'PageInfo',
@@ -105,7 +119,7 @@ const node: ConcreteRequest = (function () {
       ],
       storageKey: null,
     },
-    v8 = [
+    v10 = [
       {
         kind: 'Literal',
         name: 'first',
@@ -193,20 +207,8 @@ const node: ConcreteRequest = (function () {
                   plural: false,
                   selections: [
                     v2 /*: any*/,
-                    {
-                      alias: null,
-                      args: null,
-                      kind: 'ScalarField',
-                      name: 'handle',
-                      storageKey: null,
-                    },
-                    {
-                      alias: null,
-                      args: null,
-                      kind: 'ScalarField',
-                      name: 'avatar',
-                      storageKey: null,
-                    },
+                    v5 /*: any*/,
+                    v6 /*: any*/,
                     {
                       alias: null,
                       args: null,
@@ -241,7 +243,7 @@ const node: ConcreteRequest = (function () {
                     },
                     {
                       alias: null,
-                      args: v5 /*: any*/,
+                      args: v7 /*: any*/,
                       concreteType: 'BadgesConnection',
                       kind: 'LinkedField',
                       name: 'badges',
@@ -289,17 +291,17 @@ const node: ConcreteRequest = (function () {
                               ],
                               storageKey: null,
                             },
-                            v6 /*: any*/,
+                            v8 /*: any*/,
                           ],
                           storageKey: null,
                         },
-                        v7 /*: any*/,
+                        v9 /*: any*/,
                       ],
                       storageKey: 'badges(first:5)',
                     },
                     {
                       alias: null,
-                      args: v5 /*: any*/,
+                      args: v7 /*: any*/,
                       filters: null,
                       handle: 'connection',
                       key: 'BadgeList__badges',
@@ -311,7 +313,7 @@ const node: ConcreteRequest = (function () {
                 },
                 {
                   alias: null,
-                  args: v8 /*: any*/,
+                  args: v10 /*: any*/,
                   concreteType: 'CommentsConnection',
                   kind: 'LinkedField',
                   name: 'comments',
@@ -334,22 +336,57 @@ const node: ConcreteRequest = (function () {
                           plural: false,
                           selections: [
                             v2 /*: any*/,
+                            {
+                              alias: null,
+                              args: null,
+                              kind: 'ScalarField',
+                              name: 'abstractContent',
+                              storageKey: null,
+                            },
                             v3 /*: any*/,
+                            {
+                              alias: null,
+                              args: null,
+                              concreteType: 'User',
+                              kind: 'LinkedField',
+                              name: 'createdBy',
+                              plural: false,
+                              selections: [
+                                v6 /*: any*/,
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'name',
+                                  storageKey: null,
+                                },
+                                v5 /*: any*/,
+                                v2 /*: any*/,
+                              ],
+                              storageKey: null,
+                            },
+                            {
+                              alias: null,
+                              args: null,
+                              kind: 'ScalarField',
+                              name: 'timeCreated',
+                              storageKey: null,
+                            },
                             v4 /*: any*/,
                           ],
                           storageKey: null,
                         },
-                        v6 /*: any*/,
+                        v8 /*: any*/,
                       ],
                       storageKey: null,
                     },
-                    v7 /*: any*/,
+                    v9 /*: any*/,
                   ],
                   storageKey: 'comments(first:20)',
                 },
                 {
                   alias: null,
-                  args: v8 /*: any*/,
+                  args: v10 /*: any*/,
                   filters: null,
                   handle: 'connection',
                   key: 'Comments_story__comments',
@@ -366,12 +403,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '1a6e6e9e7fe1fb50f86079a8e58caea4',
+      cacheID: '198592965eadd984b6b7f7342b21b9f5',
       id: null,
       metadata: {},
       name: 'Id_StoryQuery',
       operationKind: 'query',
-      text: 'query Id_StoryQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ... on Story {\n      id\n      contentJson\n      createdBy {\n        ...UserDetails_user\n        id\n      }\n      ...Comments_story\n    }\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Comments_story on Story {\n  comments(first: 20) {\n    edges {\n      node {\n        id\n        contentJson\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n',
+      text: 'query Id_StoryQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ... on Story {\n      id\n      contentJson\n      createdBy {\n        ...UserDetails_user\n        id\n      }\n      ...Comments_story\n    }\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Comment_node on Comment {\n  abstractContent\n  contentJson\n  createdBy {\n    avatar\n    name\n    handle\n    id\n  }\n  id\n  timeCreated\n}\n\nfragment Comments_story on Story {\n  comments(first: 20) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n',
     },
   }
 })()

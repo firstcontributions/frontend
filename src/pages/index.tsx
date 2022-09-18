@@ -43,15 +43,9 @@ const Home = ({
       sidebarContentLeft={leftSidebar}
       sidebarContentRight={<div>Promoted</div>}
     >
-      <Card>Posts</Card>
-      {query.viewer && (
-        <>
-          <Feed root={query} />
-          <IssuesFromLastRepo user={query.viewer} />
-          <IssuesFromRecentRepos user={query.viewer} />
-          <RelevantIssues user={query.viewer} />
-        </>
-      )}
+      <>
+        <Feed root={query} />
+      </>
     </Layout>
   )
 }
