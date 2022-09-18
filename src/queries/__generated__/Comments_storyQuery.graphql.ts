@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<127baeef35ee30d190f9a9648b91e525>>
+ * @generated SignedSource<<d95fa6a83f9bea7c555c908d41bdbae9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -164,7 +164,54 @@ const node: ConcreteRequest = (function () {
                               alias: null,
                               args: null,
                               kind: 'ScalarField',
+                              name: 'abstractContent',
+                              storageKey: null,
+                            },
+                            {
+                              alias: null,
+                              args: null,
+                              kind: 'ScalarField',
                               name: 'contentJson',
+                              storageKey: null,
+                            },
+                            {
+                              alias: null,
+                              args: null,
+                              concreteType: 'User',
+                              kind: 'LinkedField',
+                              name: 'createdBy',
+                              plural: false,
+                              selections: [
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'avatar',
+                                  storageKey: null,
+                                },
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'name',
+                                  storageKey: null,
+                                },
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'handle',
+                                  storageKey: null,
+                                },
+                                v3 /*: any*/,
+                              ],
+                              storageKey: null,
+                            },
+                            {
+                              alias: null,
+                              args: null,
+                              kind: 'ScalarField',
+                              name: 'timeCreated',
                               storageKey: null,
                             },
                             v2 /*: any*/,
@@ -228,16 +275,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '061fbde9f2aad792041d5ab2b055572c',
+      cacheID: 'f21f452bbc089df99969e6b75bc90f69',
       id: null,
       metadata: {},
       name: 'Comments_storyQuery',
       operationKind: 'query',
-      text: 'query Comments_storyQuery(\n  $count: Int = 20\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        contentJson\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+      text: 'query Comments_storyQuery(\n  $count: Int = 20\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  abstractContent\n  contentJson\n  createdBy {\n    avatar\n    name\n    handle\n    id\n  }\n  id\n  timeCreated\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
     },
   }
 })()
 
-;(node as any).hash = '0d3f43bb7b5c1d45598fb121e396e39f'
+;(node as any).hash = '14d2bd5a676f8d6dd314348a98407942'
 
 export default node

@@ -1,7 +1,13 @@
 import { graphql, usePaginationFragment } from 'react-relay'
+import { Comments_story$key } from '../../queries/__generated__/Comments_story.graphql'
 import NewComment from './NewComment'
+import Comment from './Comment'
 
-const Comments = ({ story }: any) => {
+type CommentsProps = {
+  story: Comments_story$key
+}
+
+const Comments = ({ story }: CommentsProps) => {
   const { data, loadNext, hasNext, refetch } = usePaginationFragment(
     graphql`
       fragment Comments_story on Story
@@ -15,7 +21,7 @@ const Comments = ({ story }: any) => {
           edges {
             node {
               id
-              contentJson
+              ...Comment_node
             }
           }
         }
@@ -29,10 +35,12 @@ const Comments = ({ story }: any) => {
   }
 
   return (
-    <div className="space-y-4">
-      {data.comments.edges.map((comment: any) => (
-        <div key={comment.id}>{comment.node.contentJson}</div>
-      ))}
+    <div className="space-y-4 mt-4">
+      <NewComment storyId={story.id} refetch={refetch} />
+      {data.comments.edges.map(
+        (comment: any) =>
+          comment && <Comment comment={comment.node} key={comment.node.id} />
+      )}
       {hasNext ? (
         <button
           className="text-gray-600 dark:text-gray-300"
@@ -43,7 +51,6 @@ const Comments = ({ story }: any) => {
           Load more
         </button>
       ) : null}
-      <NewComment storyId={story.id} refetch={refetch} />
     </div>
   )
 }

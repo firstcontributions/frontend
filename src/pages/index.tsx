@@ -40,11 +40,9 @@ const Home = ({
       sidebarContentLeft={leftSidebar}
       sidebarContentRight={<div>Promoted</div>}
     >
-      {query.viewer && (
-        <>
-          <Feed root={query} />
-        </>
-      )}
+      <>
+        <Feed root={query} />
+      </>
     </Layout>
   )
 }
