@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ba59095ea5323eae245fc03386c93a44>>
+ * @generated SignedSource<<cec01e60572c7fa0fce8b56868d9f237>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -190,7 +190,14 @@ const node: ConcreteRequest = (function () {
         value: 2,
       },
     ],
-    v12 = {
+    v12 = [
+      {
+        kind: 'Literal',
+        name: 'first',
+        value: 4,
+      },
+    ],
+    v13 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
@@ -417,7 +424,7 @@ const node: ConcreteRequest = (function () {
         },
         {
           alias: null,
-          args: v8 /*: any*/,
+          args: v12 /*: any*/,
           concreteType: 'StoriesConnection',
           kind: 'LinkedField',
           name: 'feeds',
@@ -510,7 +517,7 @@ const node: ConcreteRequest = (function () {
                       name: 'reactions',
                       plural: false,
                       selections: [
-                        v12 /*: any*/,
+                        v13 /*: any*/,
                         {
                           alias: null,
                           args: null,
@@ -528,7 +535,7 @@ const node: ConcreteRequest = (function () {
                       kind: 'LinkedField',
                       name: 'comments',
                       plural: false,
-                      selections: [v12 /*: any*/],
+                      selections: [v13 /*: any*/],
                       storageKey: null,
                     },
                     v5 /*: any*/,
@@ -541,11 +548,11 @@ const node: ConcreteRequest = (function () {
             },
             v7 /*: any*/,
           ],
-          storageKey: 'feeds(first:10)',
+          storageKey: 'feeds(first:4)',
         },
         {
           alias: null,
-          args: v8 /*: any*/,
+          args: v12 /*: any*/,
           filters: null,
           handle: 'connection',
           key: 'RootQuery__feeds',
@@ -555,12 +562,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'db9fdf8280acb2e0539cd973e5dd65de',
+      cacheID: 'f1aadc5339a12ecf615b73318217c0c6',
       id: null,
       metadata: {},
       name: 'pages_UserQuery',
       operationKind: 'query',
-      text: 'query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n  ...FeedsQuery\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment FeedsQuery on Query {\n  feeds(first: 10) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n  ...FeedsQuery\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment FeedsQuery on Query {\n  feeds(first: 4) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

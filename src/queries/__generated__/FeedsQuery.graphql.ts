@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9cacfd805782e722e24be3e80a94cd8e>>
+ * @generated SignedSource<<74585384ab64a7c682d1a7ebee31a13d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -32,7 +32,7 @@ const node: ReaderFragment = (function () {
   return {
     argumentDefinitions: [
       {
-        defaultValue: 10,
+        defaultValue: 4,
         kind: 'LocalArgument',
         name: 'count',
       },
@@ -157,6 +157,6 @@ const node: ReaderFragment = (function () {
   }
 })()
 
-;(node as any).hash = '97a1e3cfc0aa19d8e65413fff6656a36'
+;(node as any).hash = 'ba6f92757b35ee6d6d0693e711c322d2'
 
 export default node

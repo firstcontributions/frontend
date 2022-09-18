@@ -32,7 +32,7 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className="my-8 flex flex-col bg-white  dark:bg-dark-700 rounded-lg">
+      <div className="my-8 mr-2 flex flex-col bg-white  dark:bg-dark-700 rounded-lg">
         <div>
           {data.thumbnail ? (
             <img className="cover-image" src={data.thumbnail} alt="" />
