@@ -29,7 +29,7 @@
     "md5": "^2.3.0",
     "multiparty": "^4.2.3",
     "next": "^12.1.6",
-    "node-fetch": "^3.2.0",
+    "node-fetch": "^3.2.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^3.1.4",
