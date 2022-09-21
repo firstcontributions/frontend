@@ -35,12 +35,14 @@ export default function BadgeIcon({ displayName }: BadgeIconProps) {
   return (
     <div className="text-xl z-10 badge-icon">
       {iconMap[displayName]}
-      <style>
+      <style jsx>
         {`
-                    .badge-icon {
-                        color: #00000077;
-                    }
-                `}
+          .badge-icon {
+            padding: 0.5rem;
+            background: #fff;
+            border-radius: 50%;
+          }
+        `}
       </style>
     </div>
   )

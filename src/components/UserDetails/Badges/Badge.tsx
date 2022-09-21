@@ -1,7 +1,7 @@
 import { graphql, useFragment } from 'react-relay'
 import { Badge_node$key } from '../../../queries/__generated__/Badge_node.graphql'
 import BadgeIcon, { LanguageName } from './BadgeIcon'
-import Hexagon from './Hexagon'
+import Hexagon, { hexagonBackground } from './Hexagon'
 
 const Badge = ({ badge }: { badge: Badge_node$key }) => {
   const data = useFragment(
@@ -15,9 +15,16 @@ const Badge = ({ badge }: { badge: Badge_node$key }) => {
     badge
   )
 
+  const getLevelBackground = (level: number) =>
+    hexagonBackground[
+      Object.keys(hexagonBackground)[
+        level - 1
+      ] as keyof typeof hexagonBackground
+    ]
+
   return (
     <div className="flex items-center ">
-      <Hexagon size={36} color="red">
+      <Hexagon size={4} color={getLevelBackground(data.currentLevel)}>
         <BadgeIcon displayName={data.displayName as LanguageName} />
       </Hexagon>
       <div className=" ml-8 dark:text-gray-300">
