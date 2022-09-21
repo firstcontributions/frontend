@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<74585384ab64a7c682d1a7ebee31a13d>>
+ * @generated SignedSource<<aa4128a97f1322eb4f02817a85e7464a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,29 +10,37 @@
 
 import { ReaderFragment, RefetchableFragment } from 'relay-runtime'
 import { FragmentRefs } from 'relay-runtime'
-export type FeedsQuery$data = {
-  readonly feeds: {
+export type Comments_story$data = {
+  readonly comments: {
     readonly edges: ReadonlyArray<{
       readonly node: {
         readonly id: string
-        readonly ' $fragmentSpreads': FragmentRefs<'StoryPreview_node'>
+        readonly ' $fragmentSpreads': FragmentRefs<'Comment_node'>
       }
     } | null>
   }
-  readonly ' $fragmentType': 'FeedsQuery'
+  readonly id: string
+  readonly ' $fragmentType': 'Comments_story'
 }
-export type FeedsQuery = FeedsQuery$data
-export type FeedsQuery$key = {
-  readonly ' $data'?: FeedsQuery$data
-  readonly ' $fragmentSpreads': FragmentRefs<'FeedsQuery'>
+export type Comments_story = Comments_story$data
+export type Comments_story$key = {
+  readonly ' $data'?: Comments_story$data
+  readonly ' $fragmentSpreads': FragmentRefs<'Comments_story'>
 }
 
 const node: ReaderFragment = (function () {
-  var v0 = ['feeds']
+  var v0 = ['comments'],
+    v1 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'id',
+      storageKey: null,
+    }
   return {
     argumentDefinitions: [
       {
-        defaultValue: 4,
+        defaultValue: 20,
         kind: 'LocalArgument',
         name: 'count',
       },
@@ -61,24 +69,25 @@ const node: ReaderFragment = (function () {
           backward: null,
           path: v0 /*: any*/,
         },
-        fragmentPathInResult: [],
-        operation: require('./FeedsRoot_Query.graphql'),
+        fragmentPathInResult: ['node'],
+        operation: require('./Comments_storyQuery.graphql'),
+        identifierField: 'id',
       },
     },
-    name: 'FeedsQuery',
+    name: 'Comments_story',
     selections: [
       {
-        alias: 'feeds',
+        alias: 'comments',
         args: null,
-        concreteType: 'StoriesConnection',
+        concreteType: 'CommentsConnection',
         kind: 'LinkedField',
-        name: '__RootQuery__feeds_connection',
+        name: '__Comments_story__comments_connection',
         plural: false,
         selections: [
           {
             alias: null,
             args: null,
-            concreteType: 'StoryEdge',
+            concreteType: 'CommentEdge',
             kind: 'LinkedField',
             name: 'edges',
             plural: true,
@@ -86,22 +95,16 @@ const node: ReaderFragment = (function () {
               {
                 alias: null,
                 args: null,
-                concreteType: 'Story',
+                concreteType: 'Comment',
                 kind: 'LinkedField',
                 name: 'node',
                 plural: false,
                 selections: [
-                  {
-                    alias: null,
-                    args: null,
-                    kind: 'ScalarField',
-                    name: 'id',
-                    storageKey: null,
-                  },
+                  v1 /*: any*/,
                   {
                     args: null,
                     kind: 'FragmentSpread',
-                    name: 'StoryPreview_node',
+                    name: 'Comment_node',
                   },
                   {
                     alias: null,
@@ -151,12 +154,13 @@ const node: ReaderFragment = (function () {
         ],
         storageKey: null,
       },
+      v1 /*: any*/,
     ],
-    type: 'Query',
+    type: 'Story',
     abstractKey: null,
   }
 })()
 
-;(node as any).hash = 'ba6f92757b35ee6d6d0693e711c322d2'
+;(node as any).hash = '14d2bd5a676f8d6dd314348a98407942'
 
 export default node

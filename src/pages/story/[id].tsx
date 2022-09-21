@@ -2,6 +2,7 @@ import { NextPageContext } from 'next'
 import dynamic from 'next/dynamic'
 import { graphql, usePreloadedQuery } from 'react-relay'
 import { RelayProps, withRelay } from 'relay-nextjs'
+import Comments from '../../components/comment/Comments'
 import Layout from '../../components/Layout'
 import UserDetails from '../../components/UserDetails/UserDetails'
 import { getClientEnvironment } from '../../lib/client_environment'
@@ -20,6 +21,7 @@ const StoryQuery = graphql`
         createdBy {
           ...UserDetails_user
         }
+        ...Comments_story
       }
     }
   }
@@ -42,6 +44,7 @@ const Story = ({
         }
       >
         <Editor body={query?.node?.contentJson} editable={false} />
+        <Comments story={query.node} />
       </Layout>
     </div>
   )

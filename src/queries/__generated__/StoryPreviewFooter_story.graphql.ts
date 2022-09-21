@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<673dbcea58ab77d0654b61a5f090e243>>
+ * @generated SignedSource<<96d68f85c81b4c44678b6f8ad960ddfa>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -28,13 +28,20 @@ export type StoryPreviewFooter_story$key = {
 }
 
 const node: ReaderFragment = (function () {
-  var v0 = {
-    alias: null,
-    args: null,
-    kind: 'ScalarField',
-    name: 'totalCount',
-    storageKey: null,
-  }
+  var v0 = [
+      {
+        kind: 'Literal',
+        name: 'first',
+        value: 1,
+      },
+    ],
+    v1 = {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'totalCount',
+      storageKey: null,
+    }
   return {
     argumentDefinitions: [],
     kind: 'Fragment',
@@ -57,13 +64,13 @@ const node: ReaderFragment = (function () {
       },
       {
         alias: null,
-        args: null,
+        args: v0 /*: any*/,
         concreteType: 'ReactionsConnection',
         kind: 'LinkedField',
         name: 'reactions',
         plural: false,
         selections: [
-          v0 /*: any*/,
+          v1 /*: any*/,
           {
             alias: null,
             args: null,
@@ -72,17 +79,17 @@ const node: ReaderFragment = (function () {
             storageKey: null,
           },
         ],
-        storageKey: null,
+        storageKey: 'reactions(first:1)',
       },
       {
         alias: null,
-        args: null,
+        args: v0 /*: any*/,
         concreteType: 'CommentsConnection',
         kind: 'LinkedField',
         name: 'comments',
         plural: false,
-        selections: [v0 /*: any*/],
-        storageKey: null,
+        selections: [v1 /*: any*/],
+        storageKey: 'comments(first:1)',
       },
     ],
     type: 'Story',
@@ -90,6 +97,6 @@ const node: ReaderFragment = (function () {
   }
 })()
 
-;(node as any).hash = '91a67ba23e3d12e2abf0423b653933a2'
+;(node as any).hash = '3ccb284d1a73a72541ab02b62dd437bf'
 
 export default node

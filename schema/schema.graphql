@@ -6,8 +6,8 @@ schema {
 scalar Time
 
 enum SortOrder {
-	asc,
 	desc,
+	asc,
 }
 
 type Query {
@@ -18,7 +18,7 @@ type Query {
 	  # The ID of an object
 	  id: ID!
 	): Node
-	feeds(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): StoriesConnection!
+	feeds(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: StorySortBy): StoriesConnection!
 	user(handle: String): User!
 }
 
@@ -55,6 +55,7 @@ type BadgeEdge {
 } 
 
 enum BadgeSortBy {
+	points,
 	time_created,
 }
 
@@ -170,11 +171,11 @@ input ReputationInput {
 
 type Story implements Node {
 	abstractContent: String!
-	comments(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): CommentsConnection!
+	comments(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: CommentSortBy): CommentsConnection!
 	contentJson: String!
 	createdBy: User!
 	id: ID!
-	reactions(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): ReactionsConnection!
+	reactions(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: ReactionSortBy): ReactionsConnection!
 	thumbnail: String!
 	timeCreated: Time!
 	timeUpdated: Time!
@@ -191,6 +192,7 @@ input StoryInput {
 }
 input UpdateStoryInput {
 	id: ID!
+	title: String
 } 
 
 type StoriesConnection {
@@ -211,17 +213,17 @@ enum StorySortBy {
 
 type User implements Node {
 	avatar: String!
-	badges(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): BadgesConnection!
+	badges(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: BadgeSortBy): BadgesConnection!
 	bio: String!
 	gitContributionStats: GitContributionStats!
 	handle: String!
 	id: ID!
-	issuesFromLastRepo(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): IssuesConnection!
-	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): IssuesConnection!
+	issuesFromLastRepo(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: IssueSortBy): IssuesConnection!
+	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: IssueSortBy): IssuesConnection!
 	name: String!
-	relevantIssues(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): IssuesConnection!
+	relevantIssues(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: IssueSortBy): IssuesConnection!
 	reputation: Reputation!
-	stories(first: Int, last: Int, after: String, before: String, sortBy: String, sortOrder: SortOrder): StoriesConnection!
+	stories(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: StorySortBy): StoriesConnection!
 	timeCreated: Time!
 	timeUpdated: Time!
 }

@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
 import { IssuesFromLastRepo$key } from '../../queries/__generated__/IssuesFromLastRepo.graphql'
-import { IssuesFromLastRepo_Query } from '../../queries/__generated__/IssuesFromLastRepo_Query.graphql'
-import { UserDetails_user$key } from '../../queries/__generated__/UserDetails_user.graphql'
+import { FaChevronRight } from '@react-icons/all-files/fa/FaChevronRight'
 import Issue from './Issue'
 
 type IssuesFromLastRepoProps = {
@@ -32,6 +31,30 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
     user
   )
 
+  const scrollableElement = React.useRef<HTMLDivElement>(null)
+
+  enum scrollDirection {
+    Left = -1,
+    Right = 1,
+  }
+
+  const scrollHorizontally = useCallback((direction: scrollDirection) => {
+    scrollableElement.current &&
+      (scrollableElement.current.scrollLeft += direction * 550)
+  }, [])
+
+  const handleScrollRight = () => {
+    if (hasNext) {
+      loadNext(2)
+    }
+    scrollHorizontally(scrollDirection.Right)
+  }
+
+  useEffect(() => {
+    console.log('IssuesFromLastRepo: useEffect', data.issuesFromLastRepo.edges)
+    scrollHorizontally(scrollDirection.Right)
+  }, [data.issuesFromLastRepo.edges, scrollHorizontally, scrollDirection.Right])
+
   if (!data || data.issuesFromLastRepo.edges.length === 0) {
     return <></>
   }
@@ -39,20 +62,39 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
   return (
     <div className="mt-10">
       <h3 className="font-bold text-gray-500 text-lg">Issues from last repo</h3>
-      <div className="grid grid-cols-2 xl:grid-cols-2 gap-4 mt-4">
-        {data.issuesFromLastRepo.edges.map(
-          (issue) => issue && <Issue issue={issue.node} key={issue.node.id} />
-        )}
-        {hasNext ? (
-          <button
-            onClick={() => {
-              loadNext(3)
-            }}
-          >
-            Load more
-          </button>
-        ) : null}
+      <div className="relative">
+        <div
+          className=" flex overflow-x-auto space-x-4 no-scrollbar scroll-smooth"
+          ref={scrollableElement}
+        >
+          {data.issuesFromLastRepo.edges.map(
+            (issue) => issue && <Issue issue={issue.node} key={issue.node.id} />
+          )}
+        </div>
+        <button
+          className="absolute right-8 bottom-0 mr-4 mt-4"
+          onClick={() => scrollHorizontally(scrollDirection.Left)}
+        >
+          <FaChevronRight className="b-0 w-6 h-6 rotate-180 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
+        </button>
+        <button
+          className="absolute right-0 bottom-0 mr-4 mt-4"
+          onClick={() => handleScrollRight()}
+        >
+          <FaChevronRight className="b-0 w-6 h-6 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
+        </button>
       </div>
+      <style jsx>
+        {`
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+          .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+          }
+        `}
+      </style>
     </div>
   )
 }

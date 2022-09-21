@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4affee300fa4da4ad9f71fb8823898ae>>
+ * @generated SignedSource<<6e561cad108365689a01e943d8716175>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,9 +10,9 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime'
 import { FragmentRefs } from 'relay-runtime'
-export type pages_UserQuery$variables = {}
-export type pages_UserQueryVariables = pages_UserQuery$variables
-export type pages_UserQuery$data = {
+export type issuesQuery$variables = {}
+export type issuesQueryVariables = issuesQuery$variables
+export type issuesQuery$data = {
   readonly viewer: {
     readonly handle: string
     readonly ' $fragmentSpreads': FragmentRefs<
@@ -22,12 +22,11 @@ export type pages_UserQuery$data = {
       | 'IssuesFromRecentRepos'
     >
   } | null
-  readonly ' $fragmentSpreads': FragmentRefs<'FeedsQuery'>
 }
-export type pages_UserQueryResponse = pages_UserQuery$data
-export type pages_UserQuery = {
-  variables: pages_UserQueryVariables
-  response: pages_UserQuery$data
+export type issuesQueryResponse = issuesQuery$data
+export type issuesQuery = {
+  variables: issuesQueryVariables
+  response: issuesQuery$data
 }
 
 const node: ConcreteRequest = (function () {
@@ -45,42 +44,28 @@ const node: ConcreteRequest = (function () {
       name: 'id',
       storageKey: null,
     },
-    v2 = {
-      alias: null,
-      args: null,
-      kind: 'ScalarField',
-      name: 'avatar',
-      storageKey: null,
-    },
-    v3 = {
-      alias: null,
-      args: null,
-      kind: 'ScalarField',
-      name: 'bio',
-      storageKey: null,
-    },
-    v4 = [
+    v2 = [
       {
         kind: 'Literal',
         name: 'first',
         value: 5,
       },
     ],
-    v5 = {
+    v3 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
       name: '__typename',
       storageKey: null,
     },
-    v6 = {
+    v4 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
       name: 'cursor',
       storageKey: null,
     },
-    v7 = {
+    v5 = {
       alias: null,
       args: null,
       concreteType: 'PageInfo',
@@ -105,21 +90,14 @@ const node: ConcreteRequest = (function () {
       ],
       storageKey: null,
     },
-    v8 = [
+    v6 = [
       {
         kind: 'Literal',
         name: 'first',
         value: 10,
       },
     ],
-    v9 = {
-      alias: null,
-      args: null,
-      kind: 'ScalarField',
-      name: 'title',
-      storageKey: null,
-    },
-    v10 = [
+    v7 = [
       {
         alias: null,
         args: null,
@@ -151,7 +129,13 @@ const node: ConcreteRequest = (function () {
                 name: 'repository',
                 storageKey: null,
               },
-              v9 /*: any*/,
+              {
+                alias: null,
+                args: null,
+                kind: 'ScalarField',
+                name: 'title',
+                storageKey: null,
+              },
               {
                 alias: null,
                 args: null,
@@ -173,50 +157,29 @@ const node: ConcreteRequest = (function () {
                 name: 'commentCount',
                 storageKey: null,
               },
-              v5 /*: any*/,
+              v3 /*: any*/,
             ],
             storageKey: null,
           },
-          v6 /*: any*/,
+          v4 /*: any*/,
         ],
         storageKey: null,
       },
-      v7 /*: any*/,
+      v5 /*: any*/,
     ],
-    v11 = [
+    v8 = [
       {
         kind: 'Literal',
         name: 'first',
         value: 2,
       },
-    ],
-    v12 = [
-      {
-        kind: 'Literal',
-        name: 'first',
-        value: 4,
-      },
-    ],
-    v13 = [
-      {
-        kind: 'Literal',
-        name: 'first',
-        value: 1,
-      },
-    ],
-    v14 = {
-      alias: null,
-      args: null,
-      kind: 'ScalarField',
-      name: 'totalCount',
-      storageKey: null,
-    }
+    ]
   return {
     fragment: {
       argumentDefinitions: [],
       kind: 'Fragment',
       metadata: null,
-      name: 'pages_UserQuery',
+      name: 'issuesQuery',
       selections: [
         {
           alias: null,
@@ -250,11 +213,6 @@ const node: ConcreteRequest = (function () {
           ],
           storageKey: null,
         },
-        {
-          args: null,
-          kind: 'FragmentSpread',
-          name: 'FeedsQuery',
-        },
       ],
       type: 'Query',
       abstractKey: null,
@@ -263,7 +221,7 @@ const node: ConcreteRequest = (function () {
     operation: {
       argumentDefinitions: [],
       kind: 'Operation',
-      name: 'pages_UserQuery',
+      name: 'issuesQuery',
       selections: [
         {
           alias: null,
@@ -275,8 +233,20 @@ const node: ConcreteRequest = (function () {
           selections: [
             v0 /*: any*/,
             v1 /*: any*/,
-            v2 /*: any*/,
-            v3 /*: any*/,
+            {
+              alias: null,
+              args: null,
+              kind: 'ScalarField',
+              name: 'avatar',
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: 'ScalarField',
+              name: 'bio',
+              storageKey: null,
+            },
             {
               alias: null,
               args: null,
@@ -304,7 +274,7 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v4 /*: any*/,
+              args: v2 /*: any*/,
               concreteType: 'BadgesConnection',
               kind: 'LinkedField',
               name: 'badges',
@@ -348,21 +318,21 @@ const node: ConcreteRequest = (function () {
                           name: 'currentLevel',
                           storageKey: null,
                         },
-                        v5 /*: any*/,
+                        v3 /*: any*/,
                       ],
                       storageKey: null,
                     },
-                    v6 /*: any*/,
+                    v4 /*: any*/,
                   ],
                   storageKey: null,
                 },
-                v7 /*: any*/,
+                v5 /*: any*/,
               ],
               storageKey: 'badges(first:5)',
             },
             {
               alias: null,
-              args: v4 /*: any*/,
+              args: v2 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'BadgeList__badges',
@@ -371,17 +341,17 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v8 /*: any*/,
+              args: v6 /*: any*/,
               concreteType: 'IssuesConnection',
               kind: 'LinkedField',
               name: 'relevantIssues',
               plural: false,
-              selections: v10 /*: any*/,
+              selections: v7 /*: any*/,
               storageKey: 'relevantIssues(first:10)',
             },
             {
               alias: null,
-              args: v8 /*: any*/,
+              args: v6 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'RelevantIssues__relevantIssues',
@@ -390,17 +360,17 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v11 /*: any*/,
+              args: v8 /*: any*/,
               concreteType: 'IssuesConnection',
               kind: 'LinkedField',
               name: 'issuesFromLastRepo',
               plural: false,
-              selections: v10 /*: any*/,
+              selections: v7 /*: any*/,
               storageKey: 'issuesFromLastRepo(first:2)',
             },
             {
               alias: null,
-              args: v11 /*: any*/,
+              args: v8 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'IssuesFromLastRepo__issuesFromLastRepo',
@@ -409,17 +379,17 @@ const node: ConcreteRequest = (function () {
             },
             {
               alias: null,
-              args: v11 /*: any*/,
+              args: v8 /*: any*/,
               concreteType: 'IssuesConnection',
               kind: 'LinkedField',
               name: 'issuesFromOtherRecentRepos',
               plural: false,
-              selections: v10 /*: any*/,
+              selections: v7 /*: any*/,
               storageKey: 'issuesFromOtherRecentRepos(first:2)',
             },
             {
               alias: null,
-              args: v11 /*: any*/,
+              args: v8 /*: any*/,
               filters: null,
               handle: 'connection',
               key: 'IssuesFromRecentRepos__issuesFromOtherRecentRepos',
@@ -429,156 +399,19 @@ const node: ConcreteRequest = (function () {
           ],
           storageKey: null,
         },
-        {
-          alias: null,
-          args: v12 /*: any*/,
-          concreteType: 'StoriesConnection',
-          kind: 'LinkedField',
-          name: 'feeds',
-          plural: false,
-          selections: [
-            {
-              alias: null,
-              args: null,
-              concreteType: 'StoryEdge',
-              kind: 'LinkedField',
-              name: 'edges',
-              plural: true,
-              selections: [
-                {
-                  alias: null,
-                  args: null,
-                  concreteType: 'Story',
-                  kind: 'LinkedField',
-                  name: 'node',
-                  plural: false,
-                  selections: [
-                    v1 /*: any*/,
-                    {
-                      alias: null,
-                      args: null,
-                      kind: 'ScalarField',
-                      name: 'abstractContent',
-                      storageKey: null,
-                    },
-                    {
-                      alias: null,
-                      args: null,
-                      kind: 'ScalarField',
-                      name: 'thumbnail',
-                      storageKey: null,
-                    },
-                    {
-                      alias: null,
-                      args: null,
-                      kind: 'ScalarField',
-                      name: 'timeCreated',
-                      storageKey: null,
-                    },
-                    v9 /*: any*/,
-                    {
-                      alias: null,
-                      args: null,
-                      kind: 'ScalarField',
-                      name: 'urlSuffix',
-                      storageKey: null,
-                    },
-                    {
-                      alias: null,
-                      args: null,
-                      concreteType: 'User',
-                      kind: 'LinkedField',
-                      name: 'createdBy',
-                      plural: false,
-                      selections: [
-                        v2 /*: any*/,
-                        v1 /*: any*/,
-                        v0 /*: any*/,
-                        v3 /*: any*/,
-                        {
-                          alias: null,
-                          args: null,
-                          concreteType: 'Reputation',
-                          kind: 'LinkedField',
-                          name: 'reputation',
-                          plural: false,
-                          selections: [
-                            {
-                              alias: null,
-                              args: null,
-                              kind: 'ScalarField',
-                              name: 'value',
-                              storageKey: null,
-                            },
-                          ],
-                          storageKey: null,
-                        },
-                      ],
-                      storageKey: null,
-                    },
-                    {
-                      alias: null,
-                      args: v13 /*: any*/,
-                      concreteType: 'ReactionsConnection',
-                      kind: 'LinkedField',
-                      name: 'reactions',
-                      plural: false,
-                      selections: [
-                        v14 /*: any*/,
-                        {
-                          alias: null,
-                          args: null,
-                          kind: 'ScalarField',
-                          name: 'hasViewerAssociation',
-                          storageKey: null,
-                        },
-                      ],
-                      storageKey: 'reactions(first:1)',
-                    },
-                    {
-                      alias: null,
-                      args: v13 /*: any*/,
-                      concreteType: 'CommentsConnection',
-                      kind: 'LinkedField',
-                      name: 'comments',
-                      plural: false,
-                      selections: [v14 /*: any*/],
-                      storageKey: 'comments(first:1)',
-                    },
-                    v5 /*: any*/,
-                  ],
-                  storageKey: null,
-                },
-                v6 /*: any*/,
-              ],
-              storageKey: null,
-            },
-            v7 /*: any*/,
-          ],
-          storageKey: 'feeds(first:4)',
-        },
-        {
-          alias: null,
-          args: v12 /*: any*/,
-          filters: null,
-          handle: 'connection',
-          key: 'RootQuery__feeds',
-          kind: 'LinkedHandle',
-          name: 'feeds',
-        },
       ],
     },
     params: {
-      cacheID: 'ee89aa9aadefde991a341fd1da03ee47',
+      cacheID: '6426ff98035bfe72421d0d03098bdeb8',
       id: null,
       metadata: {},
-      name: 'pages_UserQuery',
+      name: 'issuesQuery',
       operationKind: 'query',
-      text: 'query pages_UserQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n  ...FeedsQuery\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment FeedsQuery on Query {\n  feeds(first: 4) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions(first: 1) {\n    totalCount\n    hasViewerAssociation\n  }\n  comments(first: 1) {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query issuesQuery {\n  viewer {\n    handle\n    ...UserDetails_user\n    ...RelevantIssues\n    ...IssuesFromLastRepo\n    ...IssuesFromRecentRepos\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment Issue_node on Issue {\n  repositoryAvatar\n  repository\n  title\n  url\n  labels\n  commentCount\n}\n\nfragment IssuesFromLastRepo on User {\n  issuesFromLastRepo(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment IssuesFromRecentRepos on User {\n  issuesFromOtherRecentRepos(first: 2) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment RelevantIssues on User {\n  relevantIssues(first: 10) {\n    edges {\n      node {\n        id\n        ...Issue_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n',
     },
   }
 })()
 
-;(node as any).hash = '678367eac36d0d008d7eaff4376d2797'
+;(node as any).hash = '7700ee1864e9ac59230266089ceda54e'
 
 export default node

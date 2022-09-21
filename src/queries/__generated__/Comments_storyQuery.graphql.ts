@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<16d62d2fbbbcb2712ae430a0c4287658>>
+ * @generated SignedSource<<d95fa6a83f9bea7c555c908d41bdbae9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,27 +10,27 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime'
 import { FragmentRefs } from 'relay-runtime'
-export type MyStoriesUser_Query$variables = {
+export type Comments_storyQuery$variables = {
   count?: number | null
   cursor?: string | null
   id: string
 }
-export type MyStoriesUser_QueryVariables = MyStoriesUser_Query$variables
-export type MyStoriesUser_Query$data = {
+export type Comments_storyQueryVariables = Comments_storyQuery$variables
+export type Comments_storyQuery$data = {
   readonly node: {
-    readonly ' $fragmentSpreads': FragmentRefs<'MyStories__Query'>
+    readonly ' $fragmentSpreads': FragmentRefs<'Comments_story'>
   } | null
 }
-export type MyStoriesUser_QueryResponse = MyStoriesUser_Query$data
-export type MyStoriesUser_Query = {
-  variables: MyStoriesUser_QueryVariables
-  response: MyStoriesUser_Query$data
+export type Comments_storyQueryResponse = Comments_storyQuery$data
+export type Comments_storyQuery = {
+  variables: Comments_storyQueryVariables
+  response: Comments_storyQuery$data
 }
 
 const node: ConcreteRequest = (function () {
   var v0 = [
       {
-        defaultValue: 10,
+        defaultValue: 20,
         kind: 'LocalArgument',
         name: 'count',
       },
@@ -77,27 +77,13 @@ const node: ConcreteRequest = (function () {
         name: 'first',
         variableName: 'count',
       },
-    ],
-    v5 = [
-      {
-        kind: 'Literal',
-        name: 'first',
-        value: 1,
-      },
-    ],
-    v6 = {
-      alias: null,
-      args: null,
-      kind: 'ScalarField',
-      name: 'totalCount',
-      storageKey: null,
-    }
+    ]
   return {
     fragment: {
       argumentDefinitions: v0 /*: any*/,
       kind: 'Fragment',
       metadata: null,
-      name: 'MyStoriesUser_Query',
+      name: 'Comments_storyQuery',
       selections: [
         {
           alias: null,
@@ -121,7 +107,7 @@ const node: ConcreteRequest = (function () {
                 },
               ],
               kind: 'FragmentSpread',
-              name: 'MyStories__Query',
+              name: 'Comments_story',
             },
           ],
           storageKey: null,
@@ -134,7 +120,7 @@ const node: ConcreteRequest = (function () {
     operation: {
       argumentDefinitions: v0 /*: any*/,
       kind: 'Operation',
-      name: 'MyStoriesUser_Query',
+      name: 'Comments_storyQuery',
       selections: [
         {
           alias: null,
@@ -152,15 +138,15 @@ const node: ConcreteRequest = (function () {
                 {
                   alias: null,
                   args: v4 /*: any*/,
-                  concreteType: 'StoriesConnection',
+                  concreteType: 'CommentsConnection',
                   kind: 'LinkedField',
-                  name: 'stories',
+                  name: 'comments',
                   plural: false,
                   selections: [
                     {
                       alias: null,
                       args: null,
-                      concreteType: 'StoryEdge',
+                      concreteType: 'CommentEdge',
                       kind: 'LinkedField',
                       name: 'edges',
                       plural: true,
@@ -168,7 +154,7 @@ const node: ConcreteRequest = (function () {
                         {
                           alias: null,
                           args: null,
-                          concreteType: 'Story',
+                          concreteType: 'Comment',
                           kind: 'LinkedField',
                           name: 'node',
                           plural: false,
@@ -185,28 +171,7 @@ const node: ConcreteRequest = (function () {
                               alias: null,
                               args: null,
                               kind: 'ScalarField',
-                              name: 'thumbnail',
-                              storageKey: null,
-                            },
-                            {
-                              alias: null,
-                              args: null,
-                              kind: 'ScalarField',
-                              name: 'timeCreated',
-                              storageKey: null,
-                            },
-                            {
-                              alias: null,
-                              args: null,
-                              kind: 'ScalarField',
-                              name: 'title',
-                              storageKey: null,
-                            },
-                            {
-                              alias: null,
-                              args: null,
-                              kind: 'ScalarField',
-                              name: 'urlSuffix',
+                              name: 'contentJson',
                               storageKey: null,
                             },
                             {
@@ -224,7 +189,13 @@ const node: ConcreteRequest = (function () {
                                   name: 'avatar',
                                   storageKey: null,
                                 },
-                                v3 /*: any*/,
+                                {
+                                  alias: null,
+                                  args: null,
+                                  kind: 'ScalarField',
+                                  name: 'name',
+                                  storageKey: null,
+                                },
                                 {
                                   alias: null,
                                   args: null,
@@ -232,62 +203,16 @@ const node: ConcreteRequest = (function () {
                                   name: 'handle',
                                   storageKey: null,
                                 },
-                                {
-                                  alias: null,
-                                  args: null,
-                                  kind: 'ScalarField',
-                                  name: 'bio',
-                                  storageKey: null,
-                                },
-                                {
-                                  alias: null,
-                                  args: null,
-                                  concreteType: 'Reputation',
-                                  kind: 'LinkedField',
-                                  name: 'reputation',
-                                  plural: false,
-                                  selections: [
-                                    {
-                                      alias: null,
-                                      args: null,
-                                      kind: 'ScalarField',
-                                      name: 'value',
-                                      storageKey: null,
-                                    },
-                                  ],
-                                  storageKey: null,
-                                },
+                                v3 /*: any*/,
                               ],
                               storageKey: null,
                             },
                             {
                               alias: null,
-                              args: v5 /*: any*/,
-                              concreteType: 'ReactionsConnection',
-                              kind: 'LinkedField',
-                              name: 'reactions',
-                              plural: false,
-                              selections: [
-                                v6 /*: any*/,
-                                {
-                                  alias: null,
-                                  args: null,
-                                  kind: 'ScalarField',
-                                  name: 'hasViewerAssociation',
-                                  storageKey: null,
-                                },
-                              ],
-                              storageKey: 'reactions(first:1)',
-                            },
-                            {
-                              alias: null,
-                              args: v5 /*: any*/,
-                              concreteType: 'CommentsConnection',
-                              kind: 'LinkedField',
-                              name: 'comments',
-                              plural: false,
-                              selections: [v6 /*: any*/],
-                              storageKey: 'comments(first:1)',
+                              args: null,
+                              kind: 'ScalarField',
+                              name: 'timeCreated',
+                              storageKey: null,
                             },
                             v2 /*: any*/,
                           ],
@@ -336,12 +261,12 @@ const node: ConcreteRequest = (function () {
                   args: v4 /*: any*/,
                   filters: null,
                   handle: 'connection',
-                  key: 'UserQuery__stories',
+                  key: 'Comments_story__comments',
                   kind: 'LinkedHandle',
-                  name: 'stories',
+                  name: 'comments',
                 },
               ],
-              type: 'User',
+              type: 'Story',
               abstractKey: null,
             },
           ],
@@ -350,16 +275,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '99504fa10a391045f5c2418f926560f6',
+      cacheID: 'f21f452bbc089df99969e6b75bc90f69',
       id: null,
       metadata: {},
-      name: 'MyStoriesUser_Query',
+      name: 'Comments_storyQuery',
       operationKind: 'query',
-      text: 'query MyStoriesUser_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...MyStories__Query_1G22uz\n    id\n  }\n}\n\nfragment MyStories__Query_1G22uz on User {\n  stories(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions(first: 1) {\n    totalCount\n    hasViewerAssociation\n  }\n  comments(first: 1) {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query Comments_storyQuery(\n  $count: Int = 20\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Comments_story_1G22uz\n    id\n  }\n}\n\nfragment Comment_node on Comment {\n  abstractContent\n  contentJson\n  createdBy {\n    avatar\n    name\n    handle\n    id\n  }\n  id\n  timeCreated\n}\n\nfragment Comments_story_1G22uz on Story {\n  comments(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Comment_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
     },
   }
 })()
 
-;(node as any).hash = 'ee5d310ccaebb59e31b8ffa2e5e89ddb'
+;(node as any).hash = '14d2bd5a676f8d6dd314348a98407942'
 
 export default node
