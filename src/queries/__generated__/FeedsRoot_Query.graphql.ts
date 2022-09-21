@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4a2794349c7ed2f27bf761057b3be9c0>>
+ * @generated SignedSource<<338a45aa61e63842774d8294f735a5f2>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -56,7 +56,14 @@ const node: ConcreteRequest = (function () {
       name: 'id',
       storageKey: null,
     },
-    v3 = {
+    v3 = [
+      {
+        kind: 'Literal',
+        name: 'first',
+        value: 1,
+      },
+    ],
+    v4 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
@@ -209,13 +216,13 @@ const node: ConcreteRequest = (function () {
                     },
                     {
                       alias: null,
-                      args: null,
+                      args: v3 /*: any*/,
                       concreteType: 'ReactionsConnection',
                       kind: 'LinkedField',
                       name: 'reactions',
                       plural: false,
                       selections: [
-                        v3 /*: any*/,
+                        v4 /*: any*/,
                         {
                           alias: null,
                           args: null,
@@ -224,17 +231,17 @@ const node: ConcreteRequest = (function () {
                           storageKey: null,
                         },
                       ],
-                      storageKey: null,
+                      storageKey: 'reactions(first:1)',
                     },
                     {
                       alias: null,
-                      args: null,
+                      args: v3 /*: any*/,
                       concreteType: 'CommentsConnection',
                       kind: 'LinkedField',
                       name: 'comments',
                       plural: false,
-                      selections: [v3 /*: any*/],
-                      storageKey: null,
+                      selections: [v4 /*: any*/],
+                      storageKey: 'comments(first:1)',
                     },
                     {
                       alias: null,
@@ -296,12 +303,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'bded97a95d007c9a61d8f43e6c9e27da',
+      cacheID: 'e87deb866a6d35129c5d51eccd034618',
       id: null,
       metadata: {},
       name: 'FeedsRoot_Query',
       operationKind: 'query',
-      text: 'query FeedsRoot_Query(\n  $count: Int = 4\n  $cursor: String\n) {\n  ...FeedsQuery_1G22uz\n}\n\nfragment FeedsQuery_1G22uz on Query {\n  feeds(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query FeedsRoot_Query(\n  $count: Int = 4\n  $cursor: String\n) {\n  ...FeedsQuery_1G22uz\n}\n\nfragment FeedsQuery_1G22uz on Query {\n  feeds(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions(first: 1) {\n    totalCount\n    hasViewerAssociation\n  }\n  comments(first: 1) {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

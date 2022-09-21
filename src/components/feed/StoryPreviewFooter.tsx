@@ -13,11 +13,11 @@ export default function StoryPreviewFooter({ story }: StoryPreviewFooterProps) {
       fragment StoryPreviewFooter_story on Story
       @refetchable(queryName: "StoryPreviewFooterRefetchQuery") {
         id
-        reactions {
+        reactions(first: 1) {
           totalCount
           hasViewerAssociation
         }
-        comments {
+        comments(first: 1) {
           totalCount
         }
       }

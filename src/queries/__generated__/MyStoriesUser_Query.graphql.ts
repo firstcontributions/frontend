@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<50d908542cafedae602a3cdf1b323f89>>
+ * @generated SignedSource<<16d62d2fbbbcb2712ae430a0c4287658>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -78,7 +78,14 @@ const node: ConcreteRequest = (function () {
         variableName: 'count',
       },
     ],
-    v5 = {
+    v5 = [
+      {
+        kind: 'Literal',
+        name: 'first',
+        value: 1,
+      },
+    ],
+    v6 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
@@ -255,13 +262,13 @@ const node: ConcreteRequest = (function () {
                             },
                             {
                               alias: null,
-                              args: null,
+                              args: v5 /*: any*/,
                               concreteType: 'ReactionsConnection',
                               kind: 'LinkedField',
                               name: 'reactions',
                               plural: false,
                               selections: [
-                                v5 /*: any*/,
+                                v6 /*: any*/,
                                 {
                                   alias: null,
                                   args: null,
@@ -270,17 +277,17 @@ const node: ConcreteRequest = (function () {
                                   storageKey: null,
                                 },
                               ],
-                              storageKey: null,
+                              storageKey: 'reactions(first:1)',
                             },
                             {
                               alias: null,
-                              args: null,
+                              args: v5 /*: any*/,
                               concreteType: 'CommentsConnection',
                               kind: 'LinkedField',
                               name: 'comments',
                               plural: false,
-                              selections: [v5 /*: any*/],
-                              storageKey: null,
+                              selections: [v6 /*: any*/],
+                              storageKey: 'comments(first:1)',
                             },
                             v2 /*: any*/,
                           ],
@@ -343,12 +350,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: 'e92290b79a378cf54c26c35ab9914104',
+      cacheID: '99504fa10a391045f5c2418f926560f6',
       id: null,
       metadata: {},
       name: 'MyStoriesUser_Query',
       operationKind: 'query',
-      text: 'query MyStoriesUser_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...MyStories__Query_1G22uz\n    id\n  }\n}\n\nfragment MyStories__Query_1G22uz on User {\n  stories(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query MyStoriesUser_Query(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...MyStories__Query_1G22uz\n    id\n  }\n}\n\nfragment MyStories__Query_1G22uz on User {\n  stories(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions(first: 1) {\n    totalCount\n    hasViewerAssociation\n  }\n  comments(first: 1) {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()

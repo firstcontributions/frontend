@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<833b552ba8165058a3fa42c9e39f5c62>>
+ * @generated SignedSource<<efbec626d13566fc0aa009a2a7d93164>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -42,7 +42,14 @@ const node: ConcreteRequest = (function () {
         variableName: 'id',
       },
     ],
-    v2 = {
+    v2 = [
+      {
+        kind: 'Literal',
+        name: 'first',
+        value: 1,
+      },
+    ],
+    v3 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
@@ -109,13 +116,13 @@ const node: ConcreteRequest = (function () {
               selections: [
                 {
                   alias: null,
-                  args: null,
+                  args: v2 /*: any*/,
                   concreteType: 'ReactionsConnection',
                   kind: 'LinkedField',
                   name: 'reactions',
                   plural: false,
                   selections: [
-                    v2 /*: any*/,
+                    v3 /*: any*/,
                     {
                       alias: null,
                       args: null,
@@ -124,17 +131,17 @@ const node: ConcreteRequest = (function () {
                       storageKey: null,
                     },
                   ],
-                  storageKey: null,
+                  storageKey: 'reactions(first:1)',
                 },
                 {
                   alias: null,
-                  args: null,
+                  args: v2 /*: any*/,
                   concreteType: 'CommentsConnection',
                   kind: 'LinkedField',
                   name: 'comments',
                   plural: false,
-                  selections: [v2 /*: any*/],
-                  storageKey: null,
+                  selections: [v3 /*: any*/],
+                  storageKey: 'comments(first:1)',
                 },
               ],
               type: 'Story',
@@ -146,16 +153,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '8e69d3c9765f3aff433d311778fa1e25',
+      cacheID: '085fb4ff369fe2abbdb7e8598b674c37',
       id: null,
       metadata: {},
       name: 'StoryPreviewFooterRefetchQuery',
       operationKind: 'query',
-      text: 'query StoryPreviewFooterRefetchQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...StoryPreviewFooter_story\n    id\n  }\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n',
+      text: 'query StoryPreviewFooterRefetchQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...StoryPreviewFooter_story\n    id\n  }\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions(first: 1) {\n    totalCount\n    hasViewerAssociation\n  }\n  comments(first: 1) {\n    totalCount\n  }\n}\n',
     },
   }
 })()
 
-;(node as any).hash = '91a67ba23e3d12e2abf0423b653933a2'
+;(node as any).hash = '3ccb284d1a73a72541ab02b62dd437bf'
 
 export default node

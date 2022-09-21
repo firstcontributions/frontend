@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d14a956951604f828288698fc90ae966>>
+ * @generated SignedSource<<76d0c709d486f383818e9bcd9f2cb487>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -124,7 +124,14 @@ const node: ConcreteRequest = (function () {
         value: 10,
       },
     ],
-    v11 = {
+    v11 = [
+      {
+        kind: 'Literal',
+        name: 'first',
+        value: 1,
+      },
+    ],
+    v12 = {
       alias: null,
       args: null,
       kind: 'ScalarField',
@@ -369,13 +376,13 @@ const node: ConcreteRequest = (function () {
                         },
                         {
                           alias: null,
-                          args: null,
+                          args: v11 /*: any*/,
                           concreteType: 'ReactionsConnection',
                           kind: 'LinkedField',
                           name: 'reactions',
                           plural: false,
                           selections: [
-                            v11 /*: any*/,
+                            v12 /*: any*/,
                             {
                               alias: null,
                               args: null,
@@ -384,17 +391,17 @@ const node: ConcreteRequest = (function () {
                               storageKey: null,
                             },
                           ],
-                          storageKey: null,
+                          storageKey: 'reactions(first:1)',
                         },
                         {
                           alias: null,
-                          args: null,
+                          args: v11 /*: any*/,
                           concreteType: 'CommentsConnection',
                           kind: 'LinkedField',
                           name: 'comments',
                           plural: false,
-                          selections: [v11 /*: any*/],
-                          storageKey: null,
+                          selections: [v12 /*: any*/],
+                          storageKey: 'comments(first:1)',
                         },
                         v7 /*: any*/,
                       ],
@@ -423,12 +430,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '74ec89d32b2d61cff88460eeec85c72a',
+      cacheID: '597da444eeeb526b26e2f7262393192f',
       id: null,
       metadata: {},
       name: 'Handle_UserQuery',
       operationKind: 'query',
-      text: 'query Handle_UserQuery(\n  $handle: String!\n) {\n  user(handle: $handle) {\n    handle\n    ...UserDetails_user\n    ...MyStories__Query\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment MyStories__Query on User {\n  stories(first: 10) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions {\n    totalCount\n    hasViewerAssociation\n  }\n  comments {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
+      text: 'query Handle_UserQuery(\n  $handle: String!\n) {\n  user(handle: $handle) {\n    handle\n    ...UserDetails_user\n    ...MyStories__Query\n    id\n  }\n}\n\nfragment BadgeList_user on User {\n  badges(first: 5) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n\nfragment Bio_user on User {\n  id\n  bio\n}\n\nfragment MyStories__Query on User {\n  stories(first: 10) {\n    edges {\n      node {\n        id\n        ...StoryPreview_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment StoryPreviewFooter_story on Story {\n  id\n  reactions(first: 1) {\n    totalCount\n    hasViewerAssociation\n  }\n  comments(first: 1) {\n    totalCount\n  }\n}\n\nfragment StoryPreview_node on Story {\n  id\n  abstractContent\n  thumbnail\n  timeCreated\n  title\n  urlSuffix\n  createdBy {\n    ...UserSnippet_user\n    id\n  }\n  ...StoryPreviewFooter_story\n}\n\nfragment UserDetails_user on User {\n  id\n  handle\n  avatar\n  ...Bio_user\n  gitContributionStats {\n    issues\n    pullRequests\n  }\n  ...BadgeList_user\n}\n\nfragment UserSnippet_user on User {\n  avatar\n  id\n  handle\n  bio\n  reputation {\n    value\n  }\n}\n',
     },
   }
 })()
