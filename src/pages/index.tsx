@@ -36,10 +36,7 @@ const Home = ({
   }
 
   return (
-    <Layout
-      sidebarContentLeft={leftSidebar}
-      sidebarContentRight={<div>Promoted</div>}
-    >
+    <Layout sidebarContentLeft={leftSidebar}>
       <>
         <Feed root={query} />
       </>
