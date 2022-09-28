@@ -3,11 +3,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Button from '../Button'
+import HamburgerMenu from './HamburgerButton'
 const ThemeButton = dynamic(() => import('./ThemeButton'), {
   ssr: false,
 })
 
-export default function Navbar() {
+type NavbarProps = {
+  isDrawerOpen: boolean
+  setIsDrawerOpen: (isOpen: boolean) => void
+}
+
+export default function Navbar({ isDrawerOpen, setIsDrawerOpen }: NavbarProps) {
   const router = useRouter()
   const { pathname } = router
   return (
@@ -18,7 +24,7 @@ export default function Navbar() {
             <div className="logo w-10 h-10"></div>
           </a>
         </Link>
-        <div className="space-x-4">
+        <div className="space-x-4 flex">
           <ThemeButton />
           {pathname !== '/story' && (
             <Button>
@@ -27,6 +33,11 @@ export default function Navbar() {
               </Link>
             </Button>
           )}
+          <HamburgerMenu
+            className="lg:hidden"
+            isOpen={isDrawerOpen}
+            setIsOpen={setIsDrawerOpen}
+          />
         </div>
       </div>
       <style jsx>{`
