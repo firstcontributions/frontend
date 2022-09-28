@@ -8,7 +8,12 @@ const ThemeButton = dynamic(() => import('./ThemeButton'), {
   ssr: false,
 })
 
-export default function Navbar() {
+type NavbarProps = {
+  isDrawerOpen: boolean
+  setIsDrawerOpen: (isOpen: boolean) => void
+}
+
+export default function Navbar({ isDrawerOpen, setIsDrawerOpen }: NavbarProps) {
   const router = useRouter()
   const { pathname } = router
   return (
@@ -28,7 +33,11 @@ export default function Navbar() {
               </Link>
             </Button>
           )}
-          <HamburgerMenu />
+          <HamburgerMenu
+            className="lg:hidden"
+            isOpen={isDrawerOpen}
+            setIsOpen={setIsDrawerOpen}
+          />
         </div>
       </div>
       <style jsx>{`
