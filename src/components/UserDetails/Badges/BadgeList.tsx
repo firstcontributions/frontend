@@ -1,5 +1,4 @@
-import { useFragment, graphql, usePaginationFragment } from 'react-relay'
-import { Badge_node$data } from '../../../queries/__generated__/Badge_node.graphql'
+import { graphql, usePaginationFragment } from 'react-relay'
 import Badge from './Badge'
 
 const BadgeList = ({ user }: any) => {
