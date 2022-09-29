@@ -15,22 +15,10 @@ export enum hexagonBackground {
 
 export default function Hexagon({ children, size, color }: any) {
   return (
-    <div className="border-container">
-      <div className={`hexagon-container ${color}`}>
-        <div className="content">{children}</div>
-      </div>
+    <div className={`hexagon-container ${color}`}>
+      <div className="content">{children}</div>
       <style jsx>
         {`
-          .border-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: ${size * 0.645 * 1.1}rem;
-            height: ${size * 1.1}rem;
-            background: #ddd;
-            border-radius: ${size / 8}rem;
-          }
           .hexagon-container {
             position: relative;
             width: ${size * 0.645}rem;
@@ -39,14 +27,13 @@ export default function Hexagon({ children, size, color }: any) {
             display: flex;
             justify-content: center;
             align-items: center;
+            filter: drop-shadow(0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.5));
           }
           .hexagon-container,
           .hexagon-container:before,
           .hexagon-container:after {
             z-index: 1;
           }
-          .border-container:before,
-          .border-container:after,
           .hexagon-container:before,
           .hexagon-container:after {
             position: absolute;
@@ -61,11 +48,9 @@ export default function Hexagon({ children, size, color }: any) {
             bottom: 0;
             margin: auto;
           }
-          .border-container:before,
           .hexagon-container:before {
             transform: rotate(60deg);
           }
-          .border-container:after,
           .hexagon-container:after {
             transform: rotate(-60deg);
           }
