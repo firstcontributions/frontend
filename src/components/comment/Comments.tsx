@@ -1,10 +1,9 @@
 import { graphql, usePaginationFragment } from 'react-relay'
-import { Comments_story$key } from '../../queries/__generated__/Comments_story.graphql'
 import NewComment from './NewComment'
 import Comment from './Comment'
 
 type CommentsProps = {
-  story: Comments_story$key
+  story: any
 }
 
 const Comments = ({ story }: CommentsProps) => {
