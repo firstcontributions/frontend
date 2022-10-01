@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .dark {
-    @apply text-gray-300
+  @apply text-gray-300;
 }

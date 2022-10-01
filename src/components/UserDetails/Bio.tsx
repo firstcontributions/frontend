@@ -62,7 +62,7 @@ const Bio = ({ user }: BioProps) => {
       ) : (
         <div className="flex justify-between">
           <span>{data.bio}</span>
-          <button onClick={() => setEditMode(true)}>
+          <button className="ml-4" onClick={() => setEditMode(true)}>
             <GoPencil />
           </button>
         </div>

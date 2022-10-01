@@ -1,7 +1,12 @@
 import { graphql, usePaginationFragment } from 'react-relay'
+import { BadgeList_user$key } from '../../../queries/__generated__/BadgeList_user.graphql'
 import Badge from './Badge'
 
-const BadgeList = ({ user }: any) => {
+type BadgeListProps = {
+  user: BadgeList_user$key
+}
+
+const BadgeList = ({ user }: BadgeListProps) => {
   const { data, loadNext, hasNext } = usePaginationFragment(
     graphql`
       fragment BadgeList_user on User
@@ -30,9 +35,9 @@ const BadgeList = ({ user }: any) => {
 
   return (
     <div className="space-y-4">
-      {data.badges.edges.map((badge: any) => (
-        <Badge key={badge.node.id} badge={badge.node} />
-      ))}
+      {data.badges.edges.map(
+        (badge) => badge && <Badge key={badge.node.id} badge={badge.node} />
+      )}
       {hasNext ? (
         <button
           className="text-gray-600 dark:text-gray-300"

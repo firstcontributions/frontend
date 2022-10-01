@@ -9,7 +9,7 @@ type ButtonProps = {
 
 const Button = ({
   children,
-  onClick: onClick,
+  onClick,
   color = 'primary',
   variant = 'contained',
 }: ButtonProps) => {

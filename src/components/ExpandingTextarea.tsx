@@ -7,11 +7,13 @@ type ExpandingTextareaProps = {
   setValue: (value: string) => void
   className?: string
   placeholder?: string
+  disabled?: boolean
 }
 
 export default function ExpandingTextarea({
   value,
   setValue,
+  disabled,
   className,
   placeholder,
 }: ExpandingTextareaProps) {
@@ -36,6 +38,7 @@ export default function ExpandingTextarea({
       className={className}
       onChange={onChange}
       placeholder={placeholder}
+      disabled={disabled}
       ref={textareaRef}
       style={{
         minHeight: MIN_TEXTAREA_HEIGHT,
