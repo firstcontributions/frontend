@@ -3,6 +3,7 @@ import { GoPencil } from '@react-icons/all-files/go/GoPencil'
 import { GoCheck } from '@react-icons/all-files/go/GoCheck'
 import { graphql, useFragment, useMutation } from 'react-relay'
 import { Bio_user$key } from '../../queries/__generated__/Bio_user.graphql'
+import ExpandingTextarea from '../ExpandingTextarea'
 
 type BioProps = {
   user: Bio_user$key
@@ -62,7 +63,7 @@ const Bio = ({ user }: BioProps) => {
       ) : (
         <div className="flex justify-between">
           <span>{data.bio}</span>
-          <button onClick={() => setEditMode(true)}>
+          <button className="ml-4" onClick={() => setEditMode(true)}>
             <GoPencil />
           </button>
         </div>

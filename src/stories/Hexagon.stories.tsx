@@ -8,8 +8,10 @@ export default {
   component: Hexagon,
 } as ComponentMeta<typeof Hexagon>
 
+const Template: ComponentStory<typeof Hexagon> = (args) => <Hexagon {...args} />
+
 export const AllColors = () => (
-  <>
+  <div className="flex flex-wrap justify-between">
     <Hexagon color="green-dark" size="4">
       Green Dark
     </Hexagon>
@@ -46,7 +48,7 @@ export const AllColors = () => (
     <Hexagon color="gold" size="4">
       Gold
     </Hexagon>
-  </>
+  </div>
 )
 
 export const Sizes1to8 = () => (
@@ -77,3 +79,9 @@ export const Sizes1to8 = () => (
     </Hexagon>
   </>
 )
+
+export const Basic = Template.bind({})
+Basic.args = {
+  color: 'red',
+  size: '4',
+}

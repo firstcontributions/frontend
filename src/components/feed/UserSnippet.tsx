@@ -28,7 +28,7 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
         <img
           src={data.avatar}
           alt={`${data.handle}'s avatar`}
-          className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700"
+          className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700 bg-white  dark:bg-dark-500"
         />
         <div className="flex flex-row mt-2">
           <Link href={`/@${data.handle}`}>
