@@ -1,5 +1,4 @@
 import { getRelaySerializedState } from 'relay-nextjs'
-import { withHydrateDatetime } from 'relay-nextjs/date'
 import { Environment, Network, Store, RecordSource } from 'relay-runtime'
 import { fetchGraphQL } from './relay'
 
