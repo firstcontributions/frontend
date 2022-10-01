@@ -7,7 +7,7 @@ type HamburgerMenuProps = {
 }
 
 const HamburgerMenu = ({
-  className,
+  className = '',
   isOpen,
   setIsOpen,
 }: HamburgerMenuProps) => {

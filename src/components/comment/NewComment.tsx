@@ -7,7 +7,7 @@ import ExpandingTextarea from '../ExpandingTextarea'
 
 type NewCommentProps = {
   storyId: string
-  refetch: RefetchFnDynamic<OperationType, any, Options>
+  refetch: RefetchFnDynamic<OperationType, never, Options>
 }
 
 export default function NewComment({ storyId, refetch }: NewCommentProps) {
@@ -41,6 +41,7 @@ export default function NewComment({ storyId, refetch }: NewCommentProps) {
         <ExpandingTextarea
           value={comment}
           setValue={setComment}
+          disabled={isMutationInFlight}
           placeholder="Write a comment..."
           className="w-full dark:text-gray-300 dark:bg-dark-600 focus-visible:outline-none"
         />

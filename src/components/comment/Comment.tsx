@@ -1,9 +1,10 @@
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { graphql, useFragment } from 'react-relay'
+import { Comment_node$key } from '../../queries/__generated__/Comment_node.graphql'
 
 type CommentProps = {
-  comment: any
+  comment: Comment_node$key
 }
 
 const Comment = ({ comment }: CommentProps) => {

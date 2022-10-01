@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export enum hexagonBackground {
   greenDark = 'green-dark',
   teal = 'teal',
@@ -13,7 +15,13 @@ export enum hexagonBackground {
   gold = 'gold',
 }
 
-export default function Hexagon({ children, size, color }: any) {
+type HexagonProps = {
+  children: ReactNode
+  size: number
+  color: hexagonBackground
+}
+
+export default function Hexagon({ children, size, color }: HexagonProps) {
   return (
     <div className={`hexagon-container ${color}`}>
       <div className="content">{children}</div>

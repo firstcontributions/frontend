@@ -1,272 +1,327 @@
-
 schema {
-	query: Query
-	mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 scalar Time
 
 enum SortOrder {
-	desc,
-	asc,
+  desc
+  asc
 }
 
 type Query {
-	viewer: User
-  
-	# Fetches an object given its ID
-	node(
-	  # The ID of an object
-	  id: ID!
-	): Node
-	feeds(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: StorySortBy): StoriesConnection!
-	user(handle: String): User!
+  viewer: User
+
+  # Fetches an object given its ID
+  node(
+    # The ID of an object
+    id: ID!
+  ): Node
+  feeds(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: StorySortBy
+  ): StoriesConnection!
+  user(handle: String): User!
 }
 
 interface Node {
-	id: ID!
+  id: ID!
 }
 
 type PageInfo {
-	startCursor: String
-	endCursor: String
-	hasNextPage: Boolean!
-	hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
 }
 
 type Badge implements Node {
-	currentLevel: Int!
-	displayName: String!
-	id: ID!
-	points: Int!
-	progressPercentageToNextLevel: Int!
-	timeCreated: Time!
-	timeUpdated: Time!
-} 
+  currentLevel: Int!
+  displayName: String!
+  id: ID!
+  points: Int!
+  progressPercentageToNextLevel: Int!
+  timeCreated: Time!
+  timeUpdated: Time!
+}
 
 type BadgesConnection {
-	edges: [BadgeEdge]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-} 
+  edges: [BadgeEdge]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
 
 type BadgeEdge {
-	node: Badge!
-	cursor: String!
-} 
+  node: Badge!
+  cursor: String!
+}
 
 enum BadgeSortBy {
-	points,
-	time_created,
+  points
+  time_created
 }
 
 type Comment implements Node {
-	abstractContent: String!
-	contentJson: String!
-	createdBy: User!
-	id: ID!
-	timeCreated: Time!
-	timeUpdated: Time!
+  abstractContent: String!
+  contentJson: String!
+  createdBy: User!
+  id: ID!
+  timeCreated: Time!
+  timeUpdated: Time!
 }
 
 input CommentInput {
-	abstractContent: String!
-	contentJson: String!
-	storyID: ID!
+  abstractContent: String!
+  contentJson: String!
+  storyID: ID!
 }
 input UpdateCommentInput {
-	id: ID!
-} 
+  id: ID!
+}
 
 type CommentsConnection {
-	edges: [CommentEdge]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-	hasViewerAssociation: Boolean!
-} 
+  edges: [CommentEdge]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+  hasViewerAssociation: Boolean!
+}
 
 type CommentEdge {
-	node: Comment!
-	cursor: String!
-} 
+  node: Comment!
+  cursor: String!
+}
 
 enum CommentSortBy {
-	time_created,
+  time_created
 }
 
 type GitContributionStats {
-	issues: Int!
-	pullRequests: Int!
+  issues: Int!
+  pullRequests: Int!
 }
 
 input GitContributionStatsInput {
-	issues: Int!
-	pullRequests: Int!
+  issues: Int!
+  pullRequests: Int!
 }
 
 type Issue implements Node {
-	body: String!
-	commentCount: Int!
-	id: ID!
-	issueType: String!
-	labels: [String]!
-	repository: String!
-	repositoryAvatar: String!
-	repositoryUpdatedAt: Time!
-	title: String!
-	url: String!
-} 
+  body: String!
+  commentCount: Int!
+  id: ID!
+  issueType: String!
+  labels: [String]!
+  repository: String!
+  repositoryAvatar: String!
+  repositoryUpdatedAt: Time!
+  title: String!
+  url: String!
+}
 
 type IssuesConnection {
-	edges: [IssueEdge]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-} 
+  edges: [IssueEdge]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
 
 type IssueEdge {
-	node: Issue!
-	cursor: String!
-} 
+  node: Issue!
+  cursor: String!
+}
 
 enum IssueSortBy {
-	time_created,
+  time_created
 }
 
 type Reaction implements Node {
-	createdBy: User!
-	id: ID!
-	timeCreated: Time!
-	timeUpdated: Time!
+  createdBy: User!
+  id: ID!
+  timeCreated: Time!
+  timeUpdated: Time!
 }
 
 input ReactionInput {
-	storyID: ID!
+  storyID: ID!
 }
 input UpdateReactionInput {
-	id: ID!
-} 
+  id: ID!
+}
 
 type ReactionsConnection {
-	edges: [ReactionEdge]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-	hasViewerAssociation: Boolean!
-} 
+  edges: [ReactionEdge]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+  hasViewerAssociation: Boolean!
+}
 
 type ReactionEdge {
-	node: Reaction!
-	cursor: String!
-} 
+  node: Reaction!
+  cursor: String!
+}
 
 enum ReactionSortBy {
-	time_created,
+  time_created
 }
 
 type Reputation {
-	value: Float!
+  value: Float!
 }
 
 input ReputationInput {
-	value: Float!
+  value: Float!
 }
 
 type Story implements Node {
-	abstractContent: String!
-	comments(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: CommentSortBy): CommentsConnection!
-	contentJson: String!
-	createdBy: User!
-	id: ID!
-	reactions(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: ReactionSortBy): ReactionsConnection!
-	thumbnail: String!
-	timeCreated: Time!
-	timeUpdated: Time!
-	title: String!
-	urlSuffix: String!
+  abstractContent: String!
+  comments(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: CommentSortBy
+  ): CommentsConnection!
+  contentJson: String!
+  createdBy: User!
+  id: ID!
+  reactions(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: ReactionSortBy
+  ): ReactionsConnection!
+  thumbnail: String!
+  timeCreated: Time!
+  timeUpdated: Time!
+  title: String!
+  urlSuffix: String!
 }
 
 input StoryInput {
-	abstractContent: String!
-	contentJson: String!
-	thumbnail: String!
-	title: String!
-	urlSuffix: String!
+  abstractContent: String!
+  contentJson: String!
+  thumbnail: String!
+  title: String!
+  urlSuffix: String!
 }
 input UpdateStoryInput {
-	id: ID!
-	title: String
-} 
+  id: ID!
+  title: String
+}
 
 type StoriesConnection {
-	edges: [StoryEdge]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-	hasViewerAssociation: Boolean!
-} 
+  edges: [StoryEdge]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+  hasViewerAssociation: Boolean!
+}
 
 type StoryEdge {
-	node: Story!
-	cursor: String!
-} 
+  node: Story!
+  cursor: String!
+}
 
 enum StorySortBy {
-	time_created,
+  time_created
 }
 
 type User implements Node {
-	avatar: String!
-	badges(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: BadgeSortBy): BadgesConnection!
-	bio: String!
-	gitContributionStats: GitContributionStats!
-	handle: String!
-	id: ID!
-	issuesFromLastRepo(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: IssueSortBy): IssuesConnection!
-	issuesFromOtherRecentRepos(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: IssueSortBy): IssuesConnection!
-	name: String!
-	relevantIssues(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: IssueSortBy): IssuesConnection!
-	reputation: Reputation!
-	stories(first: Int, last: Int, after: String, before: String, sortOrder: SortOrder, sortBy: StorySortBy): StoriesConnection!
-	timeCreated: Time!
-	timeUpdated: Time!
+  avatar: String!
+  badges(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: BadgeSortBy
+  ): BadgesConnection!
+  bio: String!
+  gitContributionStats: GitContributionStats!
+  handle: String!
+  id: ID!
+  issuesFromLastRepo(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: IssueSortBy
+  ): IssuesConnection!
+  issuesFromOtherRecentRepos(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: IssueSortBy
+  ): IssuesConnection!
+  name: String!
+  relevantIssues(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: IssueSortBy
+  ): IssuesConnection!
+  reputation: Reputation!
+  stories(
+    first: Int
+    last: Int
+    after: String
+    before: String
+    sortOrder: SortOrder
+    sortBy: StorySortBy
+  ): StoriesConnection!
+  timeCreated: Time!
+  timeUpdated: Time!
 }
 
 input UserInput {
-	avatar: String!
-	bio: String! 
-	gitContributionStats: GitContributionStatsInput!
-	handle: String!
-	name: String! 
-	reputation: ReputationInput!
+  avatar: String!
+  bio: String!
+  gitContributionStats: GitContributionStatsInput!
+  handle: String!
+  name: String!
+  reputation: ReputationInput!
 }
 input UpdateUserInput {
-	id: ID!
-	avatar: String
-	bio: String 
-	gitContributionStats: GitContributionStatsInput
-	name: String 
-	reputation: ReputationInput
-} 
-
-type UsersConnection {
-	edges: [UserEdge]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-} 
-
-type UserEdge {
-	node: User!
-	cursor: String!
-} 
-
-enum UserSortBy {
-	time_created,
+  id: ID!
+  avatar: String
+  bio: String
+  gitContributionStats: GitContributionStatsInput
+  name: String
+  reputation: ReputationInput
 }
 
-type Mutation { 
-	createComment(comment:CommentInput!): Comment! 
-	updateComment(comment: UpdateCommentInput!): Comment! 
-	createReaction(reaction:ReactionInput!): Reaction! 
-	updateReaction(reaction: UpdateReactionInput!): Reaction! 
-	createStory(story:StoryInput!): Story! 
-	updateStory(story: UpdateStoryInput!): Story! 
-	createUser(user:UserInput!): User! 
-	updateUser(user: UpdateUserInput!): User!
+type UsersConnection {
+  edges: [UserEdge]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserSortBy {
+  time_created
+}
+
+type Mutation {
+  createComment(comment: CommentInput!): Comment!
+  updateComment(comment: UpdateCommentInput!): Comment!
+  createReaction(reaction: ReactionInput!): Reaction!
+  updateReaction(reaction: UpdateReactionInput!): Reaction!
+  createStory(story: StoryInput!): Story!
+  updateStory(story: UpdateStoryInput!): Story!
+  createUser(user: UserInput!): User!
+  updateUser(user: UpdateUserInput!): User!
 }
