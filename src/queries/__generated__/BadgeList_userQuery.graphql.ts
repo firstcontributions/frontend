@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<bae48e922a5c4b783f04a03746b3f70c>>
+ * @generated SignedSource<<b57bedb849cf09a5a18f30ea032541ef>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -178,6 +178,13 @@ const node: ConcreteRequest = (function () {
                               alias: null,
                               args: null,
                               kind: 'ScalarField',
+                              name: 'linesOfCodeToNextLevel',
+                              storageKey: null,
+                            },
+                            {
+                              alias: null,
+                              args: null,
+                              kind: 'ScalarField',
                               name: 'currentLevel',
                               storageKey: null,
                             },
@@ -242,12 +249,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: '0a9ba44125fcf7e06a24e575eea94636',
+      cacheID: '6160d5c7df2cf8e8a54715ab1779bd90',
       id: null,
       metadata: {},
       name: 'BadgeList_userQuery',
       operationKind: 'query',
-      text: 'query BadgeList_userQuery(\n  $count: Int = 5\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  currentLevel\n}\n',
+      text: 'query BadgeList_userQuery(\n  $count: Int = 5\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...BadgeList_user_1G22uz\n    id\n  }\n}\n\nfragment BadgeList_user_1G22uz on User {\n  badges(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...Badge_node\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment Badge_node on Badge {\n  displayName\n  progressPercentageToNextLevel\n  linesOfCodeToNextLevel\n  currentLevel\n}\n',
     },
   }
 })()
