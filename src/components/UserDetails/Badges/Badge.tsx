@@ -1,5 +1,6 @@
 import { graphql, useFragment } from 'react-relay'
 import { Badge_node$key } from '../../../queries/__generated__/Badge_node.graphql'
+import { getCompactNumber } from '../../../utils/formatNumber'
 import BadgeIcon, { LanguageName } from './BadgeIcon'
 import Hexagon, { hexagonBackground } from './Hexagon'
 
@@ -9,6 +10,7 @@ const Badge = ({ badge }: { badge: Badge_node$key }) => {
       fragment Badge_node on Badge {
         displayName
         progressPercentageToNextLevel
+        linesOfCodeToNextLevel
         currentLevel
       }
     `,
@@ -29,7 +31,9 @@ const Badge = ({ badge }: { badge: Badge_node$key }) => {
       </Hexagon>
       <div className=" ml-8 dark:text-gray-300">
         <span className="font-bold block">Level: {data.currentLevel}</span>
-        <span className="text-xs block">524 lines to next level</span>
+        <span className="text-xs block">
+          {getCompactNumber(data.linesOfCodeToNextLevel)} lines to next level
+        </span>
         <div className="progress-bar">
           <style jsx>
             {`

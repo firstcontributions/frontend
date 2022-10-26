@@ -37,7 +37,7 @@ const Comment = ({ comment }: CommentProps) => {
         />
         <div className="ml-2 flex flex-col">
           <div className="flex flex-row text-sm">
-            <span className="mr-4">{data.createdBy.handle}</span>
+            <span className="mr-4 underline">@{data.createdBy.handle}</span>
             <span>{`${dayjs(data.timeCreated).toNow(true)} ago`}</span>
           </div>
           <span className="text-l dark:text-gray-300">{data.contentJson}</span>

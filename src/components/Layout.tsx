@@ -25,7 +25,7 @@ export default function Layout({
           {sidebarContentLeft}
         </aside>
       )}
-      <div className="grid grid-cols-9 gap-10 mt-10 px-4 md:px-10 xl:px-60 md:pt-10 ">
+      <div className="grid grid-cols-9 gap-10 mt-10 px-4 md:px-10 xl:px-20 2xl:px-60 md:pt-10 ">
         {sidebarContentLeft && (
           <aside className="col-span-2 hidden md:block">
             {sidebarContentLeft}

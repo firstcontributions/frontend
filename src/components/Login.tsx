@@ -2,7 +2,7 @@ import Button from './Button'
 import Card from './Card'
 
 const Login = () => (
-  <Card>
+  <Card classes="flex justify-center">
     <a
       href={encodeURI(
         'http://api.firstcontributions.com/v1/auth/redirect?origin=http://app.firstcontributions.com'

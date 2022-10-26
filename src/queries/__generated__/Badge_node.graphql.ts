@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a3f797988b8d38425969742e8384f623>>
+ * @generated SignedSource<<971ce2f914043d0a49ffc20f16ec7ad6>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,6 +13,7 @@ import { FragmentRefs } from 'relay-runtime'
 export type Badge_node$data = {
   readonly displayName: string
   readonly progressPercentageToNextLevel: number
+  readonly linesOfCodeToNextLevel: number
   readonly currentLevel: number
   readonly ' $fragmentType': 'Badge_node'
 }
@@ -46,6 +47,13 @@ const node: ReaderFragment = {
       alias: null,
       args: null,
       kind: 'ScalarField',
+      name: 'linesOfCodeToNextLevel',
+      storageKey: null,
+    },
+    {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
       name: 'currentLevel',
       storageKey: null,
     },
@@ -54,6 +62,6 @@ const node: ReaderFragment = {
   abstractKey: null,
 }
 
-;(node as any).hash = 'b4178a517768c6c4e2dd534e287d4cc5'
+;(node as any).hash = 'bf2e3f1704cfcd2148ddeb3b0c4ecd9e'
 
 export default node
