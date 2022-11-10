@@ -9,6 +9,9 @@ import { SiRuby } from '@react-icons/all-files/si/SiRuby'
 import { SiRust } from '@react-icons/all-files/si/SiRust'
 import { SiGnubash } from '@react-icons/all-files/si/SiGnubash'
 import { SiPhp } from '@react-icons/all-files/si/SiPhp'
+import { SiHtml5 } from '@react-icons/all-files/si/SiHtml5'
+import { SiCsswizardry } from '@react-icons/all-files/si/SiCsswizardry'
+import { SiMarkdown } from '@react-icons/all-files/si/SiMarkdown'
 import React from 'react'
 
 const iconMap = {
@@ -23,6 +26,9 @@ const iconMap = {
   Rust: <SiRust />,
   'Unix Sell': <SiGnubash />,
   PHP: <SiPhp />,
+  HTML: <SiHtml5 />,
+  CSS: <SiCsswizardry />,
+  Markdown: <SiMarkdown />,
 }
 
 export type LanguageName = keyof typeof iconMap
