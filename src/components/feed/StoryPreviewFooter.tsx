@@ -1,7 +1,7 @@
 import { RiHeart3Fill } from '@react-icons/all-files/ri/RiHeart3Fill'
 import { RiHeartLine } from '@react-icons/all-files/ri/RiHeartLine'
 import { graphql, useMutation, useRefetchableFragment } from 'react-relay'
-import { StoryPreviewFooter_story$key } from '../../queries/__generated__/StoryPreviewFooter_story.graphql'
+import { StoryPreviewFooter_story$key } from '__generated__/StoryPreviewFooter_story.graphql'
 
 type StoryPreviewFooterProps = {
   story: StoryPreviewFooter_story$key

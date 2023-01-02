@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { graphql, useFragment } from 'react-relay'
-import { UserSnippet_user$key } from '../../queries/__generated__/UserSnippet_user.graphql'
-import { getCompactNumber } from '../../utils/formatNumber'
+import { UserSnippet_user$key } from '__generated__/UserSnippet_user.graphql'
+import { getCompactNumber } from 'src/utils/formatNumber'
 
 type UserSnippetProps = {
   user: UserSnippet_user$key
