@@ -1,11 +1,6 @@
 'use client'
 
 import { Suspense } from 'react'
-import { SerializablePreloadedQuery } from '../src/relay/loadSerializableQuery'
-import MainViewQueryNode, {
-  HomeQuery,
-} from '../__generated__/HomeQuery.graphql'
-import { getCurrentEnvironment } from '../src/relay/environment'
 import {
   RelayEnvironmentProvider,
   graphql,
@@ -13,25 +8,24 @@ import {
   usePreloadedQuery,
   Environment,
 } from 'react-relay'
-import useSerializablePreloadedQuery from '../src/relay/useSerializablePreloadedQuery'
-import Card from '../src/components/Card'
-import Layout from '../src/components/Layout'
-import Login from '../src/components/Login'
-import Feed from '../src/components/feed/Feed'
-import UserDetails from '../src/components/UserDetails/UserDetails'
+import HomeQueryNode, { HomeQuery } from '__generated__/HomeQuery.graphql'
+import { getCurrentEnvironment } from 'src/relay/environment'
+import { SerializablePreloadedQuery } from 'src/relay/loadSerializableQuery'
+import useSerializablePreloadedQuery from 'src/relay/useSerializablePreloadedQuery'
+import Card from 'src/components/Card'
+import Layout from 'src/components/Layout'
+import Login from 'src/components/Login'
+import Feed from 'src/components/feed/Feed'
+import UserDetails from 'src/components/UserDetails/UserDetails'
 
-const HomePage = (props: {
-  preloadedQuery: SerializablePreloadedQuery<
-    typeof MainViewQueryNode,
-    HomeQuery
-  >
+type HomePageProps = {
+  preloadedQuery: SerializablePreloadedQuery<typeof HomeQueryNode, HomeQuery>
   cookies: string
-}) => {
-  const environment = getCurrentEnvironment(props.cookies)
-  const queryRef = useSerializablePreloadedQuery(
-    environment,
-    props.preloadedQuery
-  )
+}
+
+const HomePage = ({ preloadedQuery, cookies }: HomePageProps) => {
+  const environment = getCurrentEnvironment(cookies)
+  const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
 
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>

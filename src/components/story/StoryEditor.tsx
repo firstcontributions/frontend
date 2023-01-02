@@ -1,11 +1,18 @@
+'use client'
+
 import EditorJS, { OutputData } from '@editorjs/editorjs'
 import { stripHtml } from 'string-strip-html'
 import React, { useEffect, useRef } from 'react'
-import { graphql, useMutation } from 'react-relay'
+import {
+  Environment,
+  graphql,
+  RelayEnvironmentProvider,
+  useMutation,
+} from 'react-relay'
 import Button from '../Button'
 import Card from '../Card'
 import { EDITOR_JS_TOOLS } from './editorTools'
-import { useRouter } from 'next/router'
+import { getCurrentEnvironment } from 'src/relay/environment'
 
 const DEFAULT_INITIAL_DATA = (): OutputData => {
   return {
@@ -65,10 +72,11 @@ const EDITTOR_HOLDER_ID = 'editorjs'
 type EditorProps = {
   editable?: boolean
   body?: string
+  requestCookie?: string | null
 }
 
-export default function Editor({ editable, body }: EditorProps) {
-  const router = useRouter()
+export default function Editor({ editable, body, requestCookie }: EditorProps) {
+  const environment = getCurrentEnvironment(requestCookie ?? '')
   const ejInstance = useRef<EditorJS | null>()
 
   const [editorData, setEditorData] = React.useState(
@@ -113,9 +121,6 @@ export default function Editor({ editable, body }: EditorProps) {
   const handleStorySubmit = () => {
     const postTitle = getTitle(editorData)
     commitMutation({
-      onCompleted: () => {
-        router.push('/')
-      },
       variables: {
         input: {
           title: postTitle,
@@ -131,42 +136,46 @@ export default function Editor({ editable, body }: EditorProps) {
     })
   }
   return (
-    <Card classes="prose max-w-none dark:prose-invert">
-      <div className="prose-code">
-        <div id={EDITTOR_HOLDER_ID}> </div>
-      </div>
-      <style jsx>
-        {`
-          .prose-code {
-            --tw-prose-code: none;
-            --tw-prose-pre-code: none;
-            --tw-prose-pre-bg: none;
-          }
+    <RelayEnvironmentProvider environment={environment as Environment}>
+      <Card classes="prose max-w-none dark:prose-invert">
+        <div className="prose-code">
+          <div id={EDITTOR_HOLDER_ID}> </div>
+        </div>
+        <style jsx>
+          {`
+            .prose-code {
+              --tw-prose-code: none;
+              --tw-prose-pre-code: none;
+              --tw-prose-pre-bg: none;
+            }
 
-          .dark .ce-inline-tool,
-          .dark .ce-toolbar__plus,
-          .dark .ce-toolbar__settings-btn {
-            @apply text-gray-400;
-          }
+            .dark .ce-inline-tool,
+            .dark .ce-toolbar__plus,
+            .dark .ce-toolbar__settings-btn {
+              @apply text-gray-400;
+            }
 
-          .dark .ce-inline-toolbar,
-          .dark .ce-conversion-toolbar,
-          .dark .ce-toolbox,
-          .dark .ce-popover,
-          .dark .ce-settings {
-            @apply bg-dark-600 border-dark-500;
-          }
+            .dark .ce-inline-toolbar,
+            .dark .ce-conversion-toolbar,
+            .dark .ce-toolbox,
+            .dark .ce-popover,
+            .dark .ce-settings {
+              @apply bg-dark-600 border-dark-500;
+            }
 
-          .dark .ce-popover__item-icon {
-            @apply bg-dark-500;
-          }
+            .dark .ce-popover__item-icon {
+              @apply bg-dark-500;
+            }
 
-          .dark .ce-block--selected {
-            @apply bg-dark-500 text-gray-800;
-          }
-        `}
-      </style>
-      {editable && <Button onClick={() => handleStorySubmit()}>Submit </Button>}
-    </Card>
+            .dark .ce-block--selected {
+              @apply bg-dark-500 text-gray-800;
+            }
+          `}
+        </style>
+        {editable && (
+          <Button onClick={() => handleStorySubmit()}>Submit </Button>
+        )}
+      </Card>
+    </RelayEnvironmentProvider>
   )
 }
