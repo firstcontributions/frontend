@@ -1,5 +1,5 @@
 import { graphql, useFragment } from 'react-relay'
-import { Issue_node$key } from '../../queries/__generated__/Issue_node.graphql'
+import { Issue_node$key } from '__generated__/Issue_node.graphql'
 
 export type IssueProps = {
   issue: Issue_node$key

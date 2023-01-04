@@ -1,6 +1,6 @@
 import React from 'react'
-import { useFragment, graphql, usePaginationFragment } from 'react-relay'
-import { RelevantIssues$key } from '../../queries/__generated__/RelevantIssues.graphql'
+import { graphql, usePaginationFragment } from 'react-relay'
+import { RelevantIssues$key } from '__generated__/RelevantIssues.graphql'
 import Issue from './Issue'
 
 type RelevantIssuesProps = {

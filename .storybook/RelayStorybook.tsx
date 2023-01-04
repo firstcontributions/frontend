@@ -1,9 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react'
+import { RelayEnvironmentProvider } from 'react-relay'
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils'
-
-import { IEnvironment } from 'relay-runtime'
-import RelayEnvironmentProvider from '../src/lib/RelayEnvironmentProvider'
-import RelayModernEnvironment from 'relay-runtime/lib/store/RelayModernEnvironment'
 
 type RelayStorybookProps = {
   children: ReactNode
