@@ -19,8 +19,6 @@ export async function networkFetch(
   variables: Variables,
   cookie: string | undefined
 ): Promise<GraphQLResponse> {
-  console.log('cookie: ', cookie)
-
   const resp = await fetch(HTTP_ENDPOINT, {
     method: 'POST',
     credentials: 'include',
@@ -35,8 +33,6 @@ export async function networkFetch(
     }),
   })
   const json = await resp.json()
-  console.log('json: ', json)
-
   // GraphQL returns exceptions (for example, a missing required variable) in the "errors"
   // property of the response. If any exceptions occurred when processing the request,
   // throw an error to indicate to the developer what went wrong.

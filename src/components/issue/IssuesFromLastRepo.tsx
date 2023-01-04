@@ -51,7 +51,6 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
   }
 
   useEffect(() => {
-    console.log('IssuesFromLastRepo: useEffect', data.issuesFromLastRepo.edges)
     scrollHorizontally(scrollDirection.Right)
   }, [data.issuesFromLastRepo.edges, scrollHorizontally, scrollDirection.Right])
 
