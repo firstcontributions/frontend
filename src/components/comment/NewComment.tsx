@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { graphql, RefetchFnDynamic, useMutation } from 'react-relay'
 import { Options } from 'react-relay/relay-hooks/useRefetchableFragmentNode'

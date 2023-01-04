@@ -75,8 +75,20 @@ type EditorProps = {
   requestCookie?: string | null
 }
 
-export default function Editor({ editable, body, requestCookie }: EditorProps) {
+export default function StoryEditor({
+  editable,
+  body,
+  requestCookie,
+}: EditorProps) {
   const environment = getCurrentEnvironment(requestCookie ?? '')
+  return (
+    <RelayEnvironmentProvider environment={environment as Environment}>
+      <Editor editable={editable} body={body} />
+    </RelayEnvironmentProvider>
+  )
+}
+
+function Editor({ editable, body }: EditorProps) {
   const ejInstance = useRef<EditorJS | null>()
 
   const [editorData, setEditorData] = React.useState(
@@ -136,46 +148,42 @@ export default function Editor({ editable, body, requestCookie }: EditorProps) {
     })
   }
   return (
-    <RelayEnvironmentProvider environment={environment as Environment}>
-      <Card classes="prose max-w-none dark:prose-invert">
-        <div className="prose-code">
-          <div id={EDITTOR_HOLDER_ID}> </div>
-        </div>
-        <style jsx>
-          {`
-            .prose-code {
-              --tw-prose-code: none;
-              --tw-prose-pre-code: none;
-              --tw-prose-pre-bg: none;
-            }
+    <Card classes="prose max-w-none dark:prose-invert">
+      <div className="prose-code">
+        <div id={EDITTOR_HOLDER_ID}> </div>
+      </div>
+      <style jsx>
+        {`
+          .prose-code {
+            --tw-prose-code: none;
+            --tw-prose-pre-code: none;
+            --tw-prose-pre-bg: none;
+          }
 
-            .dark .ce-inline-tool,
-            .dark .ce-toolbar__plus,
-            .dark .ce-toolbar__settings-btn {
-              @apply text-gray-400;
-            }
+          .dark .ce-inline-tool,
+          .dark .ce-toolbar__plus,
+          .dark .ce-toolbar__settings-btn {
+            @apply text-gray-400;
+          }
 
-            .dark .ce-inline-toolbar,
-            .dark .ce-conversion-toolbar,
-            .dark .ce-toolbox,
-            .dark .ce-popover,
-            .dark .ce-settings {
-              @apply bg-dark-600 border-dark-500;
-            }
+          .dark .ce-inline-toolbar,
+          .dark .ce-conversion-toolbar,
+          .dark .ce-toolbox,
+          .dark .ce-popover,
+          .dark .ce-settings {
+            @apply bg-dark-600 border-dark-500;
+          }
 
-            .dark .ce-popover__item-icon {
-              @apply bg-dark-500;
-            }
+          .dark .ce-popover__item-icon {
+            @apply bg-dark-500;
+          }
 
-            .dark .ce-block--selected {
-              @apply bg-dark-500 text-gray-800;
-            }
-          `}
-        </style>
-        {editable && (
-          <Button onClick={() => handleStorySubmit()}>Submit </Button>
-        )}
-      </Card>
-    </RelayEnvironmentProvider>
+          .dark .ce-block--selected {
+            @apply bg-dark-500 text-gray-800;
+          }
+        `}
+      </style>
+      {editable && <Button onClick={() => handleStorySubmit()}>Submit </Button>}
+    </Card>
   )
 }

@@ -1,8 +1,10 @@
+'use client'
+
 import { useState } from 'react'
 import { GoPencil } from '@react-icons/all-files/go/GoPencil'
 import { GoCheck } from '@react-icons/all-files/go/GoCheck'
 import { graphql, useFragment, useMutation } from 'react-relay'
-import { Bio_user$key } from '../../queries/__generated__/Bio_user.graphql'
+import { Bio_user$key } from '__generated__/Bio_user.graphql'
 
 type BioProps = {
   user: Bio_user$key
