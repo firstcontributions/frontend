@@ -40,21 +40,6 @@ type StoryProps = {
   cookies: string
 }
 
-export default function StoryContainer({
-  preloadedQuery,
-  cookies,
-}: StoryProps) {
-  const environment = getCurrentEnvironment(cookies)
-  const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
-  return (
-    <RelayEnvironmentProvider environment={environment as Environment}>
-      <Suspense fallback="Loading...">
-        <Story queryRef={queryRef} />
-      </Suspense>
-    </RelayEnvironmentProvider>
-  )
-}
-
 const Story = (props: { queryRef: PreloadedQuery<StoryQuery> }) => {
   const data = usePreloadedQuery(StoryQuery, props.queryRef)
   return (
@@ -73,5 +58,20 @@ const Story = (props: { queryRef: PreloadedQuery<StoryQuery> }) => {
         <Comments story={data.node} />
       </Layout>
     </div>
+  )
+}
+
+export default function StoryContainer({
+  preloadedQuery,
+  cookies,
+}: StoryProps) {
+  const environment = getCurrentEnvironment(cookies)
+  const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
+  return (
+    <RelayEnvironmentProvider environment={environment as Environment}>
+      <Suspense fallback="Loading...">
+        <Story queryRef={queryRef} />
+      </Suspense>
+    </RelayEnvironmentProvider>
   )
 }

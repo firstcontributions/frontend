@@ -63,9 +63,7 @@ function MainView(props: { queryRef: PreloadedQuery<HomeQuery> }) {
 
   return (
     <Layout sidebarContentLeft={leftSidebar}>
-      <>
-        <Feed root={data} />
-      </>
+      <Feed root={data} />
     </Layout>
   )
 }

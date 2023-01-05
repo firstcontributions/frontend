@@ -38,7 +38,7 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
             {data.thumbnail ? (
               <img className="cover-image" src={data.thumbnail} alt="" />
             ) : (
-              <div className="image-placeholder bg-gray-100 dark:bg-dark-500"></div>
+              <div className="image-placeholder bg-gray-100 dark:bg-dark-500" />
             )}
           </div>
           <div className="px-4 pb-4">

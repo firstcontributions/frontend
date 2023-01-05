@@ -56,12 +56,12 @@ export default function IssuesContainer({
 export function Issues(props: { queryRef: PreloadedQuery<IssuesQuery> }) {
   const data = usePreloadedQuery(IssuesQuery, props.queryRef)
   if (!data.viewer) {
-    return <></>
+    return <>User Not Found</>
   }
   return (
     <div>
       <Layout
-        sidebarContentRight={<></>}
+        sidebarContentRight={<>UserPage right sidebar</>}
         sidebarContentLeft={
           <Card>
             <UserDetails user={data.viewer} />

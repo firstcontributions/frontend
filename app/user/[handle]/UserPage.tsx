@@ -51,12 +51,12 @@ export default function UserContainer({ preloadedQuery, cookies }: StoryProps) {
 function User(props: { queryRef: PreloadedQuery<UserPageQuery> }) {
   const data = usePreloadedQuery(UserQuery, props.queryRef)
   if (!data.user) {
-    return <></>
+    return <>User Not Found</>
   }
   return (
     <div>
       <Layout
-        sidebarContentRight={<></>}
+        sidebarContentRight={<>UserPage right sidebar</>}
         sidebarContentLeft={
           <Card>
             <UserDetails user={data.user} />
