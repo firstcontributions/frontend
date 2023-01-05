@@ -58,7 +58,7 @@ export const responseCache: QueryResponseCache | null = IS_SERVER
     })
 
 function createNetwork(cookie?: string) {
-  async function fetchResponse(
+  function fetchResponse(
     params: RequestParameters,
     variables: Variables,
     cacheConfig: CacheConfig
@@ -66,9 +66,9 @@ function createNetwork(cookie?: string) {
     const isQuery = params.operationKind === 'query'
     const cacheKey = params.id ?? params.cacheID
     const forceFetch = cacheConfig && cacheConfig.force
-    if (responseCache != null && isQuery && !forceFetch) {
+    if (responseCache !== null && isQuery && !forceFetch) {
       const fromCache = responseCache.get(cacheKey, variables)
-      if (fromCache != null) {
+      if (fromCache !== null) {
         return Promise.resolve(fromCache)
       }
     }

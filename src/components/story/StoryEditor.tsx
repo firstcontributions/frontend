@@ -31,7 +31,7 @@ const DEFAULT_INITIAL_DATA = (): OutputData => {
 
 const getTitle = (content: OutputData) => {
   for (let i = 0; i < content.blocks.length; i++) {
-    if (content.blocks[i].type == 'header' && content.blocks[i].data.text) {
+    if (content.blocks[i].type === 'header' && content.blocks[i].data.text) {
       return content.blocks[i].data.text
     }
   }
@@ -42,14 +42,14 @@ const getAbstract = (content: OutputData) => {
   let headerTaken = false
   for (let i = 0; i < content.blocks.length; i++) {
     if (
-      content.blocks[i].type == 'header' &&
+      content.blocks[i].type === 'header' &&
       content.blocks[i].data.text &&
       !headerTaken
     ) {
       headerTaken = true
     } else if (
-      content.blocks[i].type == 'header' ||
-      content.blocks[i].type == 'paragraph'
+      content.blocks[i].type === 'header' ||
+      content.blocks[i].type === 'paragraph'
     ) {
       abstract += stripHtml(content.blocks[i].data.text).result + ' '
     }
@@ -60,7 +60,7 @@ const getAbstract = (content: OutputData) => {
 
 const getThubnail = (content: OutputData) => {
   for (let i = 0; i < content.blocks.length; i++) {
-    if (content.blocks[i].type == 'image' && content.blocks[i].data.file.url) {
+    if (content.blocks[i].type === 'image' && content.blocks[i].data.file.url) {
       return content.blocks[i].data.file.url
     }
   }
@@ -183,7 +183,7 @@ function Editor({ editable, body }: EditorProps) {
           }
         `}
       </style>
-      {editable && <Button onClick={() => handleStorySubmit()}>Submit </Button>}
+      {editable && <Button onClick={handleStorySubmit}>Submit </Button>}
     </Card>
   )
 }

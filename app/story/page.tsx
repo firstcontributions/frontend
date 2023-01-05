@@ -14,7 +14,7 @@ export default function Story() {
         sidebarContentRight={<div>Promoted</div>}
         sidebarContentLeft={<div>Reactions</div>}
       >
-        <Editor editable={true} requestCookie={requestCookie} />
+        <Editor editable requestCookie={requestCookie} />
       </Layout>
     </div>
   )

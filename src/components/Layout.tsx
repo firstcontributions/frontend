@@ -17,7 +17,7 @@ export default function Layout({
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   return (
     <div className="mx-auto bg-gray-200 dark:bg-dark-800 min-h-screen">
-      {/* <Navbar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} /> */}
+      <Navbar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
       {sidebarContentLeft && (
         <aside
           className={`col-span-2 md:hidden mt-16 ${

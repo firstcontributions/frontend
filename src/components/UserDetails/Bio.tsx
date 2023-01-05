@@ -40,7 +40,7 @@ const Bio = ({ user }: BioProps) => {
     setEditMode(false)
     commitMutation({
       variables: {
-        input: { id: data.id, bio: bio },
+        input: { id: data.id, bio },
       },
     })
   }
