@@ -1,8 +1,6 @@
 import { headers } from 'next/headers'
 import loadSerializableQuery from 'src/relay/loadSerializableQuery'
-import Id_StoryQueryNode, {
-  Id_StoryQuery,
-} from '__generated__/Id_StoryQuery.graphql'
+import StoryQueryNode, { StoryQuery } from '__generated__/StoryQuery.graphql'
 import Story from './Story'
 
 export default async function StoryPage({
@@ -12,10 +10,10 @@ export default async function StoryPage({
 }) {
   const requestCookie = headers().get('cookie')
   const preloadedQuery = await loadSerializableQuery<
-    typeof Id_StoryQueryNode,
-    Id_StoryQuery
+    typeof StoryQueryNode,
+    StoryQuery
   >(
-    Id_StoryQueryNode.params,
+    StoryQueryNode.params,
     { id: (decodeURIComponent(params.id) as string) ?? '' },
     requestCookie ?? ''
   )

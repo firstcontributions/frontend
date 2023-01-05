@@ -12,50 +12,45 @@ import { SerializablePreloadedQuery } from 'src/relay/loadSerializableQuery'
 import useSerializablePreloadedQuery from 'src/relay/useSerializablePreloadedQuery'
 import Layout from 'src/components/Layout'
 import UserDetails from 'src/components/UserDetails/UserDetails'
-import IssuesQueryNode, { IssuesQuery } from '__generated__/IssuesQuery.graphql'
 import Card from 'src/components/Card'
-import IssuesFromLastRepo from 'src/components/issue/IssuesFromLastRepo'
-import IssuesFromRecentRepos from 'src/components/issue/IssuesFromRecentRepo'
-import RelevantIssues from 'src/components/issue/RelevantIssues'
+import MyStories from 'src/components/feed/MyStories'
+import UserPageQueryNode, {
+  UserPageQuery,
+} from '__generated__/UserPageQuery.graphql'
 import { Suspense } from 'react'
 
-const IssuesQuery = graphql`
-  query IssuesQuery {
-    viewer {
+const UserQuery = graphql`
+  query UserPageQuery($handle: String!) {
+    user(handle: $handle) {
       handle
       ...UserDetails_user
-      ...RelevantIssues
-      ...IssuesFromLastRepo
-      ...IssuesFromRecentRepos
+      ...MyStories__Query
     }
   }
 `
-type IssuesProps = {
+type StoryProps = {
   preloadedQuery: SerializablePreloadedQuery<
-    typeof IssuesQueryNode,
-    IssuesQuery
+    typeof UserPageQueryNode,
+    UserPageQuery
   >
   cookies: string
 }
 
-export default function IssuesContainer({
-  preloadedQuery,
-  cookies,
-}: IssuesProps) {
+export default function UserContainer({ preloadedQuery, cookies }: StoryProps) {
   const environment = getCurrentEnvironment(cookies)
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>
       <Suspense fallback="Loading...">
-        <Issues queryRef={queryRef} />
+        <User queryRef={queryRef} />
       </Suspense>
     </RelayEnvironmentProvider>
   )
 }
 
-export function Issues(props: { queryRef: PreloadedQuery<IssuesQuery> }) {
-  const data = usePreloadedQuery(IssuesQuery, props.queryRef)
-  if (!data.viewer) {
+function User(props: { queryRef: PreloadedQuery<UserPageQuery> }) {
+  const data = usePreloadedQuery(UserQuery, props.queryRef)
+  if (!data.user) {
     return <></>
   }
   return (
@@ -64,13 +59,11 @@ export function Issues(props: { queryRef: PreloadedQuery<IssuesQuery> }) {
         sidebarContentRight={<></>}
         sidebarContentLeft={
           <Card>
-            <UserDetails user={data.viewer} />
+            <UserDetails user={data.user} />
           </Card>
         }
       >
-        <IssuesFromLastRepo user={data.viewer} />
-        <IssuesFromRecentRepos user={data.viewer} />
-        <RelevantIssues user={data.viewer} />
+        <MyStories user={data.user} />
       </Layout>
     </div>
   )

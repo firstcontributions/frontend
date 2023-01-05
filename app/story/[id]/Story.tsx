@@ -14,9 +14,7 @@ import useSerializablePreloadedQuery from 'src/relay/useSerializablePreloadedQue
 import Comments from 'src/components/comment/Comments'
 import Layout from 'src/components/Layout'
 import UserDetails from 'src/components/UserDetails/UserDetails'
-import Id_StoryQueryNode, {
-  Id_StoryQuery,
-} from '__generated__/Id_StoryQuery.graphql'
+import StoryQueryNode, { StoryQuery } from '__generated__/StoryQuery.graphql'
 import { Suspense } from 'react'
 
 const Editor = dynamic(() => import('src/components/story/StoryEditor'), {
@@ -24,7 +22,7 @@ const Editor = dynamic(() => import('src/components/story/StoryEditor'), {
 })
 
 const StoryQuery = graphql`
-  query Id_StoryQuery($id: ID!) {
+  query StoryQuery($id: ID!) {
     node(id: $id) {
       ... on Story {
         id
@@ -38,10 +36,7 @@ const StoryQuery = graphql`
   }
 `
 type StoryProps = {
-  preloadedQuery: SerializablePreloadedQuery<
-    typeof Id_StoryQueryNode,
-    Id_StoryQuery
-  >
+  preloadedQuery: SerializablePreloadedQuery<typeof StoryQueryNode, StoryQuery>
   cookies: string
 }
 
@@ -60,7 +55,7 @@ export default function StoryContainer({
   )
 }
 
-const Story = (props: { queryRef: PreloadedQuery<Id_StoryQuery> }) => {
+const Story = (props: { queryRef: PreloadedQuery<StoryQuery> }) => {
   const data = usePreloadedQuery(StoryQuery, props.queryRef)
   return (
     <div>

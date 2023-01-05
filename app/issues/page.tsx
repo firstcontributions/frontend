@@ -1,6 +1,6 @@
 import { headers } from 'next/headers'
 import loadSerializableQuery from 'src/relay/loadSerializableQuery'
-import issuesQueryNode, { issuesQuery } from '__generated__/issuesQuery.graphql'
+import IssuesQueryNode, { IssuesQuery } from '__generated__/IssuesQuery.graphql'
 import Issues from './Issues'
 
 export default async function IssuesPage({
@@ -10,10 +10,10 @@ export default async function IssuesPage({
 }) {
   const requestCookie = headers().get('cookie')
   const preloadedQuery = await loadSerializableQuery<
-    typeof issuesQueryNode,
-    issuesQuery
+    typeof IssuesQueryNode,
+    IssuesQuery
   >(
-    issuesQueryNode.params,
+    IssuesQueryNode.params,
     { id: (decodeURIComponent(params.id) as string) ?? '' },
     requestCookie ?? ''
   )
