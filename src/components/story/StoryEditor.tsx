@@ -1,11 +1,18 @@
+'use client'
+
 import EditorJS, { OutputData } from '@editorjs/editorjs'
 import { stripHtml } from 'string-strip-html'
 import React, { useEffect, useRef } from 'react'
-import { graphql, useMutation } from 'react-relay'
+import {
+  Environment,
+  graphql,
+  RelayEnvironmentProvider,
+  useMutation,
+} from 'react-relay'
 import Button from '../Button'
 import Card from '../Card'
 import { EDITOR_JS_TOOLS } from './editorTools'
-import { useRouter } from 'next/router'
+import { getCurrentEnvironment } from 'src/relay/environment'
 
 const DEFAULT_INITIAL_DATA = (): OutputData => {
   return {
@@ -24,7 +31,7 @@ const DEFAULT_INITIAL_DATA = (): OutputData => {
 
 const getTitle = (content: OutputData) => {
   for (let i = 0; i < content.blocks.length; i++) {
-    if (content.blocks[i].type == 'header' && content.blocks[i].data.text) {
+    if (content.blocks[i].type === 'header' && content.blocks[i].data.text) {
       return content.blocks[i].data.text
     }
   }
@@ -35,14 +42,14 @@ const getAbstract = (content: OutputData) => {
   let headerTaken = false
   for (let i = 0; i < content.blocks.length; i++) {
     if (
-      content.blocks[i].type == 'header' &&
+      content.blocks[i].type === 'header' &&
       content.blocks[i].data.text &&
       !headerTaken
     ) {
       headerTaken = true
     } else if (
-      content.blocks[i].type == 'header' ||
-      content.blocks[i].type == 'paragraph'
+      content.blocks[i].type === 'header' ||
+      content.blocks[i].type === 'paragraph'
     ) {
       abstract += stripHtml(content.blocks[i].data.text).result + ' '
     }
@@ -53,7 +60,7 @@ const getAbstract = (content: OutputData) => {
 
 const getThubnail = (content: OutputData) => {
   for (let i = 0; i < content.blocks.length; i++) {
-    if (content.blocks[i].type == 'image' && content.blocks[i].data.file.url) {
+    if (content.blocks[i].type === 'image' && content.blocks[i].data.file.url) {
       return content.blocks[i].data.file.url
     }
   }
@@ -65,10 +72,23 @@ const EDITTOR_HOLDER_ID = 'editorjs'
 type EditorProps = {
   editable?: boolean
   body?: string
+  requestCookie?: string | null
 }
 
-export default function Editor({ editable, body }: EditorProps) {
-  const router = useRouter()
+export default function StoryEditor({
+  editable,
+  body,
+  requestCookie,
+}: EditorProps) {
+  const environment = getCurrentEnvironment(requestCookie ?? '')
+  return (
+    <RelayEnvironmentProvider environment={environment as Environment}>
+      <Editor editable={editable} body={body} />
+    </RelayEnvironmentProvider>
+  )
+}
+
+function Editor({ editable, body }: EditorProps) {
   const ejInstance = useRef<EditorJS | null>()
 
   const [editorData, setEditorData] = React.useState(
@@ -113,9 +133,6 @@ export default function Editor({ editable, body }: EditorProps) {
   const handleStorySubmit = () => {
     const postTitle = getTitle(editorData)
     commitMutation({
-      onCompleted: () => {
-        router.push('/')
-      },
       variables: {
         input: {
           title: postTitle,
@@ -166,7 +183,7 @@ export default function Editor({ editable, body }: EditorProps) {
           }
         `}
       </style>
-      {editable && <Button onClick={() => handleStorySubmit()}>Submit </Button>}
+      {editable && <Button onClick={handleStorySubmit}>Submit </Button>}
     </Card>
   )
 }

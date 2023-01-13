@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
-import { IssuesFromLastRepo$key } from '../../queries/__generated__/IssuesFromLastRepo.graphql'
+import { IssuesFromLastRepo$key } from '__generated__/IssuesFromLastRepo.graphql'
 import { FaChevronRight } from '@react-icons/all-files/fa/FaChevronRight'
 import Issue from './Issue'
 
@@ -51,7 +51,6 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
   }
 
   useEffect(() => {
-    console.log('IssuesFromLastRepo: useEffect', data.issuesFromLastRepo.edges)
     scrollHorizontally(scrollDirection.Right)
   }, [data.issuesFromLastRepo.edges, scrollHorizontally, scrollDirection.Right])
 

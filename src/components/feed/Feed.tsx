@@ -1,6 +1,6 @@
 import { graphql, usePaginationFragment } from 'react-relay'
 import { Virtuoso } from 'react-virtuoso'
-import { FeedsQuery$key } from '../../queries/__generated__/FeedsQuery.graphql'
+import { FeedsQuery$key } from '__generated__/FeedsQuery.graphql'
 import StoryPreview from './StoryPreview'
 
 type FeedProps = {

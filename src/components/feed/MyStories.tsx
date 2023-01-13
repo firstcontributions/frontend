@@ -1,5 +1,5 @@
 import { graphql, usePaginationFragment } from 'react-relay'
-import { MyStories__Query$key } from '../../queries/__generated__/MyStories__Query.graphql'
+import { MyStories__Query$key } from '__generated__/MyStories__Query.graphql'
 import StoryPreview from './StoryPreview'
 
 type MyStoriesProps = {

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import Button from '../Button'
 import HamburgerMenu from './HamburgerButton'
@@ -14,23 +14,18 @@ type NavbarProps = {
 }
 
 export default function Navbar({ isDrawerOpen, setIsDrawerOpen }: NavbarProps) {
-  const router = useRouter()
-  const { pathname } = router
+  const pathname = usePathname()
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 w-full h-16 bg-white dark:bg-dark-700 p-3 shadow-sm">
       <div className="container m-auto flex justify-between">
         <Link href="/">
-          <a>
-            <div className="logo w-10 h-10"></div>
-          </a>
+          <div className="logo w-10 h-10" />
         </Link>
         <div className="space-x-4 flex">
           <ThemeButton />
           {pathname !== '/story' && (
             <Button>
-              <Link href="/story">
-                <a>Create Post</a>
-              </Link>
+              <Link href="/story">Create Post</Link>
             </Button>
           )}
           <HamburgerMenu
