@@ -1,3 +1,5 @@
+import Button from './Button'
+
 type ErrorFallbackProps = {
   error: Error
   resetErrorBoundary: () => void
@@ -11,7 +13,7 @@ export default function ErrorFallback({
     <div role="alert">
       <p>Something went wrong:</p>
       <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary}>Try again</button>
+      <Button onClick={resetErrorBoundary}>Try again</Button>
     </div>
   )
 }

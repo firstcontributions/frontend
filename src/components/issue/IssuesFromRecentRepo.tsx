@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
 import { IssuesFromRecentRepos$key } from '__generated__/IssuesFromRecentRepos.graphql'
+import Button from '../Button'
 import Issue from './Issue'
 
 type IssuesFromRecentReposProps = {
@@ -46,13 +47,13 @@ const IssuesFromRecentRepos = ({ user }: IssuesFromRecentReposProps) => {
           (issue) => issue && <Issue issue={issue.node} key={issue.node.id} />
         )}
         {hasNext ? (
-          <button
+          <Button
             onClick={() => {
               loadNext(3)
             }}
           >
             Load more
-          </button>
+          </Button>
         ) : null}
       </div>
     </div>

@@ -17,6 +17,9 @@ const Button = ({
     if (color === 'primary') {
       return 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
     }
+    if (variant === 'outlined') {
+      return 'text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-blue-300 dark:text-blue-600 dark:border-blue-600 dark:hover:bg-blue-600 dark:hover:text-white dark:focus:ring-blue-800'
+    }
     if (color === 'transparent') {
       return 'focus:ring-transparent'
     }
