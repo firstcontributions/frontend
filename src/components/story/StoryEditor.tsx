@@ -2,7 +2,7 @@
 
 import EditorJS, { OutputData } from '@editorjs/editorjs'
 import { stripHtml } from 'string-strip-html'
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import {
   Environment,
   graphql,
@@ -74,6 +74,7 @@ type EditorProps = {
   body?: string
   requestCookie?: string | null
 }
+let isEditorInitialized = false
 
 export default function StoryEditor({
   editable,
@@ -89,38 +90,42 @@ export default function StoryEditor({
 }
 
 function Editor({ editable, body }: EditorProps) {
-  const ejInstance = useRef<EditorJS | null>()
+  const editorRef = useRef<EditorJS>()
 
-  const [editorData, setEditorData] = React.useState(
+  const [editorData] = useState(
     (body && JSON.parse(body)) || DEFAULT_INITIAL_DATA
   )
-  useEffect(() => {
-    if (!ejInstance.current) {
-      initEditor()
-    }
-    return () => {
-      ejInstance?.current?.destroy()
-      ejInstance.current = null
-    }
-  }, [])
 
-  const initEditor = () => {
+  const getEditorContent = useCallback(async () => {
+    const content = await editorRef.current?.save()
+    return content
+  }, [])
+  const initEditor = useCallback(() => {
     const editor = new EditorJS({
       holder: EDITTOR_HOLDER_ID,
       data: editorData,
+      placeholder: 'title',
+      defaultBlock: 'paragraph',
       onReady: () => {
-        ejInstance.current = editor
-      },
-      onChange: async () => {
-        const content = await editor.saver.save()
-        setEditorData(content)
+        editorRef.current = editor
       },
       autofocus: true,
       tools: EDITOR_JS_TOOLS,
       inlineToolbar: true,
       readOnly: !editable,
     })
-  }
+  }, [editable, editorData])
+  useEffect(() => {
+    if (!editorRef.current && !isEditorInitialized) {
+      initEditor()
+      isEditorInitialized = true
+    }
+    return () => {
+      editorRef?.current?.destroy()
+      editorRef.current = undefined
+    }
+  }, [editorRef, initEditor])
+
   const [commitMutation] = useMutation(
     graphql`
       mutation StoryEditorCreateMutation($input: StoryInput!) {
@@ -130,23 +135,26 @@ function Editor({ editable, body }: EditorProps) {
       }
     `
   )
-  const handleStorySubmit = () => {
-    const postTitle = getTitle(editorData)
-    commitMutation({
-      variables: {
-        input: {
-          title: postTitle,
-          contentJson: JSON.stringify(editorData),
-          abstractContent: getAbstract(editorData),
-          urlSuffix: postTitle
-            .toLowerCase()
-            .replaceAll(' ', '-')
-            .substring(0, 32),
-          thumbnail: getThubnail(editorData),
+  const handleStorySubmit = useCallback(async () => {
+    const editorContent = await getEditorContent()
+    if (editorContent) {
+      const postTitle = getTitle(editorContent)
+      commitMutation({
+        variables: {
+          input: {
+            title: postTitle,
+            contentJson: JSON.stringify(editorContent),
+            abstractContent: getAbstract(editorContent),
+            urlSuffix: postTitle
+              .toLowerCase()
+              .replaceAll(' ', '-')
+              .substring(0, 32),
+            thumbnail: getThubnail(editorContent),
+          },
         },
-      },
-    })
-  }
+      })
+    }
+  }, [commitMutation, getEditorContent])
   return (
     <Card classes="prose max-w-none dark:prose-invert">
       <div className="prose-code">
