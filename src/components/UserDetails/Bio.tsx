@@ -57,14 +57,18 @@ const Bio = ({ user }: BioProps) => {
             disabled={isMutationInFlight}
             defaultValue={data.bio}
           />
-          <button onClick={() => setEditMode(false)}>
+          <button type="button" onClick={() => setEditMode(false)}>
             <GoCheck />
           </button>
         </div>
       ) : (
         <div className="flex justify-between">
           <span>{data.bio}</span>
-          <button className="ml-4" onClick={() => setEditMode(true)}>
+          <button
+            type="button"
+            className="ml-4"
+            onClick={() => setEditMode(true)}
+          >
             <GoPencil />
           </button>
         </div>

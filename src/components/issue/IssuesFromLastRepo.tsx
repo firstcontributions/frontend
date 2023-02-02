@@ -71,12 +71,14 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
           )}
         </div>
         <button
+          type="button"
           className="absolute right-8 bottom-0 mr-4 mt-4"
           onClick={() => scrollHorizontally(scrollDirection.Left)}
         >
           <FaChevronRight className="b-0 w-6 h-6 rotate-180 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
         </button>
         <button
+          type="button"
           className="absolute right-0 bottom-0 mr-4 mt-4"
           onClick={() => handleScrollRight()}
         >

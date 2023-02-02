@@ -55,7 +55,7 @@ export default function StoryPreviewFooter({ story }: StoryPreviewFooterProps) {
         {data.reactions.hasViewerAssociation ? (
           <div className="flex items-center">
             <span>{data.reactions.totalCount}</span>
-            <button onClick={() => handleReaction()}>
+            <button onClick={() => handleReaction()} type="button">
               <RiHeart3Fill />
             </button>
           </div>
@@ -63,6 +63,7 @@ export default function StoryPreviewFooter({ story }: StoryPreviewFooterProps) {
           <div>
             <span>{data.reactions.totalCount}</span>
             <button
+              type="button"
               onClick={() => handleReaction()}
               disabled={isMutationInFlight}
             >

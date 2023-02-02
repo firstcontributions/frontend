@@ -14,7 +14,5 @@ const Template: ComponentStory<typeof ExpandingTextarea> = (args) => (
 export const Primary = Template.bind({})
 Primary.args = {
   value: 'All your base are belong to us',
-  setValue: () => {
-    undefined
-  },
+  setValue: () => undefined,
 }

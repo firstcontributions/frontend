@@ -23,7 +23,6 @@ export default function ExpandingTextarea({
 
   React.useLayoutEffect(() => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = 'inherit'
       // Set height
       textareaRef.current.style.height = `${Math.max(
         textareaRef.current.scrollHeight,

@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 type HamburgerMenuProps = {
   className?: string
   isOpen: boolean
@@ -15,6 +13,7 @@ const HamburgerMenu = ({
 
   return (
     <button
+      type="button"
       className={`flex flex-col h-10 w-10 rounded justify-center items-center group ${className}`}
       onClick={() => setIsOpen(!isOpen)}
     >
