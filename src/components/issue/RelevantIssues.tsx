@@ -32,7 +32,7 @@ const RelevantIssues = ({ user }: RelevantIssuesProps) => {
   )
 
   if (!data) {
-    return <></>
+    return null
   }
 
   return (

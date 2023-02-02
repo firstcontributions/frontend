@@ -46,7 +46,6 @@ export default function Layout({
           </aside>
         )}
       </div>
-      <div></div>
     </div>
   )
 }

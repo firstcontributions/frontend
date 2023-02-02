@@ -27,7 +27,7 @@ const BadgeList = ({ user }: { user: BadgeList_user$key }) => {
   )
 
   if (!data || !data.badges) {
-    return <></>
+    return null
   }
 
   return (

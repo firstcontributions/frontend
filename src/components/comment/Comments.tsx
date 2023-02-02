@@ -30,7 +30,7 @@ const Comments = ({ story }: CommentsProps) => {
   )
 
   if (!data || !data.comments) {
-    return <></>
+    return null
   }
 
   return (

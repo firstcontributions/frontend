@@ -34,7 +34,7 @@ const IssuesFromRecentRepos = ({ user }: IssuesFromRecentReposProps) => {
   )
 
   if (!data || data.issuesFromOtherRecentRepos.edges.length === 0) {
-    return <></>
+    return null
   }
 
   return (

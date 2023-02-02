@@ -55,7 +55,7 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
   }, [data.issuesFromLastRepo.edges, scrollHorizontally, scrollDirection.Right])
 
   if (!data || data.issuesFromLastRepo.edges.length === 0) {
-    return <></>
+    return null
   }
 
   return (
