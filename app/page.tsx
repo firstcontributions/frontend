@@ -26,6 +26,8 @@ const Page = async () => {
       return <Layout sidebarContentLeft={<Login />}>Feed goes here.</Layout>
     }
   }
+
+  return null
 }
 
 export default Page
