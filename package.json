@@ -25,6 +25,7 @@
     "@editorjs/table": "^2.0.2",
     "@firstcontributions/editorjs-codeflask": "https://github.com/firstcontributions/editorjs-codeflask",
     "@react-icons/all-files": "^4.1.0",
+    "@sentry/nextjs": "^7.37.0",
     "dayjs": "^1.11.5",
     "form-data": "^4.0.0",
     "formidable": "^2.0.1",
