@@ -101,5 +101,8 @@
   },
   "resolutions": {
     "webpack": "^5"
+  },
+  "engines": {
+    "node": "17.5.0"
   }
 }
