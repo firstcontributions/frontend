@@ -42,7 +42,7 @@ export default function IssuesContainer({
   preloadedQuery,
   cookies,
 }: IssuesProps) {
-  const environment = getCurrentEnvironment(cookies)
+  const environment = getCurrentEnvironment(cookies) as Environment
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>

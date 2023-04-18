@@ -24,7 +24,7 @@ type HomePageProps = {
 }
 
 const HomePage = ({ preloadedQuery, cookies }: HomePageProps) => {
-  const environment = getCurrentEnvironment(cookies)
+  const environment = getCurrentEnvironment(cookies) as Environment
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
 
   return (

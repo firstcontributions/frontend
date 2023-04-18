@@ -65,7 +65,7 @@ export default function StoryContainer({
   preloadedQuery,
   cookies,
 }: StoryProps) {
-  const environment = getCurrentEnvironment(cookies)
+  const environment = getCurrentEnvironment(cookies) as Environment
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>

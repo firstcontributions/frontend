@@ -1,6 +1,6 @@
 import { graphql, usePaginationFragment } from 'react-relay'
 import Button from 'src/components/Button'
-import { BadgeList_user$key } from '../../../queries/__generated__/BadgeList_user.graphql'
+import { BadgeList_user$key } from '__generated__/BadgeList_user.graphql'
 import Badge from './Badge'
 
 const BadgeList = ({ user }: { user: BadgeList_user$key }) => {

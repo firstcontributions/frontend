@@ -1,5 +1,5 @@
 import { graphql, useFragment } from 'react-relay'
-import { Badge_node$key } from '../../../queries/__generated__/Badge_node.graphql'
+import { Badge_node$key } from '__generated__/Badge_node.graphql'
 import { getCompactNumber } from '../../../utils/formatNumber'
 import BadgeIcon, { LanguageName } from './BadgeIcon'
 import Hexagon, { hexagonBackground } from './Hexagon'
