@@ -61,29 +61,31 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
   return (
     <div className="mt-10">
       <h3 className="font-bold text-gray-500 text-lg">Issues from last repo</h3>
-      <div className="relative">
+      <div className="flex">
         <div
-          className=" flex overflow-x-auto space-x-4 no-scrollbar scroll-smooth"
+          className="grid grid-rows-2 grid-flow-col gap-4 flex-1 overflow-x-auto no-scrollbar scroll-smooth"
           ref={scrollableElement}
         >
           {data.issuesFromLastRepo.edges.map(
             (issue) => issue && <Issue issue={issue.node} key={issue.node.id} />
           )}
         </div>
-        <button
-          type="button"
-          className="absolute right-8 bottom-0 mr-4 mt-4"
-          onClick={() => scrollHorizontally(scrollDirection.Left)}
-        >
-          <FaChevronRight className="b-0 w-6 h-6 rotate-180 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
-        </button>
-        <button
-          type="button"
-          className="absolute right-0 bottom-0 mr-4 mt-4"
-          onClick={() => handleScrollRight()}
-        >
-          <FaChevronRight className="b-0 w-6 h-6 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
-        </button>
+        <div className="flex flex-col ml-2 h-full">
+          <button
+            type="button"
+            className=" right-8 bottom-0 mr-4 mt-4"
+            onClick={() => scrollHorizontally(scrollDirection.Left)}
+          >
+            <FaChevronRight className="b-0 w-6 h-6 rotate-180 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
+          </button>
+          <button
+            type="button"
+            className=" right-0 bottom-0 mr-4 mt-4"
+            onClick={() => handleScrollRight()}
+          >
+            <FaChevronRight className="b-0 w-6 h-6 dark:text-gray-300 bg-gray-300 dark:bg-dark-900 rounded-full p-1 font-bold" />
+          </button>
+        </div>
       </div>
       <style jsx>
         {`

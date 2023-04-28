@@ -42,7 +42,7 @@ const IssuesFromRecentRepos = ({ user }: IssuesFromRecentReposProps) => {
       <h3 className="font-bold text-gray-500 text-lg">
         Issues from other recent repos
       </h3>
-      <div className="grid grid-cols-2 xl:grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 xl:grid-cols-1 gap-4 mt-4">
         {data.issuesFromOtherRecentRepos.edges.map(
           (issue) => issue && <Issue issue={issue.node} key={issue.node.id} />
         )}
