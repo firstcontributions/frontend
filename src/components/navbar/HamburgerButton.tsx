@@ -9,7 +9,7 @@ const HamburgerMenu = ({
   isOpen,
   setIsOpen,
 }: HamburgerMenuProps) => {
-  const genericHamburgerLine = `h-1 w-6 my-0.5 rounded-full bg-black transition ease transform duration-300`
+  const genericHamburgerLine = `h-1 w-6 my-0.5 rounded-full bg-black dark:bg-white transition ease transform duration-300`
 
   return (
     <button

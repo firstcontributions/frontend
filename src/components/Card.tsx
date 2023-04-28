@@ -9,7 +9,9 @@ export default function Card({
 }) {
   return (
     <div
-      className={` ${classes || ''} p-4 bg-white dark:bg-dark-700 rounded-md`}
+      className={` ${
+        classes || ''
+      } rounded-lg shadow-lg hover:shadow-md bg-white dark:bg-dark-700`}
     >
       {children}
     </div>

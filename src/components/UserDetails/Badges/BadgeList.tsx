@@ -31,7 +31,7 @@ const BadgeList = ({ user }: { user: BadgeList_user$key }) => {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col space-y-4">
       {data.badges.edges.map(
         (badge) => badge && <Badge key={badge.node.id} badge={badge.node} />
       )}
