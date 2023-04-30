@@ -20,7 +20,7 @@ const Issue = ({ issue }: IssueProps) => {
     issue
   )
   return (
-    <div className="w-96 flex flex-col p-6 rounded-lg shadow-lg hover:shadow-md bg-white dark:bg-dark-700">
+    <div className="flex flex-col p-6 rounded-lg shadow-lg hover:shadow-md bg-white dark:bg-dark-700">
       <a href={data.url} target="_blank" rel="noopener noreferrer">
         <div className="flex flex-row">
           <img
