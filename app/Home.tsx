@@ -55,7 +55,7 @@ function MainView(props: { queryRef: PreloadedQuery<HomeQuery> }) {
   let leftSidebar = <Login />
   if (data.viewer) {
     leftSidebar = (
-      <Card>
+      <Card classes="p-4">
         <UserDetails user={data.viewer} />
       </Card>
     )

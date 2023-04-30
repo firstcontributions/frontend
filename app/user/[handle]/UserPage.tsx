@@ -58,7 +58,7 @@ function User(props: { queryRef: PreloadedQuery<UserPageQuery> }) {
       <Layout
         sidebarContentRight={<>UserPage right sidebar</>}
         sidebarContentLeft={
-          <Card>
+          <Card classes="p-4">
             <UserDetails user={data.user} />
           </Card>
         }

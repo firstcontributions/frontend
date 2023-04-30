@@ -1,5 +1,6 @@
 import { graphql, useFragment } from 'react-relay'
 import { Issue_node$key } from '__generated__/Issue_node.graphql'
+import Card from '../Card'
 
 export type IssueProps = {
   issue: Issue_node$key
@@ -20,7 +21,7 @@ const Issue = ({ issue }: IssueProps) => {
     issue
   )
   return (
-    <div className="flex flex-col p-6 rounded-lg shadow-lg hover:shadow-md bg-white dark:bg-dark-700">
+    <Card classes="w-96 flex flex-col p-6">
       <a href={data.url} target="_blank" rel="noopener noreferrer">
         <div className="flex flex-row">
           <img
@@ -50,7 +51,7 @@ const Issue = ({ issue }: IssueProps) => {
       <div className="mt-2">
         <span className="text-l dark:text-gray-300">{data.title}</span>
       </div>
-    </div>
+    </Card>
   )
 }
 

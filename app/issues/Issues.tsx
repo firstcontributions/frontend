@@ -63,7 +63,7 @@ export function Issues(props: { queryRef: PreloadedQuery<IssuesQuery> }) {
       <Layout
         sidebarContentRight={<>UserPage right sidebar</>}
         sidebarContentLeft={
-          <Card>
+          <Card classes="p-4">
             <UserDetails user={data.viewer} />
           </Card>
         }
