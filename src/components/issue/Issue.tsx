@@ -21,7 +21,7 @@ const Issue = ({ issue }: IssueProps) => {
     issue
   )
   return (
-    <Card classes="w-96 flex flex-col p-6">
+    <Card classes="w-full flex flex-col p-6">
       <a href={data.url} target="_blank" rel="noopener noreferrer">
         <div className="flex flex-row">
           <img

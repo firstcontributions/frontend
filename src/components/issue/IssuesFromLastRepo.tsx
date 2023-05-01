@@ -14,7 +14,7 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
       fragment IssuesFromLastRepo on User
       @refetchable(queryName: "IssuesFromLastRepo_Query")
       @argumentDefinitions(
-        count: { type: "Int", defaultValue: 2 }
+        count: { type: "Int", defaultValue: 4 }
         cursor: { type: "String" }
       ) {
         issuesFromLastRepo(first: $count, after: $cursor)
@@ -45,7 +45,7 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
 
   const handleScrollRight = () => {
     if (hasNext) {
-      loadNext(2)
+      loadNext(4)
     }
     scrollHorizontally(scrollDirection.Right)
   }
@@ -63,7 +63,7 @@ const IssuesFromLastRepo = ({ user }: IssuesFromLastRepoProps) => {
       <h3 className="font-bold text-gray-500 text-lg">Issues from last repo</h3>
       <div className="flex">
         <div
-          className="grid grid-rows-2 grid-flow-col gap-4 flex-1 overflow-x-auto no-scrollbar scroll-smooth"
+          className="grid grid-rows-2 grid-flow-col gap-4 flex-1 overflow-x-auto auto-cols-max no-scrollbar scroll-smooth"
           ref={scrollableElement}
         >
           {data.issuesFromLastRepo.edges.map(
