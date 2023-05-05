@@ -6,6 +6,7 @@ import { GoKebabVertical } from '@react-icons/all-files/go/GoKebabVertical'
 import Link from 'next/link'
 import { ErrorBoundary } from 'react-error-boundary'
 import ErrorFallback from '../ErrorFallback'
+import Card from '../Card'
 
 type StoryPreviewProps = {
   story: StoryPreview_node$key
@@ -32,7 +33,7 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className="my-8 mr-2 flex flex-col bg-white  dark:bg-dark-700 rounded-md">
+      <Card classes="my-8 mr-2 flex flex-col ">
         <Link href={`/story/${data.id}___${data.urlSuffix}`}>
           <div>
             {data.thumbnail ? (
@@ -78,7 +79,7 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
             }
           `}
         </style>
-      </div>
+      </Card>
     </ErrorBoundary>
   )
 }

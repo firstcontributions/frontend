@@ -24,7 +24,7 @@ type HomePageProps = {
 }
 
 const HomePage = ({ preloadedQuery, cookies }: HomePageProps) => {
-  const environment = getCurrentEnvironment(cookies)
+  const environment = getCurrentEnvironment(cookies) as Environment
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
 
   return (
@@ -55,7 +55,7 @@ function MainView(props: { queryRef: PreloadedQuery<HomeQuery> }) {
   let leftSidebar = <Login />
   if (data.viewer) {
     leftSidebar = (
-      <Card>
+      <Card classes="p-4">
         <UserDetails user={data.viewer} />
       </Card>
     )

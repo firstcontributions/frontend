@@ -42,7 +42,7 @@ export default function IssuesContainer({
   preloadedQuery,
   cookies,
 }: IssuesProps) {
-  const environment = getCurrentEnvironment(cookies)
+  const environment = getCurrentEnvironment(cookies) as Environment
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>
@@ -63,7 +63,7 @@ export function Issues(props: { queryRef: PreloadedQuery<IssuesQuery> }) {
       <Layout
         sidebarContentRight={<>UserPage right sidebar</>}
         sidebarContentLeft={
-          <Card>
+          <Card classes="p-4">
             <UserDetails user={data.viewer} />
           </Card>
         }

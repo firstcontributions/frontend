@@ -37,7 +37,7 @@ type StoryProps = {
 }
 
 export default function UserContainer({ preloadedQuery, cookies }: StoryProps) {
-  const environment = getCurrentEnvironment(cookies)
+  const environment = getCurrentEnvironment(cookies) as Environment
   const queryRef = useSerializablePreloadedQuery(environment, preloadedQuery)
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>
@@ -58,7 +58,7 @@ function User(props: { queryRef: PreloadedQuery<UserPageQuery> }) {
       <Layout
         sidebarContentRight={<>UserPage right sidebar</>}
         sidebarContentLeft={
-          <Card>
+          <Card classes="p-4">
             <UserDetails user={data.user} />
           </Card>
         }

@@ -2,7 +2,7 @@
 // Relay's PreloadedQuery.
 
 import { useMemo } from 'react'
-import { PreloadedQuery, PreloadFetchPolicy } from 'react-relay'
+import { PreloadedQuery, PreloadFetchPolicy, Environment } from 'react-relay'
 import { ConcreteRequest, IEnvironment, OperationType } from 'relay-runtime'
 import { responseCache } from './environment'
 import { SerializablePreloadedQuery } from './loadSerializableQuery'
@@ -17,7 +17,7 @@ export default function useSerializablePreloadedQuery<
   TRequest extends ConcreteRequest,
   TQuery extends OperationType
 >(
-  environment: IEnvironment,
+  environment: Environment,
   preloadQuery: SerializablePreloadedQuery<TRequest, TQuery>,
   fetchPolicy: PreloadFetchPolicy = 'store-or-network'
 ): PreloadedQuery<TQuery> {

@@ -81,7 +81,7 @@ export default function StoryEditor({
   body,
   requestCookie,
 }: EditorProps) {
-  const environment = getCurrentEnvironment(requestCookie ?? '')
+  const environment = getCurrentEnvironment(requestCookie ?? '') as Environment
   return (
     <RelayEnvironmentProvider environment={environment as Environment}>
       <Editor editable={editable} body={body} />
