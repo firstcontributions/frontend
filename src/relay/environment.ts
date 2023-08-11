@@ -10,7 +10,7 @@ import {
   CacheConfig,
 } from 'relay-runtime'
 
-const HTTP_ENDPOINT = 'http://api.firstcontributions.com/v1/graphql'
+const HTTP_ENDPOINT = 'https://api.opensource.forum/v1/graphql'
 const IS_SERVER = typeof window === typeof undefined
 const CACHE_TTL = 5 * 1000 // 5 seconds, to resolve preloaded results
 
