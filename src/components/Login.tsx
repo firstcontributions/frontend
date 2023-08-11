@@ -3,11 +3,7 @@ import Card from './Card'
 
 const Login = () => (
   <Card classes="flex justify-center">
-    <a
-      href={encodeURI(
-        'http://api.firstcontributions.com/v1/auth/redirect?origin=http://app.firstcontributions.com'
-      )}
-    >
+    <a href={encodeURI(process.env.O_AUTH_REDIRECTION_URL as string)}>
       <Button>Login with github</Button>
     </a>
   </Card>
