@@ -116,6 +116,9 @@ function Editor({ editable, body }: EditorProps) {
     })
   }, [editable, editorData])
   useEffect(() => {
+    console.log('editorRef', editorRef)
+    console.log('editorInitialized', isEditorInitialized)
+    isEditorInitialized = false
     if (!editorRef.current && !isEditorInitialized) {
       initEditor()
       isEditorInitialized = true
