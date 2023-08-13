@@ -12,8 +12,8 @@
     "check-types": "tsc --pretty --noEmit",
     "format": "prettier --write .",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 3333",
-    "build-storybook": "build-storybook"
+    "storybook": "storybook dev -p 3333",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@editorjs/code": "^2.7.0",
@@ -44,15 +44,14 @@
     "string-strip-html": "^9.1.12"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/builder-webpack5": "^6.5.9",
-    "@storybook/manager-webpack5": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-essentials": "7.2.3",
+    "@storybook/addon-interactions": "^7.2.3",
+    "@storybook/addon-links": "7.2.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "7.2.3",
+    "@storybook/nextjs": "^7.2.3",
+    "@storybook/react": "^7.2.3",
+    "@storybook/testing-library": "^0.2.0",
     "@tailwindcss/typography": "^0.5.2",
     "@types/formidable": "^2.0.5",
     "@types/jest": "^29.1.1",
@@ -79,7 +78,7 @@
     "prettier": "^2.7.1",
     "relay-compiler": "^0.0.0-main-83ae9735",
     "relay-test-utils": "^14.0.0",
-    "storybook-css-modules-preset": "^1.1.1",
+    "storybook": "^7.2.3",
     "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.0.23",
     "typescript": "4.5.5"
@@ -101,5 +100,6 @@
   },
   "resolutions": {
     "webpack": "^5"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }

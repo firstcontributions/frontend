@@ -1,13 +1,13 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import ExpandingTextarea from '../components/ExpandingTextarea'
 
 export default {
   title: 'Atoms/ExpandingTextarea',
   component: ExpandingTextarea,
-} as ComponentMeta<typeof ExpandingTextarea>
+} as Meta<typeof ExpandingTextarea>
 
-const Template: ComponentStory<typeof ExpandingTextarea> = (args) => (
+const Template: StoryFn<typeof ExpandingTextarea> = (args) => (
   <ExpandingTextarea {...args} />
 )
 

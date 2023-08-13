@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import Hexagon, {
   hexagonBackground,
@@ -8,9 +8,9 @@ import Hexagon, {
 export default {
   title: 'Atoms/HexagonContainer',
   component: Hexagon,
-} as ComponentMeta<typeof Hexagon>
+} as Meta<typeof Hexagon>
 
-const Template: ComponentStory<typeof Hexagon> = (args) => <Hexagon {...args} />
+const Template: StoryFn<typeof Hexagon> = (args) => <Hexagon {...args} />
 
 export const AllColors = () => (
   <div className="flex flex-wrap justify-between">

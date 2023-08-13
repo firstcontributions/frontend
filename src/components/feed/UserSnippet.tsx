@@ -25,7 +25,7 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
 
   return (
     <div className="flex flex-col">
-      <Link href={`/@${data.handle}`}>
+      <Link href={`/user/${data.handle}`}>
         <div className="flex min-h-32">
           <img
             src={data.avatar}
