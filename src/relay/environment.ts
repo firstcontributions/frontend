@@ -10,7 +10,7 @@ import {
   CacheConfig,
 } from 'relay-runtime'
 
-const HTTP_ENDPOINT = process.env.API_ENDPOINT as string
+const HTTP_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT as string
 const IS_SERVER = typeof window === typeof undefined
 const CACHE_TTL = 5 * 1000 // 5 seconds, to resolve preloaded results
 
