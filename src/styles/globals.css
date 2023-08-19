@@ -5,3 +5,11 @@
 .dark {
   @apply text-gray-300;
 }
+
+
+          .dark .ce-inline-tool,
+          .dark .ce-toolbar__plus,
+          .dark .ce-toolbar__settings-btn {
+            @apply text-gray-400;
+            color: #aaa;
+          }

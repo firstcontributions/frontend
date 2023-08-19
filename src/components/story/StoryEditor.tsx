@@ -166,6 +166,7 @@ function Editor({ editable, body }: EditorProps) {
       <style jsx>
         {`
           .prose-code {
+            padding: 2rem;
             --tw-prose-code: none;
             --tw-prose-pre-code: none;
             --tw-prose-pre-bg: none;
