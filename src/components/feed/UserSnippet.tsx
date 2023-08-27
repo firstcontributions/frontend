@@ -25,22 +25,22 @@ const UserSnippet = ({ user }: UserSnippetProps) => {
 
   return (
     <div className="flex flex-col">
-      {/* <Link href={`/user/${data.handle}`}> */}
-      <div className="flex min-h-32">
-        <img
-          src={data.avatar}
-          alt={`${data.handle}'s avatar`}
-          className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700 bg-white  dark:bg-dark-500"
-        />
-        <div className="flex flex-row mt-2">
-          {`@${data.handle}`}
-          <span className="bg-sky-400/20 text-sky-600 px-2 ml-2 mb-2 rounded-md text-sm font-bold leading-6">
-            {getCompactNumber(data.reputation.value)}
-          </span>
+      <Link href={`/user/${data.handle}`}>
+        <div className="flex min-h-32">
+          <img
+            src={data.avatar}
+            alt={`${data.handle}'s avatar`}
+            className="w-16 h-16 rounded-full -mt-8 border-4 dark:border-dark-700 bg-white  dark:bg-dark-500"
+          />
+          <div className="flex flex-row mt-2">
+            {`@${data.handle}`}
+            <span className="bg-sky-400/20 text-sky-600 px-2 ml-2 mb-2 rounded-md text-sm font-bold leading-6">
+              {getCompactNumber(data.reputation.value)}
+            </span>
+          </div>
         </div>
-      </div>
-      <span className=" text-sm">{data.bio}</span>
-      {/* </Link> */}
+        <span className=" text-sm">{data.bio}</span>
+      </Link>
     </div>
   )
 }

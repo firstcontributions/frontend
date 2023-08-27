@@ -34,25 +34,25 @@ const StoryPreview = ({ story }: StoryPreviewProps) => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Card classes="my-8 mr-2 flex flex-col ">
-        <Link href={`/story/${data.id}___${data.urlSuffix}`}>
-          <div>
-            {data.thumbnail ? (
-              <img className="cover-image" src={data.thumbnail} alt="" />
-            ) : (
-              <div className="image-placeholder bg-gray-100 dark:bg-dark-500" />
-            )}
+        <div>
+          {data.thumbnail ? (
+            <img className="cover-image" src={data.thumbnail} alt="" />
+          ) : (
+            <div className="image-placeholder bg-gray-100 dark:bg-dark-500" />
+          )}
+        </div>
+        <div className="px-4 pb-4">
+          <div className="flex flex-row justify-between">
+            <UserSnippet user={data.createdBy} />
+            <GoKebabVertical className="mt-4" />
           </div>
-          <div className="px-4 pb-4">
-            <div className="flex flex-row justify-between">
-              <UserSnippet user={data.createdBy} />
-              <GoKebabVertical className="mt-4" />
-            </div>
-            <div className="prose dark:text-gray-100">
+          <div className="prose dark:text-gray-100">
+            <Link href={`/story/${data.id}___${data.urlSuffix}`}>
               <h3 className="dark:text-gray-200">{data.title}</h3>
               <p className="abstract-content">{data.abstractContent}</p>
-            </div>
+            </Link>
           </div>
-        </Link>
+        </div>
         <StoryPreviewFooter story={data} />
         <style jsx>
           {`
