@@ -88,7 +88,12 @@ export const TiptapExtensions = [
     },
   }),
   Placeholder.configure({
-    placeholder: 'Write something …',
+    placeholder: ({ node }) => {
+      if (node.type.name === 'heading') {
+        return `Heading ${node.attrs.level}`
+      }
+      return "Press '/' for commands"
+    },
     includeChildren: true,
   }),
   TiptapUnderline,

@@ -2,10 +2,12 @@
 
 import { useEditor, EditorContent } from '@tiptap/react'
 import { TiptapExtensions } from './extensions'
+import DEFAULT_EDITOR_CONTENT from './defaultContent'
 
 const Tiptap = () => {
   const editor = useEditor({
     extensions: TiptapExtensions,
+    content: DEFAULT_EDITOR_CONTENT,
   })
 
   return (
