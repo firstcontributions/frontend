@@ -1,6 +1,7 @@
 import { headers } from 'next/headers'
 import dynamic from 'next/dynamic'
 import Layout from 'src/components/Layout'
+import PostEditor from 'src/components/story/PostEditor'
 
 const Editor = dynamic(() => import('src/components/story/StoryEditor'), {
   ssr: false,
@@ -14,7 +15,7 @@ export default function Story() {
         sidebarContentRight={<div>Promoted</div>}
         sidebarContentLeft={<div>Reactions</div>}
       >
-        <Editor editable requestCookie={requestCookie} />
+        <PostEditor />
       </Layout>
     </div>
   )
