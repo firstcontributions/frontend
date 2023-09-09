@@ -1,7 +1,6 @@
 import StarterKit from '@tiptap/starter-kit'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
 import TiptapLink from '@tiptap/extension-link'
-import TiptapImage from '@tiptap/extension-image'
 import Placeholder from '@tiptap/extension-placeholder'
 import TiptapUnderline from '@tiptap/extension-underline'
 import Typography from '@tiptap/extension-typography'
@@ -60,7 +59,7 @@ export const TiptapExtensions = [
     addInputRules() {
       return [
         new InputRule({
-          find: /^(?:---|—-|___\s|\*\*\*\s)$/,
+          find: /^(?:---|—-|___\s|\*\*\*\s)$/u,
           handler: ({ state, range }) => {
             const attributes = {}
 
