@@ -25,7 +25,7 @@ const Tiptap = () => {
 
   const [commitMutation] = useMutation(
     graphql`
-      mutation StoryEditorCreateMutation($input: StoryInput!) {
+      mutation PostEditorCreateMutation($input: StoryInput!) {
         createStory(story: $input) {
           id
         }
@@ -46,14 +46,22 @@ const Tiptap = () => {
     const paragraphs = editorContent.filter(
       (block) => block.type === 'paragraph' && block?.content?.length
     )
-    return paragraphs.map((paragraph) => paragraph.content[0].text).join(' ')
+    return paragraphs
+      .map((paragraph) =>
+        paragraph.content?.length ? paragraph.content[0].text : ''
+      )
+      .join(' ')
   }
 
   const handleStorySubmit = useCallback(async () => {
     console.log(editorContent)
     if (editorContent) {
-      const postTitle = getTitle(editorContent.content)
-      const abstractContent = getAbstract(editorContent.content)
+      const postTitle = editorContent.content
+        ? getTitle(editorContent.content)
+        : ''
+      const abstractContent = editorContent.content
+        ? getAbstract(editorContent.content)
+        : ''
       commitMutation({
         variables: {
           input: {
