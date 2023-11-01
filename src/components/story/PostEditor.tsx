@@ -54,7 +54,6 @@ const Tiptap = () => {
   }
 
   const handleStorySubmit = useCallback(async () => {
-    console.log(editorContent)
     if (editorContent) {
       const postTitle = editorContent.content
         ? getTitle(editorContent.content)

@@ -1,4 +1,5 @@
 import 'src/styles/globals.css'
+import 'src/styles/editor.css'
 
 export default function RootLayout({
   children,
