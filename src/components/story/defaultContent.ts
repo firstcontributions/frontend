@@ -6,15 +6,6 @@ const DEFAULT_EDITOR_CONTENT = {
       attrs: { level: 1 },
       content: [{ type: 'text', text: 'Title of the post' }],
     },
-    {
-      type: 'paragraph',
-      content: [
-        {
-          type: 'text',
-          text: 'Content of the post',
-        },
-      ],
-    },
   ],
 }
 

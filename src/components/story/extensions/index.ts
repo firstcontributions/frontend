@@ -11,6 +11,7 @@ import TaskList from '@tiptap/extension-task-list'
 import { Markdown } from 'tiptap-markdown'
 import Highlight from '@tiptap/extension-highlight'
 import { InputRule } from '@tiptap/core'
+import DragAndDrop from './drag-and-drop'
 
 export const TiptapExtensions = [
   StarterKit.configure({
@@ -117,4 +118,5 @@ export const TiptapExtensions = [
     html: false,
     transformCopiedText: true,
   }),
+  DragAndDrop,
 ]
