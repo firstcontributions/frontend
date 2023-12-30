@@ -5,11 +5,23 @@ import { GoIssueOpened } from '@react-icons/all-files/go/GoIssueOpened'
 import { GoGitPullRequest } from '@react-icons/all-files/go/GoGitPullRequest'
 import { UserDetails_user$key } from '__generated__/UserDetails_user.graphql'
 
+type GitContributionStats = {
+  issues: number;
+  pullRequests: number;
+}
+
+type User = {
+  id: string;
+  handle: string;
+  avatar: string;
+  gitContributionStats: GitContributionStats;
+}
+
 type Props = {
   user: UserDetails_user$key
 }
 
-const UserDetails = ({ user }: Props) => {
+const UserDetails = ({ user }: Props): JSX.Element => {
   const data = useFragment(
     graphql`
       fragment UserDetails_user on User {
